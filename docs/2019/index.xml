@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2019 on cormoran&#39;s 雑記</title>
-    <link>http://www.cormoran.me/blog/2019/</link>
+    <link>https://www.cormoran.me/blog/2019/</link>
     <description>Recent content in 2019 on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 15 Dec 2019 01:31:54 +0900</lastBuildDate>
     
-	<atom:link href="http://www.cormoran.me/blog/2019/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/2019/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IQ1でもできる！機械学習研究の実験管理！</title>
-      <link>http://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</link>
+      <link>https://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</link>
       <pubDate>Sun, 15 Dec 2019 01:31:54 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</guid>
+      <guid>https://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://adventar.org/calendars/4115&#34;&gt;IQ1 Advent Calendar 2019&lt;/a&gt; の 15 日目の記事です。&lt;/p&gt;
 &lt;p&gt;この記事では、機械学習研究における実験の管理方法について、&lt;/p&gt;
 &lt;ul&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>GPU サーバーを全部占領するための技術 (1)</title>
-      <link>http://www.cormoran.me/blog/2019/12/gpu-job-runner/</link>
+      <link>https://www.cormoran.me/blog/2019/12/gpu-job-runner/</link>
       <pubDate>Sun, 08 Dec 2019 18:02:23 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2019/12/gpu-job-runner/</guid>
+      <guid>https://www.cormoran.me/blog/2019/12/gpu-job-runner/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://adventar.org/calendars/4690&#34;&gt;Kobe University Advent Calendar 2019&lt;/a&gt;の ８日目の記事です。&lt;/p&gt;
 &lt;p&gt;８日目なんですが、私が最初らしいです。&lt;/p&gt;
 &lt;p&gt;これを見た人は Kobe University 関係なくてもいいので書きましょう！&lt;/p&gt;</description>
@@ -39,20 +39,20 @@
     
     <item>
       <title>第一回日本最強プログラマー学生選手権 参加記</title>
-      <link>http://www.cormoran.me/blog/2019/09/jsc2019-final/</link>
+      <link>https://www.cormoran.me/blog/2019/09/jsc2019-final/</link>
       <pubDate>Mon, 30 Sep 2019 02:01:34 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2019/09/jsc2019-final/</guid>
+      <guid>https://www.cormoran.me/blog/2019/09/jsc2019-final/</guid>
       <description>&lt;p&gt;AtCoder 株式会社主催の&lt;a href=&#34;https://atcoder.jp/contests/jsc2019-final&#34;&gt;第一回日本最強プログラマー学生選手権決勝&lt;/a&gt; に参加した。&lt;/p&gt;
 &lt;p&gt;決勝は予選の学生上位 200 人で、併設のイベント参加の枠が 300 人、合計 500 人の大規模コンテストだった。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ISUCON9 予選に参加した</title>
-      <link>http://www.cormoran.me/blog/2019/09/isucon9/</link>
+      <link>https://www.cormoran.me/blog/2019/09/isucon9/</link>
       <pubDate>Mon, 09 Sep 2019 02:23:47 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2019/09/isucon9/</guid>
+      <guid>https://www.cormoran.me/blog/2019/09/isucon9/</guid>
       <description>&lt;p&gt;ISUCON9 の予選に参加して敗退した話&lt;/p&gt;
 &lt;p&gt;自分と、 &lt;a href=&#34;https://twitter.com/fwarashi&#34;&gt;@fwarashi&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/Wataoka_Koki&#34;&gt;@wataoka&lt;/a&gt; の３人で参加した。
 記憶が曖昧だけど、Max が 4xxx or 5xxx 点で，最終は 29xx 点だった。予選敗退。&lt;/p&gt;</description>
@@ -60,10 +60,10 @@
     
     <item>
       <title>DeskMini A300 を買った</title>
-      <link>http://www.cormoran.me/blog/2019/06/deskmini-a300/</link>
+      <link>https://www.cormoran.me/blog/2019/06/deskmini-a300/</link>
       <pubDate>Mon, 10 Jun 2019 02:05:10 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2019/06/deskmini-a300/</guid>
+      <guid>https://www.cormoran.me/blog/2019/06/deskmini-a300/</guid>
       <description>&lt;p&gt;DeskMini A300 はリーテルクーラーが使えます、ということが言いたい記事。&lt;/p&gt;</description>
     </item>
     

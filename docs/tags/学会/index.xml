@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>学会 on cormoran&#39;s 雑記</title>
-    <link>http://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/</link>
+    <link>https://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/</link>
     <description>Recent content in 学会 on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 19 Dec 2016 02:04:23 +0900</lastBuildDate>
     
-	<atom:link href="http://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>北海道（札幌）旅行記</title>
-      <link>http://www.cormoran.me/blog/hokkaido-travel/</link>
+      <link>https://www.cormoran.me/blog/hokkaido-travel/</link>
       <pubDate>Mon, 19 Dec 2016 02:04:23 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/hokkaido-travel/</guid>
+      <guid>https://www.cormoran.me/blog/hokkaido-travel/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.si-sice.org/si2016/&#34;&gt;SI2016&lt;/a&gt;で北海道に行って来た。&lt;/p&gt;
 &lt;p&gt;自分の所属している団体では毎年学会で活動報告的な発表をすることになっているらしい（多分参加しているコンテスト主催者の意向）。色々あって今年は自分が行くことになった。来年の部長と２人で行って来た。&lt;/p&gt;</description>
     </item>

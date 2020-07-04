@@ -1,4 +1,4 @@
-baseURL = "http://www.cormoran.me/blog"
+baseURL = "https://www.cormoran.me/blog"
 languageCode = "ja"
 title = "cormoran's 雑記"
 theme = "hugo-theme-myblog"
