@@ -1,0 +1,3 @@
+[submodule "themes/hugo-theme-myblog"]
+	path = themes/hugo-theme-myblog
+	url = git@github.com:cormoran/hugo-theme-myblog.git
