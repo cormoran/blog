@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programing on cormoran&#39;s 雑記</title>
-    <link>http://www.cormoran.me/blog/categories/programing/</link>
+    <link>https://www.cormoran.me/blog/categories/programing/</link>
     <description>Recent content in Programing on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 20 Aug 2016 02:55:10 +0900</lastBuildDate>
     
-	<atom:link href="http://www.cormoran.me/blog/categories/programing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/categories/programing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>libc&#43;&#43;とlibstdc&#43;&#43;のデバッグモードについて</title>
-      <link>http://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</link>
+      <link>https://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</link>
       <pubDate>Sat, 20 Aug 2016 02:55:10 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</guid>
+      <guid>https://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</guid>
       <description>&lt;p&gt;&lt;code&gt;-D_GLIBCXX_DEBUG&lt;/code&gt; をつけていたけど、実は効果がない状態だった&amp;hellip;　という話。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>clang のSanitizerについて</title>
-      <link>http://www.cormoran.me/blog/clang-sanitizer/</link>
+      <link>https://www.cormoran.me/blog/clang-sanitizer/</link>
       <pubDate>Fri, 19 Aug 2016 20:38:21 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/clang-sanitizer/</guid>
+      <guid>https://www.cormoran.me/blog/clang-sanitizer/</guid>
       <description>&lt;p&gt;昔調べた時にclangで&lt;code&gt;-fsanitize=undefined&lt;/code&gt;が使えなかったので、よく考えずに&lt;code&gt;address&lt;/code&gt;を使っていた。新しいclangを入れようとしていろいろしていたら使えるようになったので、ついでにsanitizer周りについて調べてみた。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Macのclangでlibstdc&#43;&#43;,libc&#43;&#43;を切り替えて使う</title>
-      <link>http://www.cormoran.me/blog/clang-mac/</link>
+      <link>https://www.cormoran.me/blog/clang-mac/</link>
       <pubDate>Fri, 19 Aug 2016 20:28:01 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/clang-mac/</guid>
+      <guid>https://www.cormoran.me/blog/clang-mac/</guid>
       <description>&lt;p&gt;Mac OS 10.8まで(?)は、Xcodeで入ってくるclangはlibstdc++を使っていたが、最近はlibc++を使うように変更されたらしい。&lt;/p&gt;
 &lt;p&gt;Macで、&lt;strong&gt;clangで&lt;/strong&gt;libstdc++を使いたくなったのでやってみた。&lt;/p&gt;
 &lt;p&gt;標準ライブラリの切り替えとかは険しそうな雰囲気があるけど、結構簡単にできることがわかった。（あまり動作確認していないのでうまくいってるのかはわからない）&lt;/p&gt;</description>
@@ -42,155 +42,155 @@
     
     <item>
       <title>clang の警告オプションについて</title>
-      <link>http://www.cormoran.me/blog/clang-warning/</link>
+      <link>https://www.cormoran.me/blog/clang-warning/</link>
       <pubDate>Fri, 19 Aug 2016 17:25:59 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/clang-warning/</guid>
+      <guid>https://www.cormoran.me/blog/clang-warning/</guid>
       <description>&lt;p&gt;今までとりあえず&lt;code&gt;-Wall&lt;/code&gt;をつけていたけど、他にも役立つ警告がいろいろあった。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Windowsでストレスのない開発環境を構築するメモ（の一部）</title>
-      <link>http://www.cormoran.me/blog/lecture/windows-cui/</link>
+      <link>https://www.cormoran.me/blog/lecture/windows-cui/</link>
       <pubDate>Mon, 02 May 2016 23:50:10 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/lecture/windows-cui/</guid>
+      <guid>https://www.cormoran.me/blog/lecture/windows-cui/</guid>
       <description>&lt;p&gt;ロボットの部にあるWindowsが使いにくくてつらかったので（自分が）使いやすいようにいろいろやってみました。&lt;/p&gt;
 &lt;p&gt;あまり大したことはやってないのですが、自分向けに、部の人向けにメモ程度に。やっとことをざっとまとめるだけで、深いことは書きません。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Raspberrypiでサーバーを作るときの設定など</title>
-      <link>http://www.cormoran.me/blog/raspberrypi-server/</link>
+      <link>https://www.cormoran.me/blog/raspberrypi-server/</link>
       <pubDate>Sun, 18 Oct 2015 15:11:01 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/raspberrypi-server/</guid>
+      <guid>https://www.cormoran.me/blog/raspberrypi-server/</guid>
       <description>&lt;p&gt;Raspberrypiを使って自宅サーバーを動かしているのですが、今回RaspberyPi2を買ったのでサーバーを移しました。また必要になるかもしれないのでメモ程度に書いておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MacでSDL2を静的リンクする</title>
-      <link>http://www.cormoran.me/blog/sdl2-mac-static/</link>
+      <link>https://www.cormoran.me/blog/sdl2-mac-static/</link>
       <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/sdl2-mac-static/</guid>
+      <guid>https://www.cormoran.me/blog/sdl2-mac-static/</guid>
       <description>&lt;p&gt;MacでSDL2ライブラリを静的リンクしようと思ったら罠だらけで大変だったのでメモ。SDL2_imageなど、SDL2_hoge　シリーズ も同様にしてできました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　④画像を表示</title>
-      <link>http://www.cormoran.me/blog/sdl2-show-image/</link>
+      <link>https://www.cormoran.me/blog/sdl2-show-image/</link>
       <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/sdl2-show-image/</guid>
+      <guid>https://www.cormoran.me/blog/sdl2-show-image/</guid>
       <description>&lt;p&gt;SDL2_imageを使って画像を表示するサンプルプログラム。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　③文字を表示</title>
-      <link>http://www.cormoran.me/blog/sdl2-drawchara/</link>
+      <link>https://www.cormoran.me/blog/sdl2-drawchara/</link>
       <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/sdl2-drawchara/</guid>
+      <guid>https://www.cormoran.me/blog/sdl2-drawchara/</guid>
       <description>&lt;p&gt;またまた続きです。今回はSDL2_TTFを使用して文字を表示します。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　②色々描く</title>
-      <link>http://www.cormoran.me/blog/sdl2.drawshapes/</link>
+      <link>https://www.cormoran.me/blog/sdl2.drawshapes/</link>
       <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/sdl2.drawshapes/</guid>
+      <guid>https://www.cormoran.me/blog/sdl2.drawshapes/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;blog/sdl2-showwindow/&#34;&gt;前回&lt;/a&gt;の続きです。今回はSDL2のライブラリにある図形を描写する簡単なサンプルです。備忘録。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　①ウィンドウの表示</title>
-      <link>http://www.cormoran.me/blog/sdl2-showwindow/</link>
+      <link>https://www.cormoran.me/blog/sdl2-showwindow/</link>
       <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/sdl2-showwindow/</guid>
+      <guid>https://www.cormoran.me/blog/sdl2-showwindow/</guid>
       <description>&lt;p&gt;訳あってSDL2を使うことになったので色々やってみました。自分の備忘録とこれからSDL2を使う人のためにシンプルなサンプルを残しておきたいと思います。今回は基本のウィンドウ表示です。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>LazyK HelloWorldを目指す</title>
-      <link>http://www.cormoran.me/blog/layzk3/</link>
+      <link>https://www.cormoran.me/blog/layzk3/</link>
       <pubDate>Wed, 08 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/layzk3/</guid>
+      <guid>https://www.cormoran.me/blog/layzk3/</guid>
       <description>&lt;p&gt;１ヶ月くらい前に少し遊んだLazyKですが再びやる気が出てきたので今回はHelloWorld出力を目指します。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Lazy K　〜インタラクティブシェルの導入〜　 (Mac)</title>
-      <link>http://www.cormoran.me/blog/lazyk2/</link>
+      <link>https://www.cormoran.me/blog/lazyk2/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/lazyk2/</guid>
+      <guid>https://www.cormoran.me/blog/lazyk2/</guid>
       <description>&lt;p&gt;前回記事&lt;a href=&#34;http://blog.cormoran-web.com/2015/02/27/lazy-k-1-interpreter/&#34; title=&#34;Lazy K に挑む　〜インタープリタの導入〜　 (Mac)&#34;&gt;Lazy K に挑む　〜インタープリタの導入〜　 (Mac)&lt;/a&gt;の続きで今回は Lazy K インタラクティブシェルの導入について書きます。今回の分は参考にできる記事がなかったので自分でいろいろやってみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Lazy K　〜インタープリタの導入〜　 (Mac)</title>
-      <link>http://www.cormoran.me/blog/lazyk/</link>
+      <link>https://www.cormoran.me/blog/lazyk/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/lazyk/</guid>
+      <guid>https://www.cormoran.me/blog/lazyk/</guid>
       <description>&lt;p&gt;先日はbrainfuckを触ってみましたが次は純粋関数型言語のLazy Kに挑戦してみます。今回はインタプリタと&lt;!-- raw HTML omitted --&gt;インタラクティブシェルのインストール&lt;!-- raw HTML omitted --&gt;（？）について書きます。&lt;!-- raw HTML omitted --&gt;次の記事に回します。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Visual Studio 2013 の設定　sdfとipach</title>
-      <link>http://www.cormoran.me/blog/vs-ipach/</link>
+      <link>https://www.cormoran.me/blog/vs-ipach/</link>
       <pubDate>Thu, 29 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/vs-ipach/</guid>
+      <guid>https://www.cormoran.me/blog/vs-ipach/</guid>
       <description>&lt;p&gt;VisualStudio2013でC++のプログラムを作るとプロジェクトのサイズが以上に大きくなるので原因を調べてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mercurialを使ってみた（Mac）</title>
-      <link>http://www.cormoran.me/blog/mercurial/</link>
+      <link>https://www.cormoran.me/blog/mercurial/</link>
       <pubDate>Tue, 27 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/mercurial/</guid>
+      <guid>https://www.cormoran.me/blog/mercurial/</guid>
       <description>&lt;p&gt;gitと並んでよく使われているらしい分散型バージョン管理システム、Mercurialを使ってみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Brainfuck で HelloWorld など</title>
-      <link>http://www.cormoran.me/blog/brainfuck2/</link>
+      <link>https://www.cormoran.me/blog/brainfuck2/</link>
       <pubDate>Fri, 09 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/brainfuck2/</guid>
+      <guid>https://www.cormoran.me/blog/brainfuck2/</guid>
       <description>&lt;p&gt;せっかくインタープリターを書いたのでbrainfuckでもう少し遊びます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Brainfuck インタープリター in c&#43;&#43;</title>
-      <link>http://www.cormoran.me/blog/brainfuck/</link>
+      <link>https://www.cormoran.me/blog/brainfuck/</link>
       <pubDate>Fri, 09 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/brainfuck/</guid>
+      <guid>https://www.cormoran.me/blog/brainfuck/</guid>
       <description>&lt;p&gt;周りで Brainfuck が流行っているよう（？）だったので自分も参入してインタープリターを書いてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Google Glass もどきその２</title>
-      <link>http://www.cormoran.me/blog/smart-glass2/</link>
+      <link>https://www.cormoran.me/blog/smart-glass2/</link>
       <pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/smart-glass2/</guid>
+      <guid>https://www.cormoran.me/blog/smart-glass2/</guid>
       <description>&lt;p&gt;　前回紹介した自作ウェアラブルグラスについてです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MacでiBeacon発信</title>
-      <link>http://www.cormoran.me/blog/beacon/</link>
+      <link>https://www.cormoran.me/blog/beacon/</link>
       <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/beacon/</guid>
+      <guid>https://www.cormoran.me/blog/beacon/</guid>
       <description>&lt;p&gt;MacをiBeaconの発信器にしてみました。&lt;/p&gt;</description>
     </item>
     

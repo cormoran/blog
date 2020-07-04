@@ -2,69 +2,69 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>競プロ on cormoran&#39;s 雑記</title>
-    <link>http://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/</link>
+    <link>https://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/</link>
     <description>Recent content in 競プロ on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 03 Dec 2017 17:09:07 +0900</lastBuildDate>
     
-	<atom:link href="http://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Code Thanks Festival 2017 参加記</title>
-      <link>http://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</link>
+      <link>https://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</link>
       <pubDate>Sun, 03 Dec 2017 17:09:07 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</guid>
+      <guid>https://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</guid>
       <description>&lt;p&gt;この記事は&lt;a href=&#34;https://adventar.org/calendars/2491&#34;&gt;Kobe University Advent Calendar 2017&lt;/a&gt;の3日目の記事です．&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.recruit-jinji.jp/recruitment/code_fes/&#34;&gt;CodeThanksFestival 2017&lt;/a&gt; に参加してきた．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BCU30 Programming Battle</title>
-      <link>http://www.cormoran.me/blog/bcu30procon/</link>
+      <link>https://www.cormoran.me/blog/bcu30procon/</link>
       <pubDate>Sun, 12 Mar 2017 02:15:51 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/bcu30procon/</guid>
+      <guid>https://www.cormoran.me/blog/bcu30procon/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://bcu30.jp&#34;&gt;Battle Conference U30&lt;/a&gt;のプロコンに参加してきた&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JOI予選非公式オンサイト参加記</title>
-      <link>http://www.cormoran.me/blog/joi2016/</link>
+      <link>https://www.cormoran.me/blog/joi2016/</link>
       <pubDate>Sun, 11 Dec 2016 23:06:16 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/joi2016/</guid>
+      <guid>https://www.cormoran.me/blog/joi2016/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/1881&#34;&gt;Kobe University Advent Calendar 2016&lt;/a&gt;の11日目(1)です。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDCC2016 参加記</title>
-      <link>http://www.cormoran.me/blog/ddcc2016/</link>
+      <link>https://www.cormoran.me/blog/ddcc2016/</link>
       <pubDate>Sun, 04 Dec 2016 00:36:01 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/ddcc2016/</guid>
+      <guid>https://www.cormoran.me/blog/ddcc2016/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/1881&#34;&gt;Kobe University Advent Calendar 2016&lt;/a&gt;の4日目です。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://japan.discovery.com/ddcc/&#34;&gt;DDCC2016&lt;/a&gt;本戦に参加してきたので参加記を書きます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>CodeFestival 2016 参加記</title>
-      <link>http://www.cormoran.me/blog/codefestival-2016/</link>
+      <link>https://www.cormoran.me/blog/codefestival-2016/</link>
       <pubDate>Mon, 28 Nov 2016 23:30:00 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/codefestival-2016/</guid>
+      <guid>https://www.cormoran.me/blog/codefestival-2016/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://r.recruit-jinji.jp/code_fes/&#34;&gt;CodeFestival 2016&lt;/a&gt; 本戦に参加してきた。&lt;/p&gt;
 &lt;p&gt;会場到達で色々やらかしたので前置きが長い。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ICPC Asia 2016</title>
-      <link>http://www.cormoran.me/blog/icpc-asia-2016/</link>
+      <link>https://www.cormoran.me/blog/icpc-asia-2016/</link>
       <pubDate>Thu, 20 Oct 2016 02:19:12 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/icpc-asia-2016/</guid>
+      <guid>https://www.cormoran.me/blog/icpc-asia-2016/</guid>
       <description>&lt;p&gt;神戸大学TEAM FUJISHIMA として出た。メンバーは&lt;a href=&#34;https://twitter.com/ki6o4&#34;&gt;@ki6o4&lt;/a&gt;と&lt;a href=&#34;https://twitter.com/izuru_matsuura&#34;&gt;@izuru_matsuura&lt;/a&gt;。6完で14位だった。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://icpc.logic.cs.tsukuba.ac.jp&#34;&gt;standingsなど&lt;/a&gt;（URL的にそのうち消されそう）&lt;/p&gt;</description>
     </item>

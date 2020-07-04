@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2018 on cormoran&#39;s 雑記</title>
-    <link>http://www.cormoran.me/blog/2018/</link>
+    <link>https://www.cormoran.me/blog/2018/</link>
     <description>Recent content in 2018 on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 29 Oct 2018 05:41:34 +0900</lastBuildDate>
     
-	<atom:link href="http://www.cormoran.me/blog/2018/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/2018/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mac ユーザーが Ubuntu に乗り換えたときの設定メモ</title>
-      <link>http://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</link>
+      <link>https://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</link>
       <pubDate>Mon, 29 Oct 2018 05:41:34 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</guid>
+      <guid>https://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</guid>
       <description>&lt;p&gt;最近ノートPCを Mac Book Pro Retina Late 2013 から ThinkPad T480s に変えた．&lt;/p&gt;
 &lt;p&gt;Linux を入れて環境構築していたら，いろいろあったのでメモ．
-感想文や背景は&lt;a href=&#34;http://www.cormoran.me/blog/blog/2018/10/thinkpad/&#34;&gt;こちら&lt;/a&gt;．&lt;/p&gt;</description>
+感想文や背景は&lt;a href=&#34;https://www.cormoran.me/blog/blog/2018/10/thinkpad/&#34;&gt;こちら&lt;/a&gt;．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>新しい PC を買った</title>
-      <link>http://www.cormoran.me/blog/2018/10/thinkpad/</link>
+      <link>https://www.cormoran.me/blog/2018/10/thinkpad/</link>
       <pubDate>Mon, 29 Oct 2018 04:31:50 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2018/10/thinkpad/</guid>
+      <guid>https://www.cormoran.me/blog/2018/10/thinkpad/</guid>
       <description>&lt;p&gt;最近 ThinkPad T480s を購入して，１週間くらい環境構築バトルをしていた．
 この記事は、どうでもいい感想文．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Line Summer Internship 2018 参加記</title>
-      <link>http://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</link>
+      <link>https://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</link>
       <pubDate>Tue, 09 Oct 2018 04:28:21 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</guid>
+      <guid>https://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</guid>
       <description>&lt;p&gt;LINE の４０万インターンに参加した話．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ISUCON8 予選</title>
-      <link>http://www.cormoran.me/blog/2018/09/isucon8/</link>
+      <link>https://www.cormoran.me/blog/2018/09/isucon8/</link>
       <pubDate>Sun, 16 Sep 2018 23:40:29 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2018/09/isucon8/</guid>
+      <guid>https://www.cormoran.me/blog/2018/09/isucon8/</guid>
       <description>&lt;p&gt;ISUCON8 の予選に参加して敗退した話.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Akatsuki Server Sonic 2018 参加記</title>
-      <link>http://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</link>
+      <link>https://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</link>
       <pubDate>Thu, 06 Sep 2018 00:43:25 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</guid>
+      <guid>https://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</guid>
       <description>&lt;p&gt;株式会社アカツキの短期インターン Server Sonic 2018 に参加してきた話。&lt;/p&gt;
 &lt;p&gt;とても楽しかった。&lt;/p&gt;
 &lt;p&gt;普段は携帯ゲームしたり、作ったり全くしない人ですが&amp;hellip;&lt;/p&gt;</description>
@@ -63,20 +63,20 @@
     
     <item>
       <title>ICPC2018 国内予選 参加記</title>
-      <link>http://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</link>
+      <link>https://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</link>
       <pubDate>Mon, 09 Jul 2018 01:49:52 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</guid>
+      <guid>https://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</guid>
       <description>&lt;p&gt;今年も ICPC 国内予選に出た．getting_over_32 というチームで &lt;a href=&#34;https://twitter.com/takeo1116&#34;&gt;@takeo1116&lt;/a&gt; と &lt;a href=&#34;https://twitter.com/fwarashi&#34;&gt;@fwarashi&lt;/a&gt; で参加．A,B,C,D の４完４１位（学内２位）だった．大雨の影響などで選抜ルールが変更されなければアジア地区通過らしい．&lt;/p&gt;
 &lt;p&gt;自分は A,B,D の実装をした．B を通すのが遅くなってしまったのはとても反省．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>逆求人フェスティバルに参加してみた話</title>
-      <link>http://www.cormoran.me/blog/2018/06/studenthunting/</link>
+      <link>https://www.cormoran.me/blog/2018/06/studenthunting/</link>
       <pubDate>Sun, 03 Jun 2018 10:51:29 +0900</pubDate>
       
-      <guid>http://www.cormoran.me/blog/2018/06/studenthunting/</guid>
+      <guid>https://www.cormoran.me/blog/2018/06/studenthunting/</guid>
       <description>&lt;p&gt;今年もそろそろインターンを考える時期なので以前から気になっていた逆求人フェスティバルに参加してみた．楽しかったので書く．&lt;/p&gt;</description>
     </item>
     

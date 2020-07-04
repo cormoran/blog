@@ -2,95 +2,95 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>電子工作 on cormoran&#39;s 雑記</title>
-    <link>http://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</link>
+    <link>https://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</link>
     <description>Recent content in 電子工作 on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 01 Aug 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ATmega168pでUSBasp</title>
-      <link>http://www.cormoran.me/blog/atmega168-usbasp/</link>
+      <link>https://www.cormoran.me/blog/atmega168-usbasp/</link>
       <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/atmega168-usbasp/</guid>
+      <guid>https://www.cormoran.me/blog/atmega168-usbasp/</guid>
       <description>&lt;p&gt;大学で所属しているロボット研究会で回路講座をすることになり、安価なAVRライタの量産が必要になったのでUSBaspを作ることにしました。今回はその試作時に起きた問題のメモ。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-IW3yRNgI5QA/ViUUVeb5f0I/AAAAAAAAAGQ/CRlt_eK7fPc/s400-Ic42/usbasp.jpg&#34; alt=&#34;UsbAsp&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AVR UART通信 on mega168p</title>
-      <link>http://www.cormoran.me/blog/atmega168-uart/</link>
+      <link>https://www.cormoran.me/blog/atmega168-uart/</link>
       <pubDate>Wed, 25 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/atmega168-uart/</guid>
+      <guid>https://www.cormoran.me/blog/atmega168-uart/</guid>
       <description>&lt;p&gt;ATmega168pでUART通信をしてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ATmega168pを使う ~PWMとAD変換~</title>
-      <link>http://www.cormoran.me/blog/atmega168-ad-pwd/</link>
+      <link>https://www.cormoran.me/blog/atmega168-ad-pwd/</link>
       <pubDate>Sat, 21 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/atmega168-ad-pwd/</guid>
+      <guid>https://www.cormoran.me/blog/atmega168-ad-pwd/</guid>
       <description>&lt;p&gt;先日&lt;a href=&#34;http://blog.cormoran-web.com/2015/02/17/promise-of-spring-vacation/&#34; title=&#34;春休みの生活心得&#34;&gt;春休みの心得&lt;/a&gt;で”ダミヤンを作る”という目標を書きましたが、ATmega168pはその心臓部に使う予定です。しかし、実は自分は今までPICばかり使っていてAVRは半年ほど前に１度使っただけです。そこで今回はAVRの使い方を思い出すこととダミヤンを作るための準備を兼ねてPWM出力とA/D変換を使ってみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Google Glass もどきその２</title>
-      <link>http://www.cormoran.me/blog/smart-glass2/</link>
+      <link>https://www.cormoran.me/blog/smart-glass2/</link>
       <pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/smart-glass2/</guid>
+      <guid>https://www.cormoran.me/blog/smart-glass2/</guid>
       <description>&lt;p&gt;　前回紹介した自作ウェアラブルグラスについてです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Google Glassを作ってみた</title>
-      <link>http://www.cormoran.me/blog/smart-glass/</link>
+      <link>https://www.cormoran.me/blog/smart-glass/</link>
       <pubDate>Mon, 20 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/smart-glass/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://www.cormoran.me/blog/img/2014/10/glass_2nd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>https://www.cormoran.me/blog/smart-glass/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.cormoran.me/blog/img/2014/10/glass_2nd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;近頃話題のgoogle glassを使ってみたかったのでそれっぽいものを自作してみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Aitendo液晶　M014C9163SPIを使ってみた</title>
-      <link>http://www.cormoran.me/blog/use-m014c9163spi/</link>
+      <link>https://www.cormoran.me/blog/use-m014c9163spi/</link>
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/use-m014c9163spi/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://www.cormoran.me/blog/img/2014/09/rectglcd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://www.cormoran.me/blog/use-m014c9163spi/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.cormoran.me/blog/img/2014/09/rectglcd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ジャイロセンサを使ってみた</title>
-      <link>http://www.cormoran.me/blog/use-gyro-sensor/</link>
+      <link>https://www.cormoran.me/blog/use-gyro-sensor/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/use-gyro-sensor/</guid>
-      <description>&lt;p&gt;秋月電子の&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-04912/&#34;&gt;小型圧電振動ジャイロモジュール&lt;/a&gt;を使ってみました。今回はただ値を読み取ってLCDに表示しているだけです。LCDの記事は&lt;a href=&#34;http://www.cormoran.me/blog/blog/use-char-lcd&#34;&gt;こちら&lt;/a&gt;。&lt;/p&gt;</description>
+      <guid>https://www.cormoran.me/blog/use-gyro-sensor/</guid>
+      <description>&lt;p&gt;秋月電子の&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-04912/&#34;&gt;小型圧電振動ジャイロモジュール&lt;/a&gt;を使ってみました。今回はただ値を読み取ってLCDに表示しているだけです。LCDの記事は&lt;a href=&#34;https://www.cormoran.me/blog/blog/use-char-lcd&#34;&gt;こちら&lt;/a&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>加速度センサーを使ってみた</title>
-      <link>http://www.cormoran.me/blog/use-acceleration-sensor/</link>
+      <link>https://www.cormoran.me/blog/use-acceleration-sensor/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/use-acceleration-sensor/</guid>
+      <guid>https://www.cormoran.me/blog/use-acceleration-sensor/</guid>
       <description>&lt;p&gt;Strawberry Linuxの加速度センサーモジュール&lt;a href=&#34;https://strawberry-linux.com/catalog/items?code=12102&#34;&gt;MMA7455L（デジタル出力）&lt;/a&gt;を使ってみました。このセンサーは昔買ってずっと放置していたものですが、最近は秋月などにより安価なものがたくさんあるようです。今回は出力値の補正などはせず、単に値を読み取ってLCDに表示するだけです。LCDについては&lt;a href=&#34;http://blog.cormoran-web.com/?p=56&#34; title=&#34;ＬＣＤキャラクタディスプレイを使ってみた&#34;&gt;ここ&lt;/a&gt;を参照。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ＬＣＤキャラクタディスプレイを使ってみた</title>
-      <link>http://www.cormoran.me/blog/use-char-lcd/</link>
+      <link>https://www.cormoran.me/blog/use-char-lcd/</link>
       <pubDate>Sun, 07 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/use-char-lcd/</guid>
+      <guid>https://www.cormoran.me/blog/use-char-lcd/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-M84jfbkPObE/ViUJvNdUBJI/AAAAAAAAADg/VaFecg_taGQ/s640-Ic42/lcd.helloworld.jpg&#34; alt=&#34;Hello World&#34;&gt;&lt;/p&gt;</description>
     </item>
     

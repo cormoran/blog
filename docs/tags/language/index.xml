@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>language on cormoran&#39;s 雑記</title>
-    <link>http://www.cormoran.me/blog/tags/language/</link>
+    <link>https://www.cormoran.me/blog/tags/language/</link>
     <description>Recent content in language on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Wed, 08 Apr 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.cormoran.me/blog/tags/language/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/tags/language/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>LazyK HelloWorldを目指す</title>
-      <link>http://www.cormoran.me/blog/layzk3/</link>
+      <link>https://www.cormoran.me/blog/layzk3/</link>
       <pubDate>Wed, 08 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/layzk3/</guid>
+      <guid>https://www.cormoran.me/blog/layzk3/</guid>
       <description>&lt;p&gt;１ヶ月くらい前に少し遊んだLazyKですが再びやる気が出てきたので今回はHelloWorld出力を目指します。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Lazy K　〜インタラクティブシェルの導入〜　 (Mac)</title>
-      <link>http://www.cormoran.me/blog/lazyk2/</link>
+      <link>https://www.cormoran.me/blog/lazyk2/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/lazyk2/</guid>
+      <guid>https://www.cormoran.me/blog/lazyk2/</guid>
       <description>&lt;p&gt;前回記事&lt;a href=&#34;http://blog.cormoran-web.com/2015/02/27/lazy-k-1-interpreter/&#34; title=&#34;Lazy K に挑む　〜インタープリタの導入〜　 (Mac)&#34;&gt;Lazy K に挑む　〜インタープリタの導入〜　 (Mac)&lt;/a&gt;の続きで今回は Lazy K インタラクティブシェルの導入について書きます。今回の分は参考にできる記事がなかったので自分でいろいろやってみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Lazy K　〜インタープリタの導入〜　 (Mac)</title>
-      <link>http://www.cormoran.me/blog/lazyk/</link>
+      <link>https://www.cormoran.me/blog/lazyk/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/lazyk/</guid>
+      <guid>https://www.cormoran.me/blog/lazyk/</guid>
       <description>&lt;p&gt;先日はbrainfuckを触ってみましたが次は純粋関数型言語のLazy Kに挑戦してみます。今回はインタプリタと&lt;!-- raw HTML omitted --&gt;インタラクティブシェルのインストール&lt;!-- raw HTML omitted --&gt;（？）について書きます。&lt;!-- raw HTML omitted --&gt;次の記事に回します。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Brainfuck で HelloWorld など</title>
-      <link>http://www.cormoran.me/blog/brainfuck2/</link>
+      <link>https://www.cormoran.me/blog/brainfuck2/</link>
       <pubDate>Fri, 09 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/brainfuck2/</guid>
+      <guid>https://www.cormoran.me/blog/brainfuck2/</guid>
       <description>&lt;p&gt;せっかくインタープリターを書いたのでbrainfuckでもう少し遊びます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Brainfuck インタープリター in c&#43;&#43;</title>
-      <link>http://www.cormoran.me/blog/brainfuck/</link>
+      <link>https://www.cormoran.me/blog/brainfuck/</link>
       <pubDate>Fri, 09 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://www.cormoran.me/blog/brainfuck/</guid>
+      <guid>https://www.cormoran.me/blog/brainfuck/</guid>
       <description>&lt;p&gt;周りで Brainfuck が流行っているよう（？）だったので自分も参入してインタープリターを書いてみました。&lt;/p&gt;</description>
     </item>
     
