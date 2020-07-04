@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cormoran&#39;s 雑記</title>
-    <link>https://www.cormoran.me/blog/</link>
+    <link>http://www.cormoran.me/blog/</link>
     <description>Recent content on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 15 Dec 2019 01:31:54 +0900</lastBuildDate>
     
-	<atom:link href="https://www.cormoran.me/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.cormoran.me/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IQ1でもできる！機械学習研究の実験管理！</title>
-      <link>https://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</link>
+      <link>http://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</link>
       <pubDate>Sun, 15 Dec 2019 01:31:54 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</guid>
+      <guid>http://www.cormoran.me/blog/2019/12/ml-reserch-for-iq1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://adventar.org/calendars/4115&#34;&gt;IQ1 Advent Calendar 2019&lt;/a&gt; の 15 日目の記事です。&lt;/p&gt;
 &lt;p&gt;この記事では、機械学習研究における実験の管理方法について、&lt;/p&gt;
 &lt;ul&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>GPU サーバーを全部占領するための技術 (1)</title>
-      <link>https://www.cormoran.me/blog/2019/12/gpu-job-runner/</link>
+      <link>http://www.cormoran.me/blog/2019/12/gpu-job-runner/</link>
       <pubDate>Sun, 08 Dec 2019 18:02:23 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2019/12/gpu-job-runner/</guid>
+      <guid>http://www.cormoran.me/blog/2019/12/gpu-job-runner/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://adventar.org/calendars/4690&#34;&gt;Kobe University Advent Calendar 2019&lt;/a&gt;の ８日目の記事です。&lt;/p&gt;
 &lt;p&gt;８日目なんですが、私が最初らしいです。&lt;/p&gt;
 &lt;p&gt;これを見た人は Kobe University 関係なくてもいいので書きましょう！&lt;/p&gt;</description>
@@ -39,20 +39,20 @@
     
     <item>
       <title>第一回日本最強プログラマー学生選手権 参加記</title>
-      <link>https://www.cormoran.me/blog/2019/09/jsc2019-final/</link>
+      <link>http://www.cormoran.me/blog/2019/09/jsc2019-final/</link>
       <pubDate>Mon, 30 Sep 2019 02:01:34 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2019/09/jsc2019-final/</guid>
+      <guid>http://www.cormoran.me/blog/2019/09/jsc2019-final/</guid>
       <description>&lt;p&gt;AtCoder 株式会社主催の&lt;a href=&#34;https://atcoder.jp/contests/jsc2019-final&#34;&gt;第一回日本最強プログラマー学生選手権決勝&lt;/a&gt; に参加した。&lt;/p&gt;
 &lt;p&gt;決勝は予選の学生上位 200 人で、併設のイベント参加の枠が 300 人、合計 500 人の大規模コンテストだった。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ISUCON9 予選に参加した</title>
-      <link>https://www.cormoran.me/blog/2019/09/isucon9/</link>
+      <link>http://www.cormoran.me/blog/2019/09/isucon9/</link>
       <pubDate>Mon, 09 Sep 2019 02:23:47 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2019/09/isucon9/</guid>
+      <guid>http://www.cormoran.me/blog/2019/09/isucon9/</guid>
       <description>&lt;p&gt;ISUCON9 の予選に参加して敗退した話&lt;/p&gt;
 &lt;p&gt;自分と、 &lt;a href=&#34;https://twitter.com/fwarashi&#34;&gt;@fwarashi&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/Wataoka_Koki&#34;&gt;@wataoka&lt;/a&gt; の３人で参加した。
 記憶が曖昧だけど、Max が 4xxx or 5xxx 点で，最終は 29xx 点だった。予選敗退。&lt;/p&gt;</description>
@@ -60,58 +60,58 @@
     
     <item>
       <title>DeskMini A300 を買った</title>
-      <link>https://www.cormoran.me/blog/2019/06/deskmini-a300/</link>
+      <link>http://www.cormoran.me/blog/2019/06/deskmini-a300/</link>
       <pubDate>Mon, 10 Jun 2019 02:05:10 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2019/06/deskmini-a300/</guid>
+      <guid>http://www.cormoran.me/blog/2019/06/deskmini-a300/</guid>
       <description>&lt;p&gt;DeskMini A300 はリーテルクーラーが使えます、ということが言いたい記事。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mac ユーザーが Ubuntu に乗り換えたときの設定メモ</title>
-      <link>https://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</link>
+      <link>http://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</link>
       <pubDate>Mon, 29 Oct 2018 05:41:34 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</guid>
+      <guid>http://www.cormoran.me/blog/2018/10/setup-ubuntu18-thinkpad/</guid>
       <description>&lt;p&gt;最近ノートPCを Mac Book Pro Retina Late 2013 から ThinkPad T480s に変えた．&lt;/p&gt;
 &lt;p&gt;Linux を入れて環境構築していたら，いろいろあったのでメモ．
-感想文や背景は&lt;a href=&#34;https://www.cormoran.me/blog/blog/2018/10/thinkpad/&#34;&gt;こちら&lt;/a&gt;．&lt;/p&gt;</description>
+感想文や背景は&lt;a href=&#34;http://www.cormoran.me/blog/blog/2018/10/thinkpad/&#34;&gt;こちら&lt;/a&gt;．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>新しい PC を買った</title>
-      <link>https://www.cormoran.me/blog/2018/10/thinkpad/</link>
+      <link>http://www.cormoran.me/blog/2018/10/thinkpad/</link>
       <pubDate>Mon, 29 Oct 2018 04:31:50 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2018/10/thinkpad/</guid>
+      <guid>http://www.cormoran.me/blog/2018/10/thinkpad/</guid>
       <description>&lt;p&gt;最近 ThinkPad T480s を購入して，１週間くらい環境構築バトルをしていた．
 この記事は、どうでもいい感想文．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Line Summer Internship 2018 参加記</title>
-      <link>https://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</link>
+      <link>http://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</link>
       <pubDate>Tue, 09 Oct 2018 04:28:21 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</guid>
+      <guid>http://www.cormoran.me/blog/2018/09/line-summer-internship-2018/</guid>
       <description>&lt;p&gt;LINE の４０万インターンに参加した話．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ISUCON8 予選</title>
-      <link>https://www.cormoran.me/blog/2018/09/isucon8/</link>
+      <link>http://www.cormoran.me/blog/2018/09/isucon8/</link>
       <pubDate>Sun, 16 Sep 2018 23:40:29 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2018/09/isucon8/</guid>
+      <guid>http://www.cormoran.me/blog/2018/09/isucon8/</guid>
       <description>&lt;p&gt;ISUCON8 の予選に参加して敗退した話.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Akatsuki Server Sonic 2018 参加記</title>
-      <link>https://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</link>
+      <link>http://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</link>
       <pubDate>Thu, 06 Sep 2018 00:43:25 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</guid>
+      <guid>http://www.cormoran.me/blog/2018/09/akatski-server-sonic-2018/</guid>
       <description>&lt;p&gt;株式会社アカツキの短期インターン Server Sonic 2018 に参加してきた話。&lt;/p&gt;
 &lt;p&gt;とても楽しかった。&lt;/p&gt;
 &lt;p&gt;普段は携帯ゲームしたり、作ったり全くしない人ですが&amp;hellip;&lt;/p&gt;</description>
@@ -119,172 +119,172 @@
     
     <item>
       <title>ICPC2018 国内予選 参加記</title>
-      <link>https://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</link>
+      <link>http://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</link>
       <pubDate>Mon, 09 Jul 2018 01:49:52 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</guid>
+      <guid>http://www.cormoran.me/blog/2018/07/icpc-domestic-2018/</guid>
       <description>&lt;p&gt;今年も ICPC 国内予選に出た．getting_over_32 というチームで &lt;a href=&#34;https://twitter.com/takeo1116&#34;&gt;@takeo1116&lt;/a&gt; と &lt;a href=&#34;https://twitter.com/fwarashi&#34;&gt;@fwarashi&lt;/a&gt; で参加．A,B,C,D の４完４１位（学内２位）だった．大雨の影響などで選抜ルールが変更されなければアジア地区通過らしい．&lt;/p&gt;
 &lt;p&gt;自分は A,B,D の実装をした．B を通すのが遅くなってしまったのはとても反省．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>逆求人フェスティバルに参加してみた話</title>
-      <link>https://www.cormoran.me/blog/2018/06/studenthunting/</link>
+      <link>http://www.cormoran.me/blog/2018/06/studenthunting/</link>
       <pubDate>Sun, 03 Jun 2018 10:51:29 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2018/06/studenthunting/</guid>
+      <guid>http://www.cormoran.me/blog/2018/06/studenthunting/</guid>
       <description>&lt;p&gt;今年もそろそろインターンを考える時期なので以前から気になっていた逆求人フェスティバルに参加してみた．楽しかったので書く．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Code Thanks Festival 2017 参加記</title>
-      <link>https://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</link>
+      <link>http://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</link>
       <pubDate>Sun, 03 Dec 2017 17:09:07 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</guid>
+      <guid>http://www.cormoran.me/blog/2017/12/code-thanks-festival-2017/</guid>
       <description>&lt;p&gt;この記事は&lt;a href=&#34;https://adventar.org/calendars/2491&#34;&gt;Kobe University Advent Calendar 2017&lt;/a&gt;の3日目の記事です．&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.recruit-jinji.jp/recruitment/code_fes/&#34;&gt;CodeThanksFestival 2017&lt;/a&gt; に参加してきた．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Yahoo! JAPAN 黒帯インターンシップ 2017 夏 参加記</title>
-      <link>https://www.cormoran.me/blog/2017/09/yahoo-japan-summer-internship-2017/</link>
+      <link>http://www.cormoran.me/blog/2017/09/yahoo-japan-summer-internship-2017/</link>
       <pubDate>Fri, 01 Sep 2017 23:29:47 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2017/09/yahoo-japan-summer-internship-2017/</guid>
+      <guid>http://www.cormoran.me/blog/2017/09/yahoo-japan-summer-internship-2017/</guid>
       <description>&lt;p&gt;夏休みに，２週間，Yahoo!JAPAN のインターンに行ってきた話．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ICPC2017 国内予選 参加記</title>
-      <link>https://www.cormoran.me/blog/2017/07/icpc-domestic-2017/</link>
+      <link>http://www.cormoran.me/blog/2017/07/icpc-domestic-2017/</link>
       <pubDate>Sat, 15 Jul 2017 02:50:21 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2017/07/icpc-domestic-2017/</guid>
+      <guid>http://www.cormoran.me/blog/2017/07/icpc-domestic-2017/</guid>
       <description>&lt;p&gt;ICPCの国内予選にTEAM NAGATOのメンバーで参加．６完13位．&lt;/p&gt;
 &lt;p&gt;最初，プリンタがうまく動かなくて色々大変だった．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Recruit Winter Internship 2017 参加記</title>
-      <link>https://www.cormoran.me/blog/2017/03/rhd-winter-internship-2017/</link>
+      <link>http://www.cormoran.me/blog/2017/03/rhd-winter-internship-2017/</link>
       <pubDate>Fri, 31 Mar 2017 00:54:27 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/2017/03/rhd-winter-internship-2017/</guid>
+      <guid>http://www.cormoran.me/blog/2017/03/rhd-winter-internship-2017/</guid>
       <description>&lt;p&gt;春休みに約２ヶ月間，リクルートのインターンに行ってきた話．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BCU30 Programming Battle</title>
-      <link>https://www.cormoran.me/blog/bcu30procon/</link>
+      <link>http://www.cormoran.me/blog/bcu30procon/</link>
       <pubDate>Sun, 12 Mar 2017 02:15:51 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/bcu30procon/</guid>
+      <guid>http://www.cormoran.me/blog/bcu30procon/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://bcu30.jp&#34;&gt;Battle Conference U30&lt;/a&gt;のプロコンに参加してきた&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>北海道（札幌）旅行記</title>
-      <link>https://www.cormoran.me/blog/hokkaido-travel/</link>
+      <link>http://www.cormoran.me/blog/hokkaido-travel/</link>
       <pubDate>Mon, 19 Dec 2016 02:04:23 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/hokkaido-travel/</guid>
+      <guid>http://www.cormoran.me/blog/hokkaido-travel/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.si-sice.org/si2016/&#34;&gt;SI2016&lt;/a&gt;で北海道に行って来た。&lt;/p&gt;
 &lt;p&gt;自分の所属している団体では毎年学会で活動報告的な発表をすることになっているらしい（多分参加しているコンテスト主催者の意向）。色々あって今年は自分が行くことになった。来年の部長と２人で行って来た。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Arduino互換の基板を自作してよくあるロボを動かす話(1)</title>
-      <link>https://www.cormoran.me/blog/how-to-make-my-board/</link>
+      <link>http://www.cormoran.me/blog/how-to-make-my-board/</link>
       <pubDate>Sun, 18 Dec 2016 20:17:26 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/how-to-make-my-board/</guid>
+      <guid>http://www.cormoran.me/blog/how-to-make-my-board/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/1881&#34;&gt;Kobe University Advent Calendar 2016&lt;/a&gt;の18日目です。&lt;/p&gt;
 &lt;p&gt;前回書こうとしてやめた話を書きます。実は時間がなくて完成してないので(1)としています。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>クソなぞなぞコンテスト</title>
-      <link>https://www.cormoran.me/blog/kuzonazonazo/</link>
+      <link>http://www.cormoran.me/blog/kuzonazonazo/</link>
       <pubDate>Sun, 11 Dec 2016 23:06:17 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/kuzonazonazo/</guid>
+      <guid>http://www.cormoran.me/blog/kuzonazonazo/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/1881&#34;&gt;Kobe University Advent Calendar 2016&lt;/a&gt;の11日目(2)です。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JOI予選非公式オンサイト参加記</title>
-      <link>https://www.cormoran.me/blog/joi2016/</link>
+      <link>http://www.cormoran.me/blog/joi2016/</link>
       <pubDate>Sun, 11 Dec 2016 23:06:16 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/joi2016/</guid>
+      <guid>http://www.cormoran.me/blog/joi2016/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/1881&#34;&gt;Kobe University Advent Calendar 2016&lt;/a&gt;の11日目(1)です。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDCC2016 参加記</title>
-      <link>https://www.cormoran.me/blog/ddcc2016/</link>
+      <link>http://www.cormoran.me/blog/ddcc2016/</link>
       <pubDate>Sun, 04 Dec 2016 00:36:01 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/ddcc2016/</guid>
+      <guid>http://www.cormoran.me/blog/ddcc2016/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/1881&#34;&gt;Kobe University Advent Calendar 2016&lt;/a&gt;の4日目です。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://japan.discovery.com/ddcc/&#34;&gt;DDCC2016&lt;/a&gt;本戦に参加してきたので参加記を書きます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>CodeFestival 2016 参加記</title>
-      <link>https://www.cormoran.me/blog/codefestival-2016/</link>
+      <link>http://www.cormoran.me/blog/codefestival-2016/</link>
       <pubDate>Mon, 28 Nov 2016 23:30:00 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/codefestival-2016/</guid>
+      <guid>http://www.cormoran.me/blog/codefestival-2016/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://r.recruit-jinji.jp/code_fes/&#34;&gt;CodeFestival 2016&lt;/a&gt; 本戦に参加してきた。&lt;/p&gt;
 &lt;p&gt;会場到達で色々やらかしたので前置きが長い。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ICPC Asia 2016</title>
-      <link>https://www.cormoran.me/blog/icpc-asia-2016/</link>
+      <link>http://www.cormoran.me/blog/icpc-asia-2016/</link>
       <pubDate>Thu, 20 Oct 2016 02:19:12 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/icpc-asia-2016/</guid>
+      <guid>http://www.cormoran.me/blog/icpc-asia-2016/</guid>
       <description>&lt;p&gt;神戸大学TEAM FUJISHIMA として出た。メンバーは&lt;a href=&#34;https://twitter.com/ki6o4&#34;&gt;@ki6o4&lt;/a&gt;と&lt;a href=&#34;https://twitter.com/izuru_matsuura&#34;&gt;@izuru_matsuura&lt;/a&gt;。6完で14位だった。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://icpc.logic.cs.tsukuba.ac.jp&#34;&gt;standingsなど&lt;/a&gt;（URL的にそのうち消されそう）&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>indeed視察ツアー2016参加記</title>
-      <link>https://www.cormoran.me/blog/indeed-global-tour-2016/</link>
+      <link>http://www.cormoran.me/blog/indeed-global-tour-2016/</link>
       <pubDate>Mon, 12 Sep 2016 04:07:19 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/indeed-global-tour-2016/</guid>
+      <guid>http://www.cormoran.me/blog/indeed-global-tour-2016/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://r.recruit-jinji.jp/indeed/internship2016/index.html&#34;&gt;Indeed視察ツアー2016&lt;/a&gt;に参加してきました。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://tokky-cpp.hatenadiary.jp/entry/2015/09/16/172609&#34;&gt;昨年参加した人の参加記&lt;/a&gt;があって、どんなのかが参加前にざっくりわかってわくわく感が増して良かったので自分も書きます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>libc&#43;&#43;とlibstdc&#43;&#43;のデバッグモードについて</title>
-      <link>https://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</link>
+      <link>http://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</link>
       <pubDate>Sat, 20 Aug 2016 02:55:10 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</guid>
+      <guid>http://www.cormoran.me/blog/libstdcpp_and_libcpp_debug_mode/</guid>
       <description>&lt;p&gt;&lt;code&gt;-D_GLIBCXX_DEBUG&lt;/code&gt; をつけていたけど、実は効果がない状態だった&amp;hellip;　という話。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>clang のSanitizerについて</title>
-      <link>https://www.cormoran.me/blog/clang-sanitizer/</link>
+      <link>http://www.cormoran.me/blog/clang-sanitizer/</link>
       <pubDate>Fri, 19 Aug 2016 20:38:21 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/clang-sanitizer/</guid>
+      <guid>http://www.cormoran.me/blog/clang-sanitizer/</guid>
       <description>&lt;p&gt;昔調べた時にclangで&lt;code&gt;-fsanitize=undefined&lt;/code&gt;が使えなかったので、よく考えずに&lt;code&gt;address&lt;/code&gt;を使っていた。新しいclangを入れようとしていろいろしていたら使えるようになったので、ついでにsanitizer周りについて調べてみた。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Macのclangでlibstdc&#43;&#43;,libc&#43;&#43;を切り替えて使う</title>
-      <link>https://www.cormoran.me/blog/clang-mac/</link>
+      <link>http://www.cormoran.me/blog/clang-mac/</link>
       <pubDate>Fri, 19 Aug 2016 20:28:01 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/clang-mac/</guid>
+      <guid>http://www.cormoran.me/blog/clang-mac/</guid>
       <description>&lt;p&gt;Mac OS 10.8まで(?)は、Xcodeで入ってくるclangはlibstdc++を使っていたが、最近はlibc++を使うように変更されたらしい。&lt;/p&gt;
 &lt;p&gt;Macで、&lt;strong&gt;clangで&lt;/strong&gt;libstdc++を使いたくなったのでやってみた。&lt;/p&gt;
 &lt;p&gt;標準ライブラリの切り替えとかは険しそうな雰囲気があるけど、結構簡単にできることがわかった。（あまり動作確認していないのでうまくいってるのかはわからない）&lt;/p&gt;</description>
@@ -292,258 +292,258 @@
     
     <item>
       <title>clang の警告オプションについて</title>
-      <link>https://www.cormoran.me/blog/clang-warning/</link>
+      <link>http://www.cormoran.me/blog/clang-warning/</link>
       <pubDate>Fri, 19 Aug 2016 17:25:59 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/clang-warning/</guid>
+      <guid>http://www.cormoran.me/blog/clang-warning/</guid>
       <description>&lt;p&gt;今までとりあえず&lt;code&gt;-Wall&lt;/code&gt;をつけていたけど、他にも役立つ警告がいろいろあった。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Windowsでストレスのない開発環境を構築するメモ（の一部）</title>
-      <link>https://www.cormoran.me/blog/lecture/windows-cui/</link>
+      <link>http://www.cormoran.me/blog/lecture/windows-cui/</link>
       <pubDate>Mon, 02 May 2016 23:50:10 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/lecture/windows-cui/</guid>
+      <guid>http://www.cormoran.me/blog/lecture/windows-cui/</guid>
       <description>&lt;p&gt;ロボットの部にあるWindowsが使いにくくてつらかったので（自分が）使いやすいようにいろいろやってみました。&lt;/p&gt;
 &lt;p&gt;あまり大したことはやってないのですが、自分向けに、部の人向けにメモ程度に。やっとことをざっとまとめるだけで、深いことは書きません。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>FPGAのふわっとした紹介</title>
-      <link>https://www.cormoran.me/blog/try-fpga/</link>
+      <link>http://www.cormoran.me/blog/try-fpga/</link>
       <pubDate>Sun, 13 Dec 2015 00:15:30 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/try-fpga/</guid>
+      <guid>http://www.cormoran.me/blog/try-fpga/</guid>
       <description>&lt;p&gt;この記事は, &lt;a href=&#34;http://www.adventar.org/calendars/891&#34;&gt;KobeUniv Advent Calender 2015&lt;/a&gt; 13日目として書かれたものです。&lt;/p&gt;
 &lt;p&gt;低レイヤーの人とか真の低レイヤーの人とか、とにかく低レイヤーな人がいっぱいいたのでそれに乗っかってFPGAの入門記的な記事を書くことにしました。完全にFPGA初心者ですが&amp;hellip;。（もうちょっと先にFPGAの話をするという強そうな人がいるので期待しています。）&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Raspberrypiでサーバーを作るときの設定など</title>
-      <link>https://www.cormoran.me/blog/raspberrypi-server/</link>
+      <link>http://www.cormoran.me/blog/raspberrypi-server/</link>
       <pubDate>Sun, 18 Oct 2015 15:11:01 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/raspberrypi-server/</guid>
+      <guid>http://www.cormoran.me/blog/raspberrypi-server/</guid>
       <description>&lt;p&gt;Raspberrypiを使って自宅サーバーを動かしているのですが、今回RaspberyPi2を買ったのでサーバーを移しました。また必要になるかもしれないのでメモ程度に書いておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ATmega168pでUSBasp</title>
-      <link>https://www.cormoran.me/blog/atmega168-usbasp/</link>
+      <link>http://www.cormoran.me/blog/atmega168-usbasp/</link>
       <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/atmega168-usbasp/</guid>
+      <guid>http://www.cormoran.me/blog/atmega168-usbasp/</guid>
       <description>&lt;p&gt;大学で所属しているロボット研究会で回路講座をすることになり、安価なAVRライタの量産が必要になったのでUSBaspを作ることにしました。今回はその試作時に起きた問題のメモ。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-IW3yRNgI5QA/ViUUVeb5f0I/AAAAAAAAAGQ/CRlt_eK7fPc/s400-Ic42/usbasp.jpg&#34; alt=&#34;UsbAsp&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MacでSDL2を静的リンクする</title>
-      <link>https://www.cormoran.me/blog/sdl2-mac-static/</link>
+      <link>http://www.cormoran.me/blog/sdl2-mac-static/</link>
       <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/sdl2-mac-static/</guid>
+      <guid>http://www.cormoran.me/blog/sdl2-mac-static/</guid>
       <description>&lt;p&gt;MacでSDL2ライブラリを静的リンクしようと思ったら罠だらけで大変だったのでメモ。SDL2_imageなど、SDL2_hoge　シリーズ も同様にしてできました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　④画像を表示</title>
-      <link>https://www.cormoran.me/blog/sdl2-show-image/</link>
+      <link>http://www.cormoran.me/blog/sdl2-show-image/</link>
       <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/sdl2-show-image/</guid>
+      <guid>http://www.cormoran.me/blog/sdl2-show-image/</guid>
       <description>&lt;p&gt;SDL2_imageを使って画像を表示するサンプルプログラム。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　③文字を表示</title>
-      <link>https://www.cormoran.me/blog/sdl2-drawchara/</link>
+      <link>http://www.cormoran.me/blog/sdl2-drawchara/</link>
       <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/sdl2-drawchara/</guid>
+      <guid>http://www.cormoran.me/blog/sdl2-drawchara/</guid>
       <description>&lt;p&gt;またまた続きです。今回はSDL2_TTFを使用して文字を表示します。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　②色々描く</title>
-      <link>https://www.cormoran.me/blog/sdl2.drawshapes/</link>
+      <link>http://www.cormoran.me/blog/sdl2.drawshapes/</link>
       <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/sdl2.drawshapes/</guid>
+      <guid>http://www.cormoran.me/blog/sdl2.drawshapes/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;blog/sdl2-showwindow/&#34;&gt;前回&lt;/a&gt;の続きです。今回はSDL2のライブラリにある図形を描写する簡単なサンプルです。備忘録。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SDL2の使い方　①ウィンドウの表示</title>
-      <link>https://www.cormoran.me/blog/sdl2-showwindow/</link>
+      <link>http://www.cormoran.me/blog/sdl2-showwindow/</link>
       <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/sdl2-showwindow/</guid>
+      <guid>http://www.cormoran.me/blog/sdl2-showwindow/</guid>
       <description>&lt;p&gt;訳あってSDL2を使うことになったので色々やってみました。自分の備忘録とこれからSDL2を使う人のためにシンプルなサンプルを残しておきたいと思います。今回は基本のウィンドウ表示です。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>LazyK HelloWorldを目指す</title>
-      <link>https://www.cormoran.me/blog/layzk3/</link>
+      <link>http://www.cormoran.me/blog/layzk3/</link>
       <pubDate>Wed, 08 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/layzk3/</guid>
+      <guid>http://www.cormoran.me/blog/layzk3/</guid>
       <description>&lt;p&gt;１ヶ月くらい前に少し遊んだLazyKですが再びやる気が出てきたので今回はHelloWorld出力を目指します。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Lazy K　〜インタラクティブシェルの導入〜　 (Mac)</title>
-      <link>https://www.cormoran.me/blog/lazyk2/</link>
+      <link>http://www.cormoran.me/blog/lazyk2/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/lazyk2/</guid>
+      <guid>http://www.cormoran.me/blog/lazyk2/</guid>
       <description>&lt;p&gt;前回記事&lt;a href=&#34;http://blog.cormoran-web.com/2015/02/27/lazy-k-1-interpreter/&#34; title=&#34;Lazy K に挑む　〜インタープリタの導入〜　 (Mac)&#34;&gt;Lazy K に挑む　〜インタープリタの導入〜　 (Mac)&lt;/a&gt;の続きで今回は Lazy K インタラクティブシェルの導入について書きます。今回の分は参考にできる記事がなかったので自分でいろいろやってみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Lazy K　〜インタープリタの導入〜　 (Mac)</title>
-      <link>https://www.cormoran.me/blog/lazyk/</link>
+      <link>http://www.cormoran.me/blog/lazyk/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/lazyk/</guid>
+      <guid>http://www.cormoran.me/blog/lazyk/</guid>
       <description>&lt;p&gt;先日はbrainfuckを触ってみましたが次は純粋関数型言語のLazy Kに挑戦してみます。今回はインタプリタと&lt;!-- raw HTML omitted --&gt;インタラクティブシェルのインストール&lt;!-- raw HTML omitted --&gt;（？）について書きます。&lt;!-- raw HTML omitted --&gt;次の記事に回します。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AVR UART通信 on mega168p</title>
-      <link>https://www.cormoran.me/blog/atmega168-uart/</link>
+      <link>http://www.cormoran.me/blog/atmega168-uart/</link>
       <pubDate>Wed, 25 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/atmega168-uart/</guid>
+      <guid>http://www.cormoran.me/blog/atmega168-uart/</guid>
       <description>&lt;p&gt;ATmega168pでUART通信をしてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ATmega168pを使う ~PWMとAD変換~</title>
-      <link>https://www.cormoran.me/blog/atmega168-ad-pwd/</link>
+      <link>http://www.cormoran.me/blog/atmega168-ad-pwd/</link>
       <pubDate>Sat, 21 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/atmega168-ad-pwd/</guid>
+      <guid>http://www.cormoran.me/blog/atmega168-ad-pwd/</guid>
       <description>&lt;p&gt;先日&lt;a href=&#34;http://blog.cormoran-web.com/2015/02/17/promise-of-spring-vacation/&#34; title=&#34;春休みの生活心得&#34;&gt;春休みの心得&lt;/a&gt;で”ダミヤンを作る”という目標を書きましたが、ATmega168pはその心臓部に使う予定です。しかし、実は自分は今までPICばかり使っていてAVRは半年ほど前に１度使っただけです。そこで今回はAVRの使い方を思い出すこととダミヤンを作るための準備を兼ねてPWM出力とA/D変換を使ってみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Visual Studio 2013 の設定　sdfとipach</title>
-      <link>https://www.cormoran.me/blog/vs-ipach/</link>
+      <link>http://www.cormoran.me/blog/vs-ipach/</link>
       <pubDate>Thu, 29 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/vs-ipach/</guid>
+      <guid>http://www.cormoran.me/blog/vs-ipach/</guid>
       <description>&lt;p&gt;VisualStudio2013でC++のプログラムを作るとプロジェクトのサイズが以上に大きくなるので原因を調べてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mercurialを使ってみた（Mac）</title>
-      <link>https://www.cormoran.me/blog/mercurial/</link>
+      <link>http://www.cormoran.me/blog/mercurial/</link>
       <pubDate>Tue, 27 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/mercurial/</guid>
+      <guid>http://www.cormoran.me/blog/mercurial/</guid>
       <description>&lt;p&gt;gitと並んでよく使われているらしい分散型バージョン管理システム、Mercurialを使ってみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Brainfuck で HelloWorld など</title>
-      <link>https://www.cormoran.me/blog/brainfuck2/</link>
+      <link>http://www.cormoran.me/blog/brainfuck2/</link>
       <pubDate>Fri, 09 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/brainfuck2/</guid>
+      <guid>http://www.cormoran.me/blog/brainfuck2/</guid>
       <description>&lt;p&gt;せっかくインタープリターを書いたのでbrainfuckでもう少し遊びます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Brainfuck インタープリター in c&#43;&#43;</title>
-      <link>https://www.cormoran.me/blog/brainfuck/</link>
+      <link>http://www.cormoran.me/blog/brainfuck/</link>
       <pubDate>Fri, 09 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/brainfuck/</guid>
+      <guid>http://www.cormoran.me/blog/brainfuck/</guid>
       <description>&lt;p&gt;周りで Brainfuck が流行っているよう（？）だったので自分も参入してインタープリターを書いてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Google Glass もどきその２</title>
-      <link>https://www.cormoran.me/blog/smart-glass2/</link>
+      <link>http://www.cormoran.me/blog/smart-glass2/</link>
       <pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/smart-glass2/</guid>
+      <guid>http://www.cormoran.me/blog/smart-glass2/</guid>
       <description>&lt;p&gt;　前回紹介した自作ウェアラブルグラスについてです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Google Glassを作ってみた</title>
-      <link>https://www.cormoran.me/blog/smart-glass/</link>
+      <link>http://www.cormoran.me/blog/smart-glass/</link>
       <pubDate>Mon, 20 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/smart-glass/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://www.cormoran.me/blog/img/2014/10/glass_2nd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>http://www.cormoran.me/blog/smart-glass/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://www.cormoran.me/blog/img/2014/10/glass_2nd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;近頃話題のgoogle glassを使ってみたかったのでそれっぽいものを自作してみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>cui tetris</title>
-      <link>https://www.cormoran.me/blog/cui-tetris/</link>
+      <link>http://www.cormoran.me/blog/cui-tetris/</link>
       <pubDate>Sun, 19 Oct 2014 01:28:39 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/cui-tetris/</guid>
+      <guid>http://www.cormoran.me/blog/cui-tetris/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-_2UGfEwN0VA/VixfcWQdZ7I/AAAAAAAAAII/Y0fiZ3Yhqkc/s800-Ic42/tetris-300x191.png&#34; alt=&#34;tetris&#34;&gt;&lt;/p&gt;
 &lt;p&gt;何か簡単なゲームが必要だったのでテトリスもどきを作ってみました。ncursesを使ってます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MacでiBeacon発信</title>
-      <link>https://www.cormoran.me/blog/beacon/</link>
+      <link>http://www.cormoran.me/blog/beacon/</link>
       <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/beacon/</guid>
+      <guid>http://www.cormoran.me/blog/beacon/</guid>
       <description>&lt;p&gt;MacをiBeaconの発信器にしてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Aitendo液晶　M014C9163SPIを使ってみた</title>
-      <link>https://www.cormoran.me/blog/use-m014c9163spi/</link>
+      <link>http://www.cormoran.me/blog/use-m014c9163spi/</link>
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/use-m014c9163spi/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://www.cormoran.me/blog/img/2014/09/rectglcd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+      <guid>http://www.cormoran.me/blog/use-m014c9163spi/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://www.cormoran.me/blog/img/2014/09/rectglcd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>目覚まし時計を作ってみた</title>
-      <link>https://www.cormoran.me/blog/alarmclock/</link>
+      <link>http://www.cormoran.me/blog/alarmclock/</link>
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/alarmclock/</guid>
+      <guid>http://www.cormoran.me/blog/alarmclock/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://blog.cormoran-web.com/wp-content/uploads/2014/09/myalarm.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ジャイロセンサを使ってみた</title>
-      <link>https://www.cormoran.me/blog/use-gyro-sensor/</link>
+      <link>http://www.cormoran.me/blog/use-gyro-sensor/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/use-gyro-sensor/</guid>
-      <description>&lt;p&gt;秋月電子の&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-04912/&#34;&gt;小型圧電振動ジャイロモジュール&lt;/a&gt;を使ってみました。今回はただ値を読み取ってLCDに表示しているだけです。LCDの記事は&lt;a href=&#34;https://www.cormoran.me/blog/blog/use-char-lcd&#34;&gt;こちら&lt;/a&gt;。&lt;/p&gt;</description>
+      <guid>http://www.cormoran.me/blog/use-gyro-sensor/</guid>
+      <description>&lt;p&gt;秋月電子の&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-04912/&#34;&gt;小型圧電振動ジャイロモジュール&lt;/a&gt;を使ってみました。今回はただ値を読み取ってLCDに表示しているだけです。LCDの記事は&lt;a href=&#34;http://www.cormoran.me/blog/blog/use-char-lcd&#34;&gt;こちら&lt;/a&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>加速度センサーを使ってみた</title>
-      <link>https://www.cormoran.me/blog/use-acceleration-sensor/</link>
+      <link>http://www.cormoran.me/blog/use-acceleration-sensor/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/use-acceleration-sensor/</guid>
+      <guid>http://www.cormoran.me/blog/use-acceleration-sensor/</guid>
       <description>&lt;p&gt;Strawberry Linuxの加速度センサーモジュール&lt;a href=&#34;https://strawberry-linux.com/catalog/items?code=12102&#34;&gt;MMA7455L（デジタル出力）&lt;/a&gt;を使ってみました。このセンサーは昔買ってずっと放置していたものですが、最近は秋月などにより安価なものがたくさんあるようです。今回は出力値の補正などはせず、単に値を読み取ってLCDに表示するだけです。LCDについては&lt;a href=&#34;http://blog.cormoran-web.com/?p=56&#34; title=&#34;ＬＣＤキャラクタディスプレイを使ってみた&#34;&gt;ここ&lt;/a&gt;を参照。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ＬＣＤキャラクタディスプレイを使ってみた</title>
-      <link>https://www.cormoran.me/blog/use-char-lcd/</link>
+      <link>http://www.cormoran.me/blog/use-char-lcd/</link>
       <pubDate>Sun, 07 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/use-char-lcd/</guid>
+      <guid>http://www.cormoran.me/blog/use-char-lcd/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-M84jfbkPObE/ViUJvNdUBJI/AAAAAAAAADg/VaFecg_taGQ/s640-Ic42/lcd.helloworld.jpg&#34; alt=&#34;Hello World&#34;&gt;&lt;/p&gt;</description>
     </item>
     

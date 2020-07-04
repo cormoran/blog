@@ -1,4 +1,4 @@
-baseURL = "https://www.cormoran.me/blog"
+baseURL = "http://www.cormoran.me/blog"
 languageCode = "ja"
 title = "cormoran's 雑記"
 theme = "hugo-theme-myblog"
@@ -24,10 +24,10 @@ google_custom_search = "007779444469775643741:gxf1addhpnq"
 	name = "Articles"
 	weight = 2
 	identifier = "new-article"
-	url = "https://www.cormoran.me/article"    
+	url = "http://www.cormoran.me/article"    
 
 [[menu.main]]
 	name = "About"
 	weight = 3
 	identifier = "about"
-	url = "https://www.cormoran.me"    
+	url = "http://www.cormoran.me"    

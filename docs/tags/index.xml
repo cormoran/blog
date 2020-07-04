@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on cormoran&#39;s 雑記</title>
-    <link>https://www.cormoran.me/blog/tags/</link>
+    <link>http://www.cormoran.me/blog/tags/</link>
     <description>Recent content in Tags on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 09 Oct 2018 04:28:21 +0900</lastBuildDate>
     
-	<atom:link href="https://www.cormoran.me/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.cormoran.me/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>インターン</title>
-      <link>https://www.cormoran.me/blog/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3/</link>
+      <link>http://www.cormoran.me/blog/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3/</link>
       <pubDate>Tue, 09 Oct 2018 04:28:21 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3/</guid>
+      <guid>http://www.cormoran.me/blog/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>参加記</title>
-      <link>https://www.cormoran.me/blog/tags/%E5%8F%82%E5%8A%A0%E8%A8%98/</link>
+      <link>http://www.cormoran.me/blog/tags/%E5%8F%82%E5%8A%A0%E8%A8%98/</link>
       <pubDate>Tue, 09 Oct 2018 04:28:21 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/%E5%8F%82%E5%8A%A0%E8%A8%98/</guid>
+      <guid>http://www.cormoran.me/blog/tags/%E5%8F%82%E5%8A%A0%E8%A8%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>競プロ</title>
-      <link>https://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/</link>
+      <link>http://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/</link>
       <pubDate>Sun, 03 Dec 2017 17:09:07 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/</guid>
+      <guid>http://www.cormoran.me/blog/tags/%E7%AB%B6%E3%83%97%E3%83%AD/</guid>
       <description></description>
     </item>
     
     <item>
       <title>学会</title>
-      <link>https://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/</link>
+      <link>http://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/</link>
       <pubDate>Mon, 19 Dec 2016 02:04:23 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/</guid>
+      <guid>http://www.cormoran.me/blog/tags/%E5%AD%A6%E4%BC%9A/</guid>
       <description></description>
     </item>
     
     <item>
       <title>raspberrypi</title>
-      <link>https://www.cormoran.me/blog/tags/raspberrypi/</link>
+      <link>http://www.cormoran.me/blog/tags/raspberrypi/</link>
       <pubDate>Sun, 18 Oct 2015 15:11:01 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/raspberrypi/</guid>
+      <guid>http://www.cormoran.me/blog/tags/raspberrypi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SDL2</title>
-      <link>https://www.cormoran.me/blog/tags/sdl2/</link>
+      <link>http://www.cormoran.me/blog/tags/sdl2/</link>
       <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/sdl2/</guid>
+      <guid>http://www.cormoran.me/blog/tags/sdl2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>language</title>
-      <link>https://www.cormoran.me/blog/tags/language/</link>
+      <link>http://www.cormoran.me/blog/tags/language/</link>
       <pubDate>Wed, 08 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/language/</guid>
+      <guid>http://www.cormoran.me/blog/tags/language/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ウェアラブル</title>
-      <link>https://www.cormoran.me/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/</link>
+      <link>http://www.cormoran.me/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/</link>
       <pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/</guid>
+      <guid>http://www.cormoran.me/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/</guid>
       <description></description>
     </item>
     
