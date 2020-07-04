@@ -1,0 +1,563 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - FPGAのふわっとした紹介 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="FPGAのふわっとした紹介 - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="この記事は, KobeUniv Advent Calender 2015 13日目として書かれたものです。
+低レイヤーの人とか真の低レイヤーの人とか、とにかく低レイヤーな人がいっぱいいたのでそれに乗っかってFPGAの入門記的な記事を書くことにしました。完全にFPGA初心者ですが&hellip;。（もうちょっと先にFPGAの話をするという強そうな人がいるので期待しています。）" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fpgaとは">FPGAとは?</a></li>
+    <li><a href="#ハードウェア記述言語">ハードウェア記述言語</a></li>
+    <li><a href="#シミュレータ">シミュレータ</a></li>
+    <li><a href="#verilogのプログラム">Verilogのプログラム</a></li>
+    <li><a href="#なに作ろうか">なに作ろうか..</a></li>
+    <li><a href="#電子サイコロ">電子サイコロ</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/raspberrypi-server/ ">&lt;Raspberrypiでサーバーを作るときの設定など</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/clang-warning/">clang の警告オプションについて&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2015-12-13">
+	                                2015年12月13日 00:15
+	                            </time>
+	                        </span>
+                        <h1>FPGAのふわっとした紹介</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>この記事は, <a href="http://www.adventar.org/calendars/891">KobeUniv Advent Calender 2015</a> 13日目として書かれたものです。</p>
+<p>低レイヤーの人とか真の低レイヤーの人とか、とにかく低レイヤーな人がいっぱいいたのでそれに乗っかってFPGAの入門記的な記事を書くことにしました。完全にFPGA初心者ですが&hellip;。（もうちょっと先にFPGAの話をするという強そうな人がいるので期待しています。）</p>
+<h2 id="fpgaとは">FPGAとは?</h2>
+<p>field-programmable gate array の略らしい。英語そのままですが、プログラミングするだけで論理回路の配線を勝手にやってくれるic的なイメージです。ブレッドボードの配線をプログラミングでできる感じというと分かりやすい？ これを使うとお手軽にCPUとかが作れます。詳しくは<a href="https://ja.wikipedia.org/wiki/FPGA">Wikipedia</a></p>
+<h2 id="ハードウェア記述言語">ハードウェア記述言語</h2>
+<p>FPGA上に回路を作るにはその回路の設計書を書かないといけません。それにはハードウェア記述言語という専用の言語を使います。いくつか種類があってVerilogやVHDLが有名なようです。C言語っぽいSystemCとかいうのもあります。自分は有名どころであるVerilog,VHDL両方触ってみたのですが、今回はシミュレータの関係と、わかりやすさからVerilogで書きます。</p>
+<h2 id="シミュレータ">シミュレータ</h2>
+<p>VerilogにはIcarus Verilogという有名なシミュレータがあります。Windows,Mac,Linuxどれでも動きます。Verilogを書いてIcarus Verilogに渡すと波形データを出力してくれてそれをgtkwaveでみたりできます。<a href="http://www.edaplayground.com">web上で動くシミュレータ</a>もあります。</p>
+<h2 id="verilogのプログラム">Verilogのプログラム</h2>
+<p>下は4bitFullAdderのプログラム例。+演算子を普通に使ってるのであまり楽しくありませんが。</p>
+<p>演算子はc並みに使えてしまうので、それを考えるとbrainf*ckとかよりははるかに高級。</p>
+<pre><code>module adder4bit (in1, in2, out, carry);
+   input  [3:0] in1, in2;
+   output [3:0] out;
+   output    carry;
+   wire   [4:0] result;
+
+   assign result = in1 + in2;
+   assign carry = result[4];
+   assign out = result[3:0];
+endmodule // adder4bit
+</code></pre><p>シミュレーションプログラムを書いて実行すると</p>
+<pre><code>module test();
+   reg [3:0] in1, in2;
+   wire [3:0] result;
+   wire       carry;
+
+   adder4bit adder4bit(in1, in2, result, carry);
+   
+   initial begin
+      $monitor(&quot;%t : %b + %b =&gt; %b, %b&quot;, $time, in1, in2, carry, result);
+   end
+
+   initial begin
+        in1 &lt;= 4'b0000;
+        in2 &lt;= 4'b0000;
+      #1
+	in1 &lt;= 4'b0001;
+        in2 &lt;= 4'b0010;
+      #1
+	in1 &lt;= 4'b0001;
+      	in2 &lt;= 4'b0001;
+      #1
+	in1 &lt;= 4'b0101;
+      	in2 &lt;= 4'b0111;
+      #1
+	in1 &lt;= 4'b1111;
+      	in2 &lt;= 4'b1111;
+      #1
+	$finish;
+   end
+
+endmodule
+</code></pre><p>出力は以下のようになり、ちゃんと足してくれています。</p>
+<pre><code>$ iverilog main.v test.v
+$ ./a.out 
+0 : 0000 + 0000 =&gt; 0, 0000
+1 : 0001 + 0010 =&gt; 0, 0011
+2 : 0001 + 0001 =&gt; 0, 0010
+3 : 0101 + 0111 =&gt; 0, 1100
+4 : 1111 + 1111 =&gt; 1, 1110												
+</code></pre><p>簡単ですね。</p>
+<h2 id="なに作ろうか">なに作ろうか..</h2>
+<p>低レイヤーに乗っかったのはいいものの、あまり触っていないのでこれ作ったよ！的なものがない&hellip;。FPGAに手を出した目的はもちろんCPUを作ることです。実は自分にはトランジスタで論理回路作ろうとか、ICでCPUつくろうとか過去に色々策略を立てては失敗したり気が変わったりしてきた歴史があるのですが、今回こそは作ります。CPUを作るというと、「CPUの創りかた」という有名な本があり、自分も過去に読んだことがあるのですが、この本で紹介されているTD4というCPUならサクッと作れそうです
+。（今回作ろうと思っていたが、圧倒的に時間がなかった &amp; 本が借りられなかったので延期）また、有名な話ですが、東大ではFPGAを使ってCPUからコンパイラ、アセンブリまで作る実験があるそうです。コンパイラのコード生成とかの部分はまだ手を出せていませんが興味はあるのでやってみたいですね。あと、最近Prologを習って、WAMというものを知ったのですが、それも面白そうです。大学に飾られてるLispマシンとかも。</p>
+<p>で、実はTD4よりはちゃんとした（？）CPUを作ろうと今勉強中なのですが、それはまた今度。何を書こうか考えたのですが、時間もなかったので、すぐに書けるものということで電子サイコロを書いておきました。</p>
+<h2 id="電子サイコロ">電子サイコロ</h2>
+<p>なぜ電子サイコロ?&hellip;実は情報知能工学科二回後期には情報知能工学実験という名のLEGO遊び &amp; ひたすら半田付け の実験があるのですが、半田付けの方の選択課題の一つとして電子サイコロを作れというものがあります。先日ちょうど作ってきました（90分x6コマ）。それにのっける感じで電子サイコロを書くことにしたのですが、半田付けなら540分もかかる回路も、FPGAなら数分で書けます！とりあえずなんか書いた程度なので色々ガバガバです。入力が止まってからしばらく動き続ける仕様。書き終えてからランダム性が全くないことに気づいたのですがまあよしとします。</p>
+<pre><code>`default_nettype none
+
+module dice(clock, reset, in, seg); 
+   input clock, reset, in;
+   output [6:0] seg;
+   output   delayed_in;
+   output [2:0] bin;
+   wire [3:0] bin2;
+   assign bin2 = {1'b0,bin};
+ 
+
+   inputmodule inputmodule(clock, in, delayed_in);
+   counter1_6 counter1_6(clock &amp; delayed_in, reset, bin);
+   bcd7seg bcd7seg(bin2, seg);
+endmodule // dice
+
+
+module inputmodule(clock, in, out);
+   input in, clock;
+   output out;
+   reg 	  [31:0] q;
+
+   assign out = in | q[31];
+   
+   always @(posedge in or posedge clock)
+     begin
+	if( in ) q &lt;= ~32'b0;
+	else q &lt;=  q &lt;&lt; 1;
+     end
+     
+endmodule // inputmodule
+
+// counter from 1 to 6
+module counter1_6(clock, reset, q);
+   input clock,reset;
+   output [2:0] q;
+   reg [2:0] 	q;
+
+   always @(posedge clock or posedge reset)
+     begin
+	if( reset ) q &lt;= 3'd1;
+	else if( q == 3'd6 ) q &lt;= 3'd1;
+	else q &lt;= q + 3'd1;
+     end
+
+endmodule // counter1_6
+
+// binary to 7segLED
+module bcd7seg(in, seg);
+   input [3:0] in;
+   output [6:0] seg;
+
+   assign seg = decode(in);
+   
+   function [6:0] decode;
+      input [3:0] in;
+      begin
+	 if(in == 0) decode = 7'b1111110;
+	 else if(in == 1) decode = 7'b0110000;
+	 else if(in == 2) decode = 7'b1101101;
+	 else if(in == 3) decode = 7'b1111001;
+	 else if(in == 4) decode = 7'b0110011;
+	 else if(in == 5) decode = 7'b1011011;
+	 else if(in == 6) decode = 7'b1011111;
+	 else if(in == 7) decode = 7'b1110000;
+	 else if(in == 8) decode = 7'b1111111;
+	 else if(in == 9) decode = 7'b1111011;
+	 else             decode = 7'b0110111;
+      end
+   endfunction
+   
+endmodule
+</code></pre><p>HelloWorld代わりに書いたレベルなので実機で動くか不明&amp; 色々変なところがあるとは思いますが、とりあえずシミュレータでは動いています。</p>
+<pre><code>$ iverilog main.v test.v
+$ ./a.out 
+		  Time:clock,in,7segout
+                   0 : 0 0 =&gt; 0110000
+                   5 : 1 0 =&gt; 0110000
+                  10 : 0 0 =&gt; 0110000
+                  15 : 1 0 =&gt; 1101101
+                  20 : 0 1 =&gt; 1101101
+                  25 : 1 1 =&gt; 1111001
+                  30 : 0 0 =&gt; 1111001
+                  35 : 1 0 =&gt; 0110011
+                  40 : 0 0 =&gt; 0110011
+                  45 : 1 0 =&gt; 1011011
+                  50 : 0 0 =&gt; 1011011
+                  55 : 1 0 =&gt; 1011111
+                  60 : 0 0 =&gt; 1011111
+                  65 : 1 0 =&gt; 0110000
+                  70 : 0 0 =&gt; 0110000
+                  75 : 1 0 =&gt; 1101101
+                  80 : 0 0 =&gt; 1101101
+                  85 : 1 0 =&gt; 1111001
+                  90 : 0 0 =&gt; 1111001
+                  95 : 1 0 =&gt; 0110011
+                 100 : 0 0 =&gt; 0110011
+                 105 : 1 0 =&gt; 1011011
+                 110 : 0 0 =&gt; 1011011
+                 115 : 1 0 =&gt; 1011111
+                 120 : 0 0 =&gt; 1011111
+                 125 : 1 0 =&gt; 0110000
+                 130 : 0 0 =&gt; 0110000
+                 135 : 1 0 =&gt; 1101101
+                 140 : 0 0 =&gt; 1101101
+                 145 : 1 0 =&gt; 1111001
+                 150 : 0 0 =&gt; 1111001
+                 155 : 1 0 =&gt; 0110011
+                 160 : 0 0 =&gt; 0110011
+                 165 : 1 0 =&gt; 1011011
+                 170 : 0 0 =&gt; 1011011
+                 175 : 1 0 =&gt; 1011111
+                 180 : 0 0 =&gt; 1011111
+                 185 : 1 0 =&gt; 0110000
+                 190 : 0 0 =&gt; 0110000
+                 195 : 1 0 =&gt; 1101101
+                 200 : 0 0 =&gt; 1101101
+                 205 : 1 0 =&gt; 1111001
+                 210 : 0 0 =&gt; 1111001
+                 215 : 1 0 =&gt; 0110011
+                 220 : 0 0 =&gt; 0110011
+                 225 : 1 0 =&gt; 1011011
+                 230 : 0 0 =&gt; 1011011
+                 235 : 1 0 =&gt; 1011111
+                 240 : 0 0 =&gt; 1011111
+                 245 : 1 0 =&gt; 0110000
+                 250 : 0 0 =&gt; 0110000
+                 255 : 1 0 =&gt; 1101101
+                 260 : 0 0 =&gt; 1101101
+                 265 : 1 0 =&gt; 1111001
+                 270 : 0 0 =&gt; 1111001
+                 275 : 1 0 =&gt; 0110011
+                 280 : 0 0 =&gt; 0110011
+                 285 : 1 0 =&gt; 1011011
+                 290 : 0 0 =&gt; 1011011
+                 295 : 1 0 =&gt; 1011111
+                 300 : 0 0 =&gt; 1011111
+                 305 : 1 0 =&gt; 0110000
+                 310 : 0 0 =&gt; 0110000
+                 315 : 1 0 =&gt; 1101101
+                 320 : 0 0 =&gt; 1101101
+                 325 : 1 0 =&gt; 1111001
+                 330 : 0 0 =&gt; 1111001
+                 335 : 1 0 =&gt; 0110011
+                 340 : 0 0 =&gt; 0110011
+                 345 : 1 0 =&gt; 1011011
+                 350 : 0 0 =&gt; 1011011
+                 355 : 1 0 =&gt; 1011011
+                 360 : 0 0 =&gt; 1011011
+                 365 : 1 0 =&gt; 1011011
+                 370 : 0 0 =&gt; 1011011
+                 375 : 1 0 =&gt; 1011011
+                 380 : 0 0 =&gt; 1011011
+                 385 : 1 0 =&gt; 1011011
+                 390 : 0 0 =&gt; 1011011
+                 395 : 1 0 =&gt; 1011011
+                 400 : 0 0 =&gt; 1011011
+</code></pre><p>動かせる実機は持っているのですがまだ動かしていません、動かしてみたら追記する予定。TOEICが迫っているのでこの辺で。</p>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/raspberrypi-server/ ">&lt;Raspberrypiでサーバーを作るときの設定など</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/clang-warning/">clang の警告オプションについて&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/try-fpga/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

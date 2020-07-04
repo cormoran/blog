@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - ATmega168pでUSBasp 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="ATmega168pでUSBasp - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="大学で所属しているロボット研究会で回路講座をすることになり、安価なAVRライタの量産が必要になったのでUSBaspを作ることにしました。今回はその試作時に起きた問題のメモ。
+" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#環境">環境</a></li>
+    <li><a href="#atmega168p用にコンパイル">ATMega168p用にコンパイル</a></li>
+    <li><a href="#動かす時のトラブル">動かす時のトラブル</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/sdl2-mac-static/ ">&lt;MacでSDL2を静的リンクする</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/raspberrypi-server/">Raspberrypiでサーバーを作るときの設定など&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2015-08-01">
+	                                2015年8月1日 00:00
+	                            </time>
+	                        </span>
+                        <h1>ATmega168pでUSBasp</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>大学で所属しているロボット研究会で回路講座をすることになり、安価なAVRライタの量産が必要になったのでUSBaspを作ることにしました。今回はその試作時に起きた問題のメモ。</p>
+<p><img src="https://lh3.googleusercontent.com/-IW3yRNgI5QA/ViUUVeb5f0I/AAAAAAAAAGQ/CRlt_eK7fPc/s400-Ic42/usbasp.jpg" alt="UsbAsp"></p>
+<p><a href="http://www.fischl.de/usbasp/">USBasp</a>は公式にはATMega48とATMega88、ATMega8で作れるよと書いてありますが、今回はATMega168pを使いました。ATMega168pとATMega88は容量以外ほとんど同じ構造なのでターゲットの設定を変えるだけで作ることができました。ATMega88でいいところに容量が倍の168pを使っているので無駄な感じはしますが部室に大量にある168pを消費するには非常に好都合です。</p>
+<h2 id="環境">環境</h2>
+<ul>
+<li>
+<p>Mac OSX Yosemite</p>
+</li>
+<li>
+<p>CrossPack for AVR 20131216</p>
+</li>
+<li>
+<p>usbasp.2011-05-28.tar.gz</p>
+</li>
+</ul>
+<h2 id="atmega168p用にコンパイル">ATMega168p用にコンパイル</h2>
+<p>ATMega48とATMega88、ATMega8はバイナリで用意されていますが168p用はないのでソースからコンパイルします。</p>
+<p>Readmeやmakefileが親切なので方法は読めばわかると思いますが、普通に</p>
+<pre><code>make main.hex
+</code></pre><p>とすると以下のようなエラーが大量に出てきました。</p>
+<pre><code>usbdrv/usbdrv.h:485:5: error: variable 'usbDescriptorStringDevice' must be const in order to be put into read-only section by means of '__attribute__((progmem))'
+ int usbDescriptorStringDevice[];
+</code></pre><p>const にしなさいと言ってるのでusbdrv/usbdrv.h,usbdrv/usbdrv.c内のエラーになった部分に全てconstつけたらコンパイルが通りました。</p>
+<p>あとは書き込むだけです。</p>
+<p>fuse bitはATMega168pは88と同じなので low:0xff high:0xdd で大丈夫でした。</p>
+<p>注意としては、USBaspは外部水晶発振器を使う設定になっているので一度fuseを書き込むとターゲットが外部水晶発振器モードになり、発振器をつけないとプログラムの書き込みができなくなります。発振器をつけておけばいいのですが、発振器なしで書き込むには先にプログラムを書いたあとfuseを書けばいいと思います。</p>
+<h2 id="動かす時のトラブル">動かす時のトラブル</h2>
+<p>USBaspは普通の5V IOポートに3.6Vツェナーダイオードをつけて簡易レベル変換することでUSBの仕様(D+-が3.3V)に合わせています。今回は手元に3.3Vツェナーダイオードしかなかったのでそれを使ったのですがPCが認識してくれませんでした。色々試した末、ツェナーダイオードを外すことで安定して認識し、書き込みを行うことができました。<a href="http://www-ice.yamagata-cit.ac.jp/ken/senshu/sitedev/index.php?AVR%2Fnews25a">千秋ゼミ</a>によるとツェナーダイオードは低電圧域での定電圧特性があまり良くないらしく、3.3VのものではAVR側で電圧レベルが足りない？か何かが起こってうまく通信できなかったようです。3.6Vにすれば大丈夫かもしれません。今は5Vのままで使っていますが3.3V仕様のところに5Vで入れるのは少し心配（気分が悪い）です&hellip;;</p>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/sdl2-mac-static/ ">&lt;MacでSDL2を静的リンクする</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/raspberrypi-server/">Raspberrypiでサーバーを作るときの設定など&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/atmega168-usbasp/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

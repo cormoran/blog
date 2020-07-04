@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - Arduino互換の基板を自作してよくあるロボを動かす話(1) 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="Arduino互換の基板を自作してよくあるロボを動かす話(1) - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Kobe University Advent Calendar 2016の18日目です。
+前回書こうとしてやめた話を書きます。実は時間がなくて完成してないので(1)としています。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#内容">内容</a></li>
+    <li><a href="#基板を設計する">基板を設計する</a></li>
+    <li><a href="#arduino互換機として作る">Arduino互換機として作る</a></li>
+    <li><a href="#発注する">発注する</a></li>
+    <li><a href="#作る">作る</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/kuzonazonazo/ ">&lt;クソなぞなぞコンテスト</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/hokkaido-travel/">北海道（札幌）旅行記&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2016-12-18">
+	                                2016年12月18日 20:17
+	                            </time>
+	                        </span>
+                        <h1>Arduino互換の基板を自作してよくあるロボを動かす話(1)</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p><a href="http://www.adventar.org/calendars/1881">Kobe University Advent Calendar 2016</a>の18日目です。</p>
+<p>前回書こうとしてやめた話を書きます。実は時間がなくて完成してないので(1)としています。</p>
+<h2 id="内容">内容</h2>
+<ul>
+<li>基板を設計する</li>
+<li>基板を発注する</li>
+<li>基板に実装する</li>
+<li>プログラムを書く(次回？)</li>
+</ul>
+<h2 id="基板を設計する">基板を設計する</h2>
+<p>　有名なツールは<a href="https://cadsoft.io">EAGLE</a>、<a href="http://kicad.jp">KiCad</a>など。他にもユニバーサル基板用の<a href="http://www.geocities.jp/uaubn/pass/">PasS</a>、RSが作っている<a href="https://www.rs-online.com/designspark/pcb-software-jp">DesignSpark PCB</a>などがある。</p>
+<p>　EAGLEは商用ソフトで、無料版には基板サイズなどの制限がある。と言っても、趣味勢が作るような小さなものなら大体は問題なく作れる。よく使われるパーツは大体ライブラリが作られてその辺で公開されており、EAGLEはかつてはデファクトスタンダードだったと自分は認識している。</p>
+<p>　KiCadはオープンソースで最近はやりな感じがある。EAGLEのライブラリをimportできるのでライブラリも大体はその辺からとってこられる。ちゃんと調べてないけど、今から始めるならとりあえずKiCad使えという感じがする。もちろんEAGLEのような制限はない。</p>
+<h2 id="arduino互換機として作る">Arduino互換機として作る</h2>
+<p>　ArduinoIDEで（苦労なく）利用できるArduino互換基板として設計する場合、プログラムの書き込みの部分が重要。</p>
+<p>Arduinoの書き込みはシリアル通信のRX, TXのほか、DTRを使って行われる。DTRはマイコンのリセットピンに繋がっており、hackな感じの使い方がされている。
+詳細は<a href="http://kutsushita-neko.cocolog-nifty.com/blog/2013/09/arduino-e10d.html">ここのサイト</a>など参照。</p>
+<p>　とりあえず、DTRに0.1uFかませてリセットに繋いでおけば良い。ネットで検索すると出てくるリセットから電源へのダイオードは、安定性は別としてなくても動く。</p>
+<p>　マイコンの回路を作る場合、RX, TXはデバッグ用に出しておくだろうから、それに加えてリセットに0.1uf挟んだピンを出しておけば、USBシリアル変換回路を使ってArduinoIDEから使えるということ。</p>
+<p>　その他の注意としては、マイコン、発振子の周波数はArduino既製品のどれかに合わせること。ブートローダーが自分でコンパイルできれば合ってなくても問題はないが、合わせておけばArduinoIDEから直接ブートローダを書き込める（書き込み器は必要）。また、Arduinoのライブラリを使う場合はライブラリ内で使うタイマーの関係でPWM出力に制限が出てきたりするので事前に調べておいて、使用するピン等を決めた方が良い。</p>
+<p>　ArduinoIDEから使用する場合、ArduinoUnoなど自分のボードのマイコン・周波数にあう既存ボードを選択すれば良いが、自分のボードをArduinoIDEに登録することも可能。ArduinoIDE内のファイルをコピーしてちょこちょこ書き換えるとできる。どこかのサイトを参考にした気がするがさっき検索したところ良いサイトが見つからない。ArduinoIDEのホームページ探すと英語だけどありそうな気がする（別記事で書くべきか？）。さらに、ボード情報をネットに上げておいて、ボードマネージャから追加・更新というのも可能。ArduinoIDEは結構自由度が高い。<a href="https://www.arduino.cc/en/Hacking/HomePage">この辺り</a>を見ると良さそう。</p>
+<p>今年設計した基板たちを並べておく。ノイズ対策とか適当で晒すほどのものではない感じがあるが。</p>
+<p>シリアル変換icを搭載していないタイプ</p>
+<ul>
+<li><a href="https://github.com/RokkoOroshi/CanMotorBoard2016">https://github.com/RokkoOroshi/CanMotorBoard2016</a></li>
+<li><a href="https://github.com/RokkoOroshi/CanServoBoard2016">https://github.com/RokkoOroshi/CanServoBoard2016</a></li>
+</ul>
+<p>シリアル変換icを搭載したタイプ</p>
+<ul>
+<li><a href="https://bitbucket.org/cormoran707/tpip3sizemotorboard">https://bitbucket.org/cormoran707/tpip3sizemotorboard</a></li>
+</ul>
+<h2 id="発注する">発注する</h2>
+<p>　あれこれして基板が設計できたとする。基板を作る方法は手軽なものならアイロンプリント法、感光基板で作る方法、加工機で作る方法、発注などがある自分は。昔はアイロンプリントしていたが、穴を開けるのが結構面倒だった。おすすめは発注。</p>
+<p>　発注は海外業者に頼むのが一般的。どこがいいかは結構頻繁に変わるようだが、自分は<a href="http://www.elecrow.com">elecrow</a>を使っている。日本語サイトなら<a href="https://www.switch-science.com/pcborder/">switch science pcb</a>が安い（海外の<a href="https://www.seeedstudio.com">seeedstudio</a>の代理をしているだけっぽいので安さ重視なら直接海外に頼めば良い）。</p>
+<p>　価格はサイズによるが、50mm x 100mm までで10枚（同一基板）作ってくれて、$10 + 送料$5~くらい。重さによって送料が変わってくるが、為替等考えても2000円以内くらいで作れる。安い。ちなみに、頼んだ枚数より１、２枚余分に入っていることが多い。</p>
+<p>　問題としては手元に届くのに２週間くらいかかることくらい。お金を積んで運送業者を変えればもっと早く届く。
+　</p>
+<h2 id="作る">作る</h2>
+<p>作る際に必要な部品は<a href="http://akizukidenshi.com/catalog/default.aspx">秋月電子</a>、<a href="http://jp.rs-online.com/web/">RSオンライン</a>等で買えば良いが、amazon, ebay, AliExpressなどで安く大量のパーツが買えたりもする（自分はその手の部品は買ったことがないのでまともなものが送られてくるかは知らない）。</p>
+<p>作る際、はんだごては温度調整付きのものの方がbetter。半田付けは練習あるのみという感じ。</p>
+<p>上で紹介したボードの完成写真</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>設計ミスは力技でなんとかするのが一般的。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>かわいいアニメキャラ的なのをプリントするのが良いのだろうけど、そういうのに疎い（し、やったら真面目な方々から怒られそうな）ので某団体のロゴを突っ込んでおいた。こういうのを結構綺麗に入れられるのも発注の強み・楽しみ。</p>
+<p>力尽きたので今日はこの辺りにしておく。</p>
+<p>やろうとしていたのは、上で載せた大きい方のボードを使って、下のようなよくある車を動かす！という話。動かすのは一瞬で、動かすプログラムは書いたのだけど、制御画面なるものをelectronで作ろうとして、cssに凝りすぎて消耗したので放置している&hellip;。今年中に(2)を書きたい。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/kuzonazonazo/ ">&lt;クソなぞなぞコンテスト</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/hokkaido-travel/">北海道（札幌）旅行記&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/how-to-make-my-board/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

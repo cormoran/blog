@@ -1,0 +1,162 @@
+@charset "UTF-8";
+body {
+  font-family: "游ゴシック", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ ゴシック", sans-serif;
+  background: url("./images/bg01.png");
+  font-size: 14px;
+  color: #666;
+  font-weight: 500; }
+
+footer {
+  padding: 5px;
+  padding-bottom: 15px; }
+
+.main {
+  background: white; }
+  .main h1 {
+    font-size: 25px;
+    text-align: center; }
+
+.side {
+  margin-top: 10px;
+  /* xs */ }
+  .side h1 {
+    font-size: 22px; }
+  .side h2 {
+    font-size: 18px; }
+  .side .menu a {
+    color: #666; }
+  .side .menu ul {
+    padding: 0; }
+    .side .menu ul li {
+      margin-bottom: 5px;
+      list-style: none;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+      .side .menu ul li::before {
+        content: ""; }
+  .side .social-icon-list a {
+    font-size: 18px;
+    color: #666; }
+  .side .social-icon-list ul {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .side .social-icon-list ul li {
+      list-style: none;
+      padding-left: 5px;
+      padding-right: 5px; }
+  .side .tag-list .badge {
+    background: #666; }
+  .side #TableOfContents > ul {
+    padding: 0; }
+    .side #TableOfContents > ul > li {
+      list-style: none; }
+  @media only screen and (max-width: 768px) {
+    .side #TableOfContentsWrapper {
+      position: static !important; } }
+
+.list .entry {
+  margin-top: 20px; }
+  .list .entry .entry-meta {
+    font-size: 12px; }
+  .list .entry .entry-title {
+    font-size: 20px;
+    margin-top: 0px; }
+    .list .entry .entry-title a {
+      color: #555; }
+  .list .entry .entry-summary h1,
+  .list .entry .entry-summary h2,
+  .list .entry .entry-summary h3,
+  .list .entry .entry-summary h4 {
+    font-size: 14px !important; }
+
+.single {
+  line-height: 1.6em;
+  font-size: 15px;
+  color: #555; }
+  .single h1 {
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    text-align: center; }
+  .single h2 {
+    font-size: 24px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #888; }
+  .single h3 {
+    font-size: 20px; }
+
+.disqus {
+  margin-top: 40px; }
+
+.pagenator {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+  .pagenator:not(:first-child) {
+    margin-top: 30px; }
+  .pagenator:not(:last-child) {
+    margin-bottom: 30px; }
+  .pagenator > div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+
+.site-title {
+  font-size: 22px;
+  text-align: center; }
+  .site-title a {
+    color: #555; }
+
+.logo {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px; }
+
+.google-custom-search-wrapper * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* Highlight.js overwrite */
+.hljs-line-numbers {
+  text-align: right;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+pre {
+  overflow: auto;
+  word-break: normal;
+  word-wrap: normal;
+  padding: 4px; }
+
+pre code {
+  white-space: pre; }
+
+pre {
+  position: relative; }
+
+.hljs-language-tag-wrapper {
+  display: block;
+  background: #002b36; }
+  .hljs-language-tag-wrapper .hljs-language-tag {
+    display: inline-block;
+    color: #839496;
+    padding: 2px 8px; }
+  .hljs-language-tag-wrapper .hljs-copy-button {
+    display: inline-block;
+    float: right;
+    color: white;
+    padding: 2px 8px;
+    cursor: pointer; }
+    .hljs-language-tag-wrapper .hljs-copy-button:hover {
+      background-color: #ee6611; }

@@ -1,0 +1,508 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - ICPC2018 国内予選 参加記 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="ICPC2018 国内予選 参加記 - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="今年も ICPC 国内予選に出た．getting_over_32 というチームで @takeo1116 と @fwarashi で参加．A,B,C,D の４完４１位（学内２位）だった．大雨の影響などで選抜ルールが変更されなければアジア地区通過らしい．
+自分は A,B,D の実装をした．B を通すのが遅くなってしまったのはとても反省．" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#事前戦略">事前戦略</a></li>
+    <li><a href="#本番準備">本番準備</a></li>
+    <li><a href="#本番">本番</a></li>
+    <li><a href="#提出したプログラムたち">提出したプログラムたち</a>
+      <ul>
+        <li><a href="#a">A</a></li>
+        <li><a href="#b">B</a></li>
+        <li><a href="#d">D</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/2018/06/studenthunting/ ">&lt;逆求人フェスティバルに参加してみた話</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/2018/09/akatski-server-sonic-2018/">Akatsuki Server Sonic 2018 参加記&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2018-07-09">
+	                                2018年7月9日 01:49
+	                            </time>
+	                        </span>
+                        <h1>ICPC2018 国内予選 参加記</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>今年も ICPC 国内予選に出た．getting_over_32 というチームで <a href="https://twitter.com/takeo1116">@takeo1116</a> と <a href="https://twitter.com/fwarashi">@fwarashi</a> で参加．A,B,C,D の４完４１位（学内２位）だった．大雨の影響などで選抜ルールが変更されなければアジア地区通過らしい．</p>
+<p>自分は A,B,D の実装をした．B を通すのが遅くなってしまったのはとても反省．</p>
+<p>去年は kimiyuki，KokiYmgch と参加してアジア地区は実質保証されていた感があったけど，今年は別チームで，それなりにがんばらないと行けないなぁという感じだった．ミスがなくて，学内の他２チームに負けなければアジア地区はなんとかなるかな，くらいの感じでいた．</p>
+<h2 id="事前戦略">事前戦略</h2>
+<p>事前のチーム練習は模擬地区の１回だけだったので，あまりまじめな戦略はたてられなかった．レーティング的には自分が一番高いけど，考察力的にはあまり変わらなさそうな気がしていたので，いい感じにローテーションすればいいか&hellip;と適当に思っていたが，@takeo1116 が Windows 民で Linux コマンドがだめだったので，自分と @fwarashi で実装をやることになった．</p>
+<p>@fwarashi が環境構築，A を自分が通して，B を @fwarashi，@takeo1116 の C の考察を聞いて自分が C 通すみたいな雰囲気の戦略を立てていた気がする．が後々冷静に考えると結構厳しい気がするのでアジア地区に出られる場合は，とりあえず @takeo1116 に Linux を叩き込まないといけない．</p>
+<h2 id="本番準備">本番準備</h2>
+<p>例の大雨で電車が止まっていて遠方組は大変だったが，自分は徒歩通学なので大丈夫だった．到着がだいぶ遅れてつらそうな人もいたけど，うちの大学から出た４チームは全メンバー揃って大学で出られた．</p>
+<p>環境の準備は毎年のことだけど，PC が足りなかったり，PC のメモリが壊れていたり，OS が古かったり，プリンタが繋がらなかったりで大変だった．雨でできなかったのだけど，前日準備はとても大切&hellip;．</p>
+<p>キーボードは @fwarashi の RealForce を使わせてもらったけど，やっぱり打ちやすかったので静電容量式のキーボードが欲しくなった．</p>
+<h2 id="本番">本番</h2>
+<p>@fwarashi に環境構築をしてもらいつつ，モニタで自分が A を読んだ．簡単すぎて環境構築より早く解法が出たので，B も自分が読むことにした．B 読んで，とりあえずざっくり実装できそうだけどつらいなぁみたいな気分になったところで PC が空いたので A を実装（7:46 AC）．</p>
+<p>B を @fwarashi に読んでもらっていた気がするが，実装がやるだけだけど面倒そうだったのでとりあえず自分が実装始めておくと言って勝手に始めた気がする．詳細を @fwarashi に読んで確認してもらうつもりでいたけど，この辺で情報共有がちょっと適当になった気がする．微妙に長い時間をかけてとりあえず実装できたけど領域外アクセスしてつらい気分になった．その辺で２人に投げていた C が実装できるとのことだったのでいったん PC を譲った．見返すと，紙の幅と高さ N, M を逆にしていたり，折り返しの index 計算が適当すぎて申し訳ない気分になった．その後 C もバグった（？）らしいとかで２回ほど PC を交換した．C が通ったあたりで制約の誤読がわかってまたつらくなったが，初期の想定内だったので適当に対応した．(C AC 1:03:00, B AC 1:15:06)</p>
+<p>C が通ったあとは２人に D を投げていたので，自分は E を読むことにした．問題文は理解したが，$N &lt;= 10^{18}$ で桁上がりが大変そう&hellip;って感じだった．考えてもしばらくかかりそうだったのと順位表を見て D は解くべきな感じだったので一度２人と問題交換した（この選択がかなり良かったはず）．D は２人は枝狩り全探索(?)みたいな感じで止まっていたので，よくわからないけどサンプルに最悪に近いケースがあって答えの組み合わせ数的にはなんとかなりそうだったので，とりあえず全探索書いた．ちょっと詰まって心配になりつつも計算が終わったので提出．(1:57:50 AC)</p>
+<p>とりあえず４完して，上にいた TEAM_IZ も４完だったので，ワンチャン抜けるのでは？みたいな話をした．</p>
+<p>一息ついて残りの問題内容共有した．順位表をみると E 以外はほとんど解かれていなかったのと，自分が D を実装している間に２人が E をダブリング的方向で考えていて，方向は良さそうだったので，３人で E を考えることにした（気がする？）．ただのダブリング（繰り返し２乗法）では誤差がだめだと思いつつも，とりあえず @fwarashi に実装を始めてもらって，自分と @takeo1116 でもう少し考えることにした．色々話していると，桁上がりの直前までダブリング的に進めるのを繰り返すと行けそうという気持ちになったので PC を奪って実装を始める（残り３０分＋ α くらい？）．残り１５分くらいでコア部分がだいたい実装できる．動かしてみると全然答えが違ってつらい．時間的に厳しいなぁと思いつつも色々やっていると，終了．順位表を見ていると，@takeo1116 が選抜ルールを完全に覚えていたらしく，チーム数を数えて通過したっぽいみたいな話をした．</p>
+<p>E は見直していたら入力が仮数部のみであることに気づいたり， 1. の部分をとりあえず放置したままにしていたりしてもうちょっと時間が必要な感じだった．</p>
+<p>終わってから見返すと，解くべきだった順番は A -&gt; C -&gt; (B or D) -&gt; (E or F?) &hellip; という感じ．WA が 0 だったのは良かった．</p>
+<p>最近ほとんど精進できていなかったことを考えるとまあまあの出来かもしれないけど，実装力不足感が否めないので，とりあえず実装力精進の必要性を感じた．今回の B くらいは思考停止でバグなく実装したい．</p>
+<h2 id="提出したプログラムたち">提出したプログラムたち</h2>
+<h3 id="a">A</h3>
+<p>やるだけという感じ．何も考えていないけど，浮動小数は怖かったので整数比較した．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">using</span> ll<span style="color:#f92672">=</span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  <span style="color:#66d9ef">while</span>(true) {
+    ll N; cin <span style="color:#f92672">&gt;&gt;</span> N;
+    <span style="color:#66d9ef">if</span>(N <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
+    vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span> A(N);
+    ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> A[i];
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) sum <span style="color:#f92672">+=</span> A[i];
+    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+      ans <span style="color:#f92672">+=</span> A[i] <span style="color:#f92672">*</span> N <span style="color:#f92672">&lt;=</span> sum;
+    }
+    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h3 id="b">B</h3>
+<p>最初に <code>N</code> <code>M</code> を逆にしてしまって，その後も<code>N</code> <code>M</code> と <code>X</code> <code>Y</code> の対応を取るのがつらかった．<code>H</code> <code>W</code> にしてくれ．（<code>H</code> <code>W</code> で実装すれば良いだけの話&hellip;）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define rep(i, N) for(int i = 0; i &lt; (int)(N); i++)
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">using</span> ll<span style="color:#f92672">=</span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">while</span>(true) {
+        <span style="color:#66d9ef">int</span> N, M, T, P; cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> M <span style="color:#f92672">&gt;&gt;</span> T <span style="color:#f92672">&gt;&gt;</span> P;
+        <span style="color:#75715e">// cerr &lt;&lt; N &lt;&lt; &#34; &#34; &lt;&lt; M  &lt;&lt; &#34; &#34; &lt;&lt; T &lt;&lt; &#34; &#34; &lt;&lt; P &lt;&lt; endl;
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(N <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> and M <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">int</span> MM <span style="color:#f92672">=</span> M;
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> D(T), C(T);
+        rep(t, T) cin <span style="color:#f92672">&gt;&gt;</span> D[t] <span style="color:#f92672">&gt;&gt;</span> C[t];
+
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> X(P), Y(P);
+        rep(p, P) cin <span style="color:#f92672">&gt;&gt;</span> X[p] <span style="color:#f92672">&gt;&gt;</span> Y[p];
+
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> G(M <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(N <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>));
+        rep(m, M) rep(n, N) G[m][n] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+        N <span style="color:#f92672">*=</span> <span style="color:#ae81ff">100</span>;
+        M <span style="color:#f92672">*=</span> <span style="color:#ae81ff">100</span>;
+        <span style="color:#66d9ef">int</span> sx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, sy <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        rep(t, T) {
+            <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> D[t], c <span style="color:#f92672">=</span> C[t];
+            <span style="color:#75715e">// cerr &lt;&lt; &#34;!&#34; &lt;&lt; t &lt;&lt; endl;
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(d <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+                rep(i, c) {
+                    rep(y, M) {
+                        <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> G[y][i <span style="color:#f92672">+</span> sx];
+                        G[y][i <span style="color:#f92672">+</span> sx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+                        G[y][sx <span style="color:#f92672">+</span> c <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+=</span> tmp;
+                    }
+                }
+                sx <span style="color:#f92672">+=</span> c;
+            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(d <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>) {
+                rep(i, c) {
+                    rep(x, N) {
+                        <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> G[i <span style="color:#f92672">+</span> sy][x];
+                        G[i <span style="color:#f92672">+</span> sy][x] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+                        G[sy <span style="color:#f92672">+</span> c <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][x] <span style="color:#f92672">+=</span> tmp; <span style="color:#75715e">// TODO
+</span><span style="color:#75715e"></span>                    }
+                }
+                sy <span style="color:#f92672">+=</span> c;
+            } <span style="color:#66d9ef">else</span> assert(<span style="color:#ae81ff">0</span>);
+            <span style="color:#75715e">// cerr &lt;&lt; endl &lt;&lt; endl;
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// rep(i, MM) {
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// 	rep(j, N) cerr &lt;&lt; G[i][j] &lt;&lt; &#34; &#34;;
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// 	cerr &lt;&lt; endl;
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// }
+</span><span style="color:#75715e"></span>        }
+        rep(p, P) {
+            <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> X[p], y <span style="color:#f92672">=</span> Y[p];
+            cout <span style="color:#f92672">&lt;&lt;</span> G[y <span style="color:#f92672">+</span> sy][x <span style="color:#f92672">+</span> sx] <span style="color:#f92672">&lt;&lt;</span> endl;
+            <span style="color:#75715e">// TODO
+</span><span style="color:#75715e"></span>        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h3 id="d">D</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define rep(i, N) for(int i = 0; i &lt; (int)(N); i++)
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">using</span> ll<span style="color:#f92672">=</span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+<span style="color:#66d9ef">using</span> pii<span style="color:#f92672">=</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">while</span>(true) {
+        <span style="color:#66d9ef">int</span> N; cin <span style="color:#f92672">&gt;&gt;</span> N;
+        <span style="color:#66d9ef">if</span>(N <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">int</span> M; cin <span style="color:#f92672">&gt;&gt;</span> M;
+
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> X(M), Y(M);
+        rep(i, M) {
+            cin <span style="color:#f92672">&gt;&gt;</span> X[i] <span style="color:#f92672">&gt;&gt;</span> Y[i];
+            X[i]<span style="color:#f92672">--</span>;
+            Y[i]<span style="color:#f92672">--</span>;
+        }
+
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> win(N, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(N));
+
+        rep(i, M) {
+            win[X[i]][Y[i]]<span style="color:#f92672">++</span>;
+            win[Y[i]][X[i]]<span style="color:#f92672">--</span>;
+        }
+
+        <span style="color:#75715e">// cerr &lt;&lt; &#34;!--&#34; &lt;&lt; endl;
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// rep(i, N) {
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//   rep(j, N) {
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 	cerr &lt;&lt; win[i][j] &lt;&lt; &#34; &#34;;
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 	assert(-1 &lt;= win[i][j] and win[i][j] &lt;= 1);
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//   }
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//   cerr &lt;&lt; endl;
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// }
+</span><span style="color:#75715e"></span>
+        vector<span style="color:#f92672">&lt;</span>pii<span style="color:#f92672">&gt;</span> left; <span style="color:#75715e">// y x
+</span><span style="color:#75715e"></span>        rep(i, N) rep(j, i) <span style="color:#66d9ef">if</span>(win[i][j] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) left.emplace_back(i, j);
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> sums(N);
+        rep(i, N) rep(j, N) <span style="color:#66d9ef">if</span>(win[i][j] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) sums[i]<span style="color:#f92672">++</span>;
+
+        function<span style="color:#f92672">&lt;</span>ll(<span style="color:#66d9ef">int</span>, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span>)<span style="color:#f92672">&gt;</span> dfs <span style="color:#f92672">=</span> [<span style="color:#f92672">&amp;</span>] (<span style="color:#66d9ef">int</span> i, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>sums) {
+            <span style="color:#66d9ef">if</span>(i <span style="color:#f92672">&gt;=</span> left.size()) {
+                <span style="color:#66d9ef">bool</span> ok <span style="color:#f92672">=</span> true;
+                rep(i, N) ok <span style="color:#f92672">&amp;=</span> sums[i] <span style="color:#f92672">==</span> N <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+                <span style="color:#66d9ef">return</span> ok <span style="color:#f92672">?</span> <span style="color:#ae81ff">1ll</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0ll</span>;
+            }
+            ll ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+            pii p <span style="color:#f92672">=</span> left[i];
+            <span style="color:#66d9ef">if</span>(<span style="color:#f92672">++</span>sums[p.first] <span style="color:#f92672">&lt;=</span> N <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) {
+                ans <span style="color:#f92672">+=</span> dfs(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, sums);
+            }
+            sums[p.first]<span style="color:#f92672">--</span>;
+            <span style="color:#66d9ef">if</span>(<span style="color:#f92672">++</span>sums[p.second] <span style="color:#f92672">&lt;=</span> N <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) {
+                ans <span style="color:#f92672">+=</span> dfs(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, sums);
+            }
+            sums[p.second]<span style="color:#f92672">--</span>;
+            <span style="color:#66d9ef">return</span> ans;
+        };
+        <span style="color:#75715e">// cerr &lt;&lt; &#34;ans &#34;;
+</span><span style="color:#75715e"></span>        cout <span style="color:#f92672">&lt;&lt;</span> dfs(<span style="color:#ae81ff">0</span>, sums) <span style="color:#f92672">&lt;&lt;</span> endl;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/2018/06/studenthunting/ ">&lt;逆求人フェスティバルに参加してみた話</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/2018/09/akatski-server-sonic-2018/">Akatsuki Server Sonic 2018 参加記&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/2018/07/icpc-domestic-2018/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

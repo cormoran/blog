@@ -1,0 +1,453 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - ATmega168pを使う ~PWMとAD変換~ 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="ATmega168pを使う ~PWMとAD変換~ - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="先日春休みの心得で”ダミヤンを作る”という目標を書きましたが、ATmega168pはその心臓部に使う予定です。しかし、実は自分は今までPICばかり使っていてAVRは半年ほど前に１度使っただけです。そこで今回はAVRの使い方を思い出すこととダミヤンを作るための準備を兼ねてPWM出力とA/D変換を使ってみました。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#atmega168p-概要">ATmega168p 概要</a></li>
+    <li><a href="#ledを光らせる">LEDを光らせる</a></li>
+    <li><a href="#pwmとad変換">PWMとA/D変換</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/vs-ipach/ ">&lt;Visual Studio 2013 の設定　sdfとipach</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/atmega168-uart/">AVR UART通信 on mega168p&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2015-02-21">
+	                                2015年2月21日 00:00
+	                            </time>
+	                        </span>
+                        <h1>ATmega168pを使う ~PWMとAD変換~</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>先日<a href="http://blog.cormoran-web.com/2015/02/17/promise-of-spring-vacation/" title="春休みの生活心得">春休みの心得</a>で”ダミヤンを作る”という目標を書きましたが、ATmega168pはその心臓部に使う予定です。しかし、実は自分は今までPICばかり使っていてAVRは半年ほど前に１度使っただけです。そこで今回はAVRの使い方を思い出すこととダミヤンを作るための準備を兼ねてPWM出力とA/D変換を使ってみました。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> ダミヤン：レスキューロボットコンテストで使われる災害での要救助者を模した人形。レスコンのサイトは<!-- raw HTML omitted -->こちら<!-- raw HTML omitted -->。<!-- raw HTML omitted --></p>
+<h2 id="atmega168p-概要">ATmega168p 概要</h2>
+<p>・8bit 28ピンマイコン</p>
+<p>・最高20MHz</p>
+<p>・16KBのフラッシュメモリ</p>
+<p>・1KBのSRAM</p>
+<p>・512BのEEPROM</p>
+<p>・DIO、10bit A/D変換、USART、SPI、TWI(I2C)、QTouchなど…</p>
+<p>　秋月によるとATmega168の低消費電力版らしい。Arduinoによく使われるのはmega168、mega328pらしいがこいつらは基本的な機能もピン配置も同じなのでちょっと頑張れば168pでArduino互換機が作れるらしい。（先日ちょっと挑戦したがMacの何かのせいで簡単にはいかず断念中。また記事書くかもしれません。）</p>
+<p>　実は328pはフラッシュメモリが168pの２倍ほどあって価格も秋月で50円差なのでちょっと買うなら328pがいいのですが、某ロボ研になぜか168pが大量にあったので仕方なくこいつを使っています。（ライトに使うなら168pで多分十分です）</p>
+<h2 id="ledを光らせる">LEDを光らせる</h2>
+<p>　PWMの前に少しだけ簡単なやつを。0.5sごとにLEDを点滅させます。速いのが好きなのでヒューズビットを以下のコードにあるように設定して8MHzでavrを動作させています。PB0にLEDをつないでおけば点滅するはずです。（実はここは動作確認してません..）</p>
+<pre><code>//Fuse : High 0xDF
+//       Low  0xE2
+//8MHz 内部クロック、1/8分周期は使わない
+
+#define F_CPU 8000000L    //8MHz これはdelayを使うのに必要。util/delay.hをインクルードする前に定義しておく
+#include &amp;lt;avr/io.h&amp;gt;
+#include &amp;lt;util/delay.h&amp;gt;
+
+int main(void)
+{
+    DDRB  = 0xff ; //ポートBをすべて出力
+    PORTB = 0 ;    //ポートBをすべてLowに
+    while(1){
+        PORTB ^= (1&amp;lt;&amp;lt;PB0);  //PB0の出力を反転
+        _delay_ms(500);     //500ms (=0.5s) 待つ
+    }
+    return 0;
+}
+</code></pre><h2 id="pwmとad変換">PWMとA/D変換</h2>
+<p>AD変換の値によって”周波数”を変えています。普段は周波数固定でデューティ比を変えることが多いと思います。そっちのサンプルはそのうち..</p>
+<pre><code>#include &amp;lt;avr/io.h&amp;gt;
+#include &amp;lt;util/delay.h&amp;gt;
+
+#define F_CPU 8000000L    //8MHz
+
+#define bSET(x) (1&amp;lt;&amp;lt;(x))     // bit x のみが1
+#define bCLR(x) (~(1&amp;lt;&amp;lt;(x)))  // bit x のみが0
+#define is_SET(x,y) ((x) &amp; (1&amp;lt;&amp;lt;(y)))
+
+/*
+ * TMR1の設定(PWM)
+ * 出力PWMは  周波数 clk / 8 * OCR1A
+ *           Duty  High:Low = OCR1B : OCR1A
+ *
+ */
+void TMR1_init(){
+
+    TCNT1=0;
+    TCCR1A = 0;
+    TCCR1B = 0;
+
+    TCCR1A |= bSET(WGM11) | bSET(WGM10)  ; // 0b(11)11 OCR1AをTOPをする高速PWM
+    TCCR1B |= bSET(WGM13) | bSET(WGM12)  ; // 上の括弧部分
+
+    TCCR1A |= bSET(COM1B1) ; // 0b10    OC1B出力は比較一致でLow,BottomでHigh
+                             //         (ちなみに)OC1Aは無効 0b00
+
+
+    ICR1 =0xffff;
+
+    OCR1A=0x00ff;  //タイマのトップ値の設定
+
+    OCR1B=0x00ff;     //比較一致の値
+
+    //割り込みは不可（多分デフォルト？）
+    TCCR1B |= bSET(CS11) ;   // 0b010   Timer1のクロックはclkを8分周 start
+}
+
+
+/*
+ * A/D変換の設定
+ * ADC1を入力にしてみる
+ */
+void AD_init(){
+
+    ADMUX  = 0 ;
+    ADMUX |= bSET(REFS0) ;    // 0b01 基準電圧AVCC
+    ADMUX |= bSET(MUX0) ;     // 0b0001 A/D変換機にADC1ポートを接続
+
+    ADCSRA  = 0 ;
+    ADCSRA |= bSET(ADEN);    // A/D変換使用許可
+                              // (ちなみに)入力クロックはCK/2
+
+    DIDR0  = bSET(ADC1D);     // ADC1のポートのデジタル入力禁止（省電力のため推奨）
+
+
+}
+
+void init(){
+    TMR1_init();
+    AD_init();
+    DDRB = 0xff;//全てのポートを出力に
+    DDRC = 0xff ;//&amp; bCLR(PC1); //PC1はA/D用入力
+    PORTB=0xff;
+}
+
+int main(void)
+{
+    init();
+
+    while(1){
+        int adin;
+
+        ADCSRA |= bSET(ADSC) ;        //A/D変換開始
+        while(is_SET(ADCSRA,ADIF)==0) ;  //変換終了まで待機
+        adin  = ADC ;
+        adin=adin&amp;lt;&amp;lt;6;
+
+        OCR1A = adin ;
+
+        adin/=2;
+        OCR1B = adin ;
+    }
+
+    return 0;   /* never reached */
+}
+</code></pre>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/vs-ipach/ ">&lt;Visual Studio 2013 の設定　sdfとipach</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/atmega168-uart/">AVR UART通信 on mega168p&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/atmega168-ad-pwd/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - clang のSanitizerについて 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="clang のSanitizerについて - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="昔調べた時にclangで-fsanitize=undefinedが使えなかったので、よく考えずにaddressを使っていた。新しいclangを入れようとしていろいろしていたら使えるようになったので、ついでにsanitizer周りについて調べてみた。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#環境">環境</a></li>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#addresssanitizer">AddressSanitizer</a>
+      <ul>
+        <li><a href="#例">例</a></li>
+      </ul>
+    </li>
+    <li><a href="#undefinedbehaviorsanitizer">UndefinedBehaviorSanitizer</a>
+      <ul>
+        <li><a href="#例1">例1</a></li>
+        <li><a href="#例2">例2</a></li>
+      </ul>
+    </li>
+    <li><a href="#組み合わせる">組み合わせる</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/clang-mac/ ">&lt;Macのclangでlibstdc&#43;&#43;,libc&#43;&#43;を切り替えて使う</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/libstdcpp_and_libcpp_debug_mode/">libc&#43;&#43;とlibstdc&#43;&#43;のデバッグモードについて&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2016-08-19">
+	                                2016年8月19日 20:38
+	                            </time>
+	                        </span>
+                        <h1>clang のSanitizerについて</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>昔調べた時にclangで<code>-fsanitize=undefined</code>が使えなかったので、よく考えずに<code>address</code>を使っていた。新しいclangを入れようとしていろいろしていたら使えるようになったので、ついでにsanitizer周りについて調べてみた。</p>
+<h2 id="環境">環境</h2>
+<p>sanitizerはどれが使えるかとかが結構環境(OS)依存なようなので重要</p>
+<ul>
+<li>
+<p>Mac OS X El Capitan (10.11.6)</p>
+</li>
+<li>
+<p>clang 3.8.0 (<code>brew install llvm38  --with-asan --with-lldb</code>)</p>
+<p><code>--with-lldb</code>は関係ないかもしれないけど、一応上のコマンドで入れた。<code>--with-asan</code>が重要</p>
+</li>
+</ul>
+<h2 id="概要">概要</h2>
+<p>clangで使えるsanitizerには<a href="http://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a>,<a href="http://clang.llvm.org/docs/ThreadSanitizer.html">ThreadSanitizer</a>,<a href="http://clang.llvm.org/docs/MemorySanitizer.html">MemorySanitizer</a>,<a href="http://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html">UndefinedBehaviorSanitizer</a>などがある。</p>
+<p>コンパイル時に</p>
+<pre><code>clang++ -fsanitize=address hoo.cpp
+</code></pre><p>のように<code>-fsanitize=hoge</code>とつけると、実行ファイルにsanitizerがリンクされて実行時の各種エラーを見つけてくれる。</p>
+<p>Memory, Thread SAnitizerはMacをサポートしていないようだったのでAddressSanitizerとUndefinedBehaviorSanitizerについて書く。</p>
+<h2 id="addresssanitizer">AddressSanitizer</h2>
+<p>Xcodeで入ってくるclangでも使えた。</p>
+<p>メモリ関連のバグを実行時に検出してくれる。内容は<a href="http://clang.llvm.org/docs/AddressSanitizer.html">clangのドキュメント</a>を見るのがわかりやすいが、ざっくりまとめると、</p>
+<ul>
+<li>以下のようなエラーを検出する
+<ul>
+<li>head, stack, globalでの領域外アクセス</li>
+<li>freeした領域の使用</li>
+<li>return した後のstackの利用 (追加オプション)</li>
+<li>Use-after-scope (追加オプション)</li>
+<li>多重free, 無効なfree</li>
+<li>メモリリーク (experimental)</li>
+</ul>
+</li>
+<li>実行速度は2倍くらい遅くなる</li>
+<li>スタックメモリは3倍くらい使う</li>
+</ul>
+<h3 id="例">例</h3>
+<p>ありそうな配列外アクセス</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// array-out-of-bound.cpp
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">100</span>];
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>) a[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>自分は使いこなせていないが、周辺のメモリの状態まで表示してくれる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ clang++-3.8 -fsanitize<span style="color:#f92672">=</span>address array-out-of-bound.cpp
+$ ./a.out
+<span style="color:#f92672">=================================================================</span>
+<span style="color:#f92672">==</span>83804<span style="color:#f92672">==</span>ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7fff5cd683b0 at pc 0x000102e97e36 bp 0x7fff5cd681f0 sp 0x7fff5cd681e8
+WRITE of size <span style="color:#ae81ff">4</span> at 0x7fff5cd683b0 thread T0
+    <span style="color:#75715e">#0 0x102e97e35 in main (a.out+0x100000e35)</span>
+    <span style="color:#75715e">#1 0x7fff8a4965ac in start (libdyld.dylib+0x35ac)</span>
+    <span style="color:#75715e">#2 0x0  (&lt;unknown module&gt;)</span>
+
+Address 0x7fff5cd683b0 is located in stack of thread T0 at offset <span style="color:#ae81ff">432</span> in frame
+    <span style="color:#75715e">#0 0x102e97cef in main (a.out+0x100000cef)</span>
+
+  This frame has <span style="color:#ae81ff">1</span> object<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:
+    <span style="color:#f92672">[</span>32, 432<span style="color:#f92672">)</span> <span style="color:#e6db74">&#39;a&#39;</span> &lt;<span style="color:#f92672">==</span> Memory access at offset <span style="color:#ae81ff">432</span> overflows this variable
+HINT: this may be a false positive <span style="color:#66d9ef">if</span> your program uses some custom stack unwind mechanism or swapcontext
+      <span style="color:#f92672">(</span>longjmp and C++ exceptions *are* supported<span style="color:#f92672">)</span>
+SUMMARY: AddressSanitizer: stack-buffer-overflow <span style="color:#f92672">(</span>a.out+0x100000e35<span style="color:#f92672">)</span> in main
+Shadow bytes around the buggy address:
+  0x1fffeb9ad020: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad030: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad040: f1 f1 f1 f1 <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad050: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad060: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> 00
+<span style="color:#f92672">=</span>&gt;0x1fffeb9ad070: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> 00<span style="color:#f92672">[</span>f3<span style="color:#f92672">]</span>f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0x1fffeb9ad080: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad090: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad0a0: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad0b0: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb9ad0c0: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+Shadow byte legend <span style="color:#f92672">(</span>one shadow byte represents <span style="color:#ae81ff">8</span> application bytes<span style="color:#f92672">)</span>:
+  Addressable:           <span style="color:#ae81ff">00</span>
+  Partially addressable: <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">03</span> <span style="color:#ae81ff">04</span> <span style="color:#ae81ff">05</span> <span style="color:#ae81ff">06</span> <span style="color:#ae81ff">07</span>
+  Heap left redzone:       fa
+  Heap right redzone:      fb
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack partial redzone:   f4
+  Stack after <span style="color:#66d9ef">return</span>:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+<span style="color:#f92672">==</span>83804<span style="color:#f92672">==</span>ABORTING
+<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>    <span style="color:#ae81ff">83804</span> abort      ./a.out
+</code></pre></div><p>また、<code>-g</code>をつけて、デバッグ情報付きでコンパイルすると以下のように、<code>a.out+hoge</code>だった部分がソースファイル名とエラーが出た行番号になる。</p>
+<pre><code>    #0 0x105f92e35 in main array-out-of-bound.cpp:8
+    #1 0x7fff8a4965ac in start (libdyld.dylib+0x35ac)
+    #2 0x0  (&lt;unknown module&gt;)
+
+Address 0x7fff59c6d3b0 is located in stack of thread T0 at offset 432 in frame
+    #0 0x105f92cef in main array-out-of-bound.cpp:6
+</code></pre><h2 id="undefinedbehaviorsanitizer">UndefinedBehaviorSanitizer</h2>
+<p>Xcodeで入ってきたclangでは使えなかった。<code>brew install llvm38 --with-asan --with-lldb</code>で入れたclangでは使えた。しかし、<code>--with-asan</code>はaddress sanitizerを入れるオプションなので、関連性は知らない。</p>
+<p>実行中に様々な未定義動作を検出して教えてくれる。AddressSanitizerと違って、プログラムはcrashせず動き続ける。（オプションによる）</p>
+<p>チェックしてくれる項目は<a href="http://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html#availablle-checks">clangのドキュメント</a>参照。<code>-fsanitize=undefined</code>でunsigned-integer-overflow 以外が全て有効になる。</p>
+<h3 id="例1">例1</h3>
+<p>さっきのプログラムに最後の出力を加えたもの</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// array-out-of-bound.cpp
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">100</span>];
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>) a[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Finish&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>エラーを表示しながらも、プログラムは動き続けている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ clang++-3.8 -fsanitize<span style="color:#f92672">=</span>undefined array-out-of-bound.cpp
+$ ./a.out
+array-out-of-bound.cpp:9:35: runtime error: index <span style="color:#ae81ff">100</span> out of bounds <span style="color:#66d9ef">for</span> type <span style="color:#e6db74">&#39;int [100]&#39;</span>
+Finish
+</code></pre></div><h3 id="例2">例2</h3>
+<p>オーバーフロー、アンダーフローの例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;climits&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> INT_MAX;
+    a <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+    a <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>;
+    a <span style="color:#f92672">-=</span> INT_MAX;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>嬉しい</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ clang++-3.8 -fsanitize<span style="color:#f92672">=</span>undefined integer-overflow.cpp
+$ ./a.out
+integer-overflow.cpp:8:7: runtime error: signed integer overflow: <span style="color:#ae81ff">2147483647</span> + <span style="color:#ae81ff">1</span> cannot be represented in type <span style="color:#e6db74">&#39;int&#39;</span>
+integer-overflow.cpp:9:7: runtime error: signed integer overflow: -2147483648 - <span style="color:#ae81ff">1</span> cannot be represented in type <span style="color:#e6db74">&#39;int&#39;</span>
+</code></pre></div><h2 id="組み合わせる">組み合わせる</h2>
+<p>AddressSanitizerとUndefinedBehaviorSanitizerは両方同時に使うことができる。</p>
+<p>ただし、Address, Thread, Memoryはどれか１つしか同時に使えない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// array-out-of-bound.cpp
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">100</span>];
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>) a[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Finish&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>以下のように、未定義動作をruntime errorで表示しつつ、領域外アクセスなどがあったらabortして詳細を表示してくれる。</p>
+<p>undefinedが結構強いので、addressはつけなくても十分かもしれない？</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ clang++-3.8 -fsanitize<span style="color:#f92672">=</span>undefined,address array-out-of-bound.cpp
+$ ./a.out
+array-out-of-bound.cpp:9:35: runtime error: index <span style="color:#ae81ff">100</span> out of bounds <span style="color:#66d9ef">for</span> type <span style="color:#e6db74">&#39;int [100]&#39;</span>
+SUMMARY: AddressSanitizer: undefined-behavior array-out-of-bound.cpp:9:35 in
+<span style="color:#f92672">=================================================================</span>
+<span style="color:#f92672">==</span>19791<span style="color:#f92672">==</span>ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7fff5acce370 at pc 0x000104f31b20 bp 0x7fff5acce1b0 sp 0x7fff5acce1a8
+WRITE of size <span style="color:#ae81ff">4</span> at 0x7fff5acce370 thread T0
+    <span style="color:#75715e">#0 0x104f31b1f in main (a.out+0x100000b1f)</span>
+    <span style="color:#75715e">#1 0x7fff8a4965ac in start (libdyld.dylib+0x35ac)</span>
+    <span style="color:#75715e">#2 0x0  (&lt;unknown module&gt;)</span>
+
+Address 0x7fff5acce370 is located in stack of thread T0 at offset <span style="color:#ae81ff">432</span> in frame
+    <span style="color:#75715e">#0 0x104f3194f in main (a.out+0x10000094f)</span>
+
+  This frame has <span style="color:#ae81ff">1</span> object<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:
+    <span style="color:#f92672">[</span>32, 432<span style="color:#f92672">)</span> <span style="color:#e6db74">&#39;a&#39;</span> &lt;<span style="color:#f92672">==</span> Memory access at offset <span style="color:#ae81ff">432</span> overflows this variable
+HINT: this may be a false positive <span style="color:#66d9ef">if</span> your program uses some custom stack unwind mechanism or swapcontext
+      <span style="color:#f92672">(</span>longjmp and C++ exceptions *are* supported<span style="color:#f92672">)</span>
+SUMMARY: AddressSanitizer: stack-buffer-overflow <span style="color:#f92672">(</span>a.out+0x100000b1f<span style="color:#f92672">)</span> in main
+Shadow bytes around the buggy address:
+  0x1fffeb599c10: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599c20: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599c30: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> f1 f1 f1 f1 <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599c40: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599c50: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> 00
+<span style="color:#f92672">=</span>&gt;0x1fffeb599c60: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> 00<span style="color:#f92672">[</span>f3<span style="color:#f92672">]</span>f3
+  0x1fffeb599c70: f3 f3 f3 f3 f3 f3 f3 f3 <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599c80: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599c90: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599ca0: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+  0x1fffeb599cb0: <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+Shadow byte legend <span style="color:#f92672">(</span>one shadow byte represents <span style="color:#ae81ff">8</span> application bytes<span style="color:#f92672">)</span>:
+  Addressable:           <span style="color:#ae81ff">00</span>
+  Partially addressable: <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">03</span> <span style="color:#ae81ff">04</span> <span style="color:#ae81ff">05</span> <span style="color:#ae81ff">06</span> <span style="color:#ae81ff">07</span>
+  Heap left redzone:       fa
+  Heap right redzone:      fb
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack partial redzone:   f4
+  Stack after <span style="color:#66d9ef">return</span>:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+<span style="color:#f92672">==</span>19791<span style="color:#f92672">==</span>ABORTING
+<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>    <span style="color:#ae81ff">19791</span> abort      ./a.out
+</code></pre></div>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/clang-mac/ ">&lt;Macのclangでlibstdc&#43;&#43;,libc&#43;&#43;を切り替えて使う</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/libstdcpp_and_libcpp_debug_mode/">libc&#43;&#43;とlibstdc&#43;&#43;のデバッグモードについて&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/clang-sanitizer/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

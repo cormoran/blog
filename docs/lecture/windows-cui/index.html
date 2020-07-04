@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - Windowsでストレスのない開発環境を構築するメモ（の一部） 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="Windowsでストレスのない開発環境を構築するメモ（の一部） - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="ロボットの部にあるWindowsが使いにくくてつらかったので（自分が）使いやすいようにいろいろやってみました。
+あまり大したことはやってないのですが、自分向けに、部の人向けにメモ程度に。やっとことをざっとまとめるだけで、深いことは書きません。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#やったこと">やったこと</a></li>
+    <li><a href="#1chocolateyhttpschocolateyorgを入れる">1.<a href="https://chocolatey.org">chocolatey</a>を入れる</a></li>
+    <li><a href="#2-gitを入れる">2. gitを入れる</a></li>
+    <li><a href="#3ネットワーク設定を切り替えるバッチファイルを作る">3.ネットワーク設定を切り替えるバッチファイルを作る</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2016-05-02">
+	                                2016年5月2日 23:50
+	                            </time>
+	                        </span>
+                        <h1>Windowsでストレスのない開発環境を構築するメモ（の一部）</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>ロボットの部にあるWindowsが使いにくくてつらかったので（自分が）使いやすいようにいろいろやってみました。</p>
+<p>あまり大したことはやってないのですが、自分向けに、部の人向けにメモ程度に。やっとことをざっとまとめるだけで、深いことは書きません。</p>
+<p>普段はMacユーザーなのでWindowsで普通はこうする！とかいうのあまり知りません。もっといい方法等があるかもしれません。</p>
+<h2 id="やったこと">やったこと</h2>
+<ol>
+<li>chocolatey （パッケージマネージャー）を入れる</li>
+<li>git を使えるようにする</li>
+<li>ネットワーク設定を切り替えるバッチファイルを作る</li>
+<li>いろいろ&hellip;</li>
+</ol>
+<h2 id="1chocolateyhttpschocolateyorgを入れる">1.<a href="https://chocolatey.org">chocolatey</a>を入れる</h2>
+<p>Ubuntuだったら apt-get とか aptitude , Mac だったらbrew, mac ports などがあります。これを使うとコマンド一つでソフトのインストールができ、個別のソフトをいちいちインストーラを落としてきて実行して&hellip;っていうことをする必要がなくなります。ライブラリの依存関係を勝手に解決してくれたり、アップデートやアンインストールの管理もしてくれます。</p>
+<p>インストール方法は<a href="https://chocolatey.org">公式サイト</a>で。</p>
+<p>コマンドプロンプトからインストールする場合は C:&gt; &hellip; っていう方をコピーして貼り付け、powershellからインストールする場合は PS:&gt;の方をコピーして貼り付けるとあとは勝手にやってくれます。<strong>コマンドプロンプト、powershellは管理者権限で立ち上げておく必要があります。</strong></p>
+<p>日本語でわかりやすそうなサイト : <a href="http://qiita.com/konta220/items/95b40b4647a737cb51aa">Chocolateyを使った環境構築の時のメモ</a></p>
+<p>これで</p>
+<pre><code>choco install &lt;パッケージ名&gt;
+cinst &lt;パッケージ名&gt;
+</code></pre><p>などのコマンドを打つことでソフトをインストールできます。</p>
+<p>とりあえずGUI版のchocolateyを入れておきます。CUIからやればいいのですが、windowsのコマンドプロンプトあまり好きではない（使い慣れてないだけ）のでGUI使いたくなる時がたまにあります。あと、chocolateyはXMLでパッケージリストを書くと、他の環境でそれを読み込んで一気に全部インストールができるという機能があるのですが、そのファイルを出力できるので便利です。（cuiからでもできるの？）</p>
+<pre><code>cinst chocolateygui
+</code></pre><p>chocolateyでインストールできるパッケージ一覧は<a href="https://chocolatey.org/packages">ここ</a>にありますが、chocolatey guiでも似たような感じで検索できます。</p>
+<p>今回インストールしたパッケージ一覧</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;packages&gt;
+  &lt;package id=&quot;chocolatey&quot; version=&quot;0.9.9.12&quot; /&gt;
+  &lt;package id=&quot;ChocolateyGUI&quot; version=&quot;0.13.2&quot; /&gt;
+  &lt;package id=&quot;git&quot; version=&quot;2.8.1&quot; /&gt;
+  &lt;package id=&quot;git.install&quot; version=&quot;2.8.1&quot; /&gt;
+  &lt;package id=&quot;sourcetree&quot; version=&quot;1.8.3&quot; /&gt;
+  &lt;package id=&quot;PowerShell&quot; version=&quot;5.0.10586.20151218&quot; /&gt;
+  &lt;package id=&quot;python2-x86_32&quot; version=&quot;2.7.11&quot; /&gt;
+  &lt;package id=&quot;python3-x86_32&quot; version=&quot;3.5.1&quot; /&gt;
+&lt;/packages&gt;
+</code></pre><p>メジャーなプログラムはすでにPCには入っているものが多かったので欲しかったものと、chocolateyで入れたかったものだけ入れました。
+opencvとかライブラリ系のパッケージもあって、opencv3を入れてみたのですが、異常に時間がかかったり、VS2015-64bit用しか入らなかったり（これは妥当かもしれない）、chocolateyに登録されなかったりと、よくわからなかったので諦めました。</p>
+<h2 id="2-gitを入れる">2. gitを入れる</h2>
+<p>といっても、上ですでに入れています。</p>
+<pre><code>cinst git
+</code></pre><p>これでgitコマンドが使える上に、git bashというシェルが手に入ります。キーバインドがunixスタイルで、よく使うunixコマンドが使えるようになります。</p>
+<p>本気でunix風に使うならcygwinとかを入れればいいのですが、まあ、これでもちょっとしたことには十分です。</p>
+<p>あと、GUIからもできるようにsource treeを入れておきます。最初はcuiでいいじゃないかと思っていたのですが、使ってみると以外といいです。</p>
+<h2 id="3ネットワーク設定を切り替えるバッチファイルを作る">3.ネットワーク設定を切り替えるバッチファイルを作る</h2>
+<p>これは完全にお家事情なのですが、大会でのLAN環境はサブネットが各チームに割り当てられていて、貸与された機器で実験をするときにはいちいちIPの設定を変えないといけません。やるだけなのですが、何度もやることになると結構面倒。調べるとPowerShellが結構強くてこのあたりの設定ができるようなのでやってみました。サーバーとかで使うのでしょうか。</p>
+<p>参考になるサイト :</p>
+<p><a href="http://qiita.com/Kirito1617/items/aed439bcb66c63489337">PowerShellの使い方(OS設定編)</a></p>
+<p><a href="http://qiita.com/hanakara_milk/items/1197ac9b91fa1fa3abab">PowerShellによるIPアドレスの設定及び変更</a></p>
+<p>以下はIPアドレスを192.168.0.1に固定するバッチファイルの例</p>
+<pre><code>@powershell -NoProfile -ExecutionPolicy Unrestricted &quot;$s=[scriptblock]::create((gc \&quot;%~f0\&quot;|?{$_.readcount -gt 1})-join\&quot;`n\&quot;);&amp;$s&quot; %*&amp;goto:eof
+
+New-NetIPAddress -InterfaceIndex 4 -IPAddress &quot;192.168.0.1&quot; -AddressFamily IPv4 -PrefixLength 24
+</code></pre><p>InterfaceIndex はwifiを固定するか、有線lanを固定するか等設定するアダプタによって異なります。 Get-NetAdapte コマンドで調べられます。</p>
+<p>また、冒頭の @powershell &hellip; はコマンドプロンプトからpowershellを呼び出すおまじないで、調べたら出てきて、うまく動くのでよくわからず使っています。これを使うことで、ダブルクリックで実行できる.batファイルからpowershellコマンドを呼び出すことができます。powershellスクリプトはダブルクリックとかでは無理（？）な様子。ただしバッチファイルは<strong>管理者権限で実行しないといけません</strong>。</p>
+<p>以下はDHCPを有効にする例。</p>
+<pre><code>@powershell -NoProfile -ExecutionPolicy Unrestricted &quot;$s=[scriptblock]::create((gc \&quot;%~f0\&quot;|?{$_.readcount -gt 1})-join\&quot;`n\&quot;);&amp;$s&quot; %*&amp;goto:eof
+
+Set-NetIPInterface -InterfaceIndex 4 -Dhcp Enabled
+Disable-NetAdapter -Name &quot;Wi-Fi&quot;
+Enable-NetAdapter -Name &quot;Wi-Fi&quot;
+</code></pre><p>なんかすぐには固定していたIPを明け渡さない（？）みたいなのでアダプタを一旦無効化して、再度有効化することで強制的に新しいIPをもらいに行かせています。</p>
+                    </section>
+                </article>
+                
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/lecture/windows-cui/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

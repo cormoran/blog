@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - Lazy K　〜インタラクティブシェルの導入〜　 (Mac) 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="Lazy K　〜インタラクティブシェルの導入〜　 (Mac) - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="前回記事Lazy K に挑む　〜インタープリタの導入〜　 (Mac)の続きで今回は Lazy K インタラクティブシェルの導入について書きます。今回の分は参考にできる記事がなかったので自分でいろいろやってみました。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#インタラクティブシェルのインストール前話">インタラクティブシェルのインストール（前話）</a></li>
+    <li><a href="#インタラクティブシェルのインストール本番">インタラクティブシェルのインストール（本番）</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/lazyk/ ">&lt;Lazy K　〜インタープリタの導入〜　 (Mac)</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/layzk3/">LazyK HelloWorldを目指す&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2015-02-26">
+	                                2015年2月26日 00:00
+	                            </time>
+	                        </span>
+                        <h1>Lazy K　〜インタラクティブシェルの導入〜　 (Mac)</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>前回記事<a href="http://blog.cormoran-web.com/2015/02/27/lazy-k-1-interpreter/" title="Lazy K に挑む　〜インタープリタの導入〜　 (Mac)">Lazy K に挑む　〜インタープリタの導入〜　 (Mac)</a>の続きで今回は Lazy K インタラクティブシェルの導入について書きます。今回の分は参考にできる記事がなかったので自分でいろいろやってみました。</p>
+<h2 id="インタラクティブシェルのインストール前話">インタラクティブシェルのインストール（前話）</h2>
+<p>適当に検索していると</p>
+<p><a href="http://shared.botis.org/yurufuwa-lazy/out.html#/">Lazy K</a></p>
+<p>といういい感じのサイトにたどり着きました。２枚目のスライドに “combinator-interactive” をインストールせよとあります。もうちょっと見ていくとこいつがインタラクティブシェルだとわかります。（なんかファイルからプログラムを読み込めそうな感じのことが書いていたのですが、よくわからなかったのとlazy.cppがあるのであまり調べていません）</p>
+<pre><code>
+cabal update
+
+cabal install combinator-interactive
+
+</code></pre><p>でインストールできるとあるのでやってみます。（ちなみに cabal というのは Haskell のパッケージ管理システムみたいなもので HomeBrew を入れていれば ghc と cabal-install をインストールするとつかえます。 ）すると、途中までは進むのですが lens というパッケージが入れられないとかいうエラーでインストールできません。少し手間取ったのですが力技で解決しました。</p>
+<p>　問題は</p>
+<pre><code>
+cabal info combinator-interactive
+
+</code></pre><p>とやってみると依存関係の項目で lens &gt;=3.8 &amp;&amp; &lt;=4 とあるのですが、 lens 最新バージョンは4.7で、何かの問題で3.8〜4の間のやつが入れられない、という感じでした。(lensのinfoでは3.9とか3.10が使えるよと書いてあったのですが&hellip;)この辺は自分にはよくわからなかったので lens4.7 でも動くだろうという楽観的推測の元、ソースを落としてコンパイルしてみました。多分うまくいきました。</p>
+<h2 id="インタラクティブシェルのインストール本番">インタラクティブシェルのインストール（本番）</h2>
+<p>さっきの cabal info で Homepage の項目にgithubのURLが載っていたので行ってみるとソースがありました。</p>
+<p><a href="https://github.com/fumieval/combinator-interactive">github.com/fumieval/combinator-interactive</a></p>
+<pre><code>
+git clone https://github.com/fumieval/combinator-interactive
+
+</code></pre><p>として、ソースを一式落としてきてそのフォルダ内で</p>
+<pre><code>
+ghc -o lazy main.hs
+
+</code></pre><p>としてコンパイルしてみます。するとここは自分が Haskeller かどうかによるのですが○○がimportできないよと言われると思います。さっきの cabal info を見て Dependencies にある base,lens,template-haskell,th-lift, void, trifecta, bytestring,directory, cereal, mtl, containers,combinator-interactive の内 combinator-interactive 以外のインストールしていないやつをcabal install で入れていきます。（インストールされているかは cabal list –installed で確認できる。）</p>
+<p>　そしてコンパイルすると最後にData.Combinatorがないよと言われます。こいつは落としてきたファイルに含まれているやつなのでソースを書き換えます。Haskellほとんど使っていないのでよくわからないのですが以下のようにしたらコンパイルできました。</p>
+<pre><code>
+import &amp;#8220;combinator-interactive&amp;#8221; Data.Combinator
+
+#上の部分の &amp;#8221; &amp;#8221; 部を消して下のようにする
+
+import Data.Combinator
+
+#SyntaxHighlighter が Haskell対応してない!!!
+
+</code></pre><p>実行してみると</p>
+<pre><code>
+./lazy
+
+lazy&gt; Ix
+
+x
+
+lazy&gt; Kx y
+
+x
+
+lazy&gt; Sx y z
+
+x z (y z)
+
+</code></pre><p>動作しました。最初のさわりはインタラクティブシェルを使う方がやりやすそうな気がします。</p>
+<p>　今後はちょっと本気で Lazy K を触るためにコンビネータ理論やラムダ式について少し知識をつけていく予定です。</p>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/lazyk/ ">&lt;Lazy K　〜インタープリタの導入〜　 (Mac)</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/layzk3/">LazyK HelloWorldを目指す&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/lazyk2/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

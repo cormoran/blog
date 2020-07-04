@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - GPU サーバーを全部占領するための技術 (1) 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="GPU サーバーを全部占領するための技術 (1) - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Kobe University Advent Calendar 2019の ８日目の記事です。
+８日目なんですが、私が最初らしいです。
+これを見た人は Kobe University 関係なくてもいいので書きましょう！" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-人力">0. 人力</a></li>
+    <li><a href="#1-シェルスクリプトで-for-loop">1. シェルスクリプトで for loop</a></li>
+    <li><a href="#2-シェルスクリプトで-for-loop--gpu-割当">2. シェルスクリプトで for loop + GPU 割当</a></li>
+    <li><a href="#ところで">ところで</a></li>
+    <li><a href="#3-シェルスクリプトで-git-base-な実行管理">3. シェルスクリプトで git-base な実行管理</a></li>
+    <li><a href="#4-ci-ツール-gitlab-runner">4. CI ツール (Gitlab Runner)</a></li>
+    <li><a href="#5-自作ジョブキュー">5. 自作ジョブキュー</a></li>
+    <li><a href="#最後に">最後に</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/2019/09/jsc2019-final/ ">&lt;第一回日本最強プログラマー学生選手権 参加記</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2019-12-08">
+	                                2019年12月8日 18:02
+	                            </time>
+	                        </span>
+                        <h1>GPU サーバーを全部占領するための技術 (1)</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p><a href="https://adventar.org/calendars/4690">Kobe University Advent Calendar 2019</a>の ８日目の記事です。</p>
+<p>８日目なんですが、私が最初らしいです。</p>
+<p>これを見た人は Kobe University 関係なくてもいいので書きましょう！</p>
+<hr>
+<p>皆さん GPU たくさん使っていますか？
+僕は使っています。</p>
+<p>この記事では、GPU サーバー上でたくさんのジョブをいい感じに並列に動かす方法を紹介します。</p>
+<p>すぐできる割と基本的な手段を列挙しておいたので適当にやっている人は参考になるかもしれません。</p>
+<p><a href="https://www.slideshare.net/pfi/tech-inmlcluster20180729-julytechfesta2018">PFN みたい</a>に kubernetes でいい感じにやる話を期待された方はお帰りください。</p>
+<p><!-- raw HTML omitted -->なお、以下「複数のサーバー」のような表現をよく使いますが、すべて Single Node なジョブを複数のサーバーで動かす話で、Multi Node なジョブを動かす話はしないので注意してください。<!-- raw HTML omitted --></p>
+<h2 id="0-人力">0. 人力</h2>
+<ol>
+<li>サーバーに入ってプログラムを動かします</li>
+<li>終わる時間を見積もります</li>
+<li>終わった頃にサーバーに入って次のプログラムを動かします</li>
+<li>1~3 をすべての GPU,サーバーで繰り返します</li>
+</ol>
+<p>１つのプログラムに数十時間かかるものであれば、これでもまあ良いのですが、つらいです。</p>
+<p>朝とかに実行が終わると、その後数時間 GPU が空きます。</p>
+<h2 id="1-シェルスクリプトで-for-loop">1. シェルスクリプトで for loop</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export CUDA_VISIBLE_DEVICES<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+<span style="color:#66d9ef">for</span> batchsize in <span style="color:#ae81ff">128</span> 256; <span style="color:#66d9ef">do</span>
+    &lt;command&gt; --batchsize $batchsize
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>一番簡単な方法です。</p>
+<p>端末をたくさん開いて、これを GPU の数だけ同時に実行すればしばらくの間サーバーを占領できます。</p>
+<p>しかし、あらかじめ組み合わせを GPU の数に応じて分割しておく必要があります。</p>
+<p>また、プログラムごとに実行時間が異なる場合、ループごとに終わる時間が大きく変わってくることがありそうです。</p>
+<p>そもそも、GPU の数だけウィンドウがある状態はつらいです。</p>
+<p>少し改善して、横方向に並列化する簡易的な方法としては以下のような方法があります。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">N_GPU<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>
+GPU<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>seq 100<span style="color:#e6db74">`</span>; <span style="color:#66d9ef">do</span>
+    export CUDA_VISIBLE_DEVICES<span style="color:#f92672">=</span>$GPU
+    &lt;command&gt; &amp;
+    GPU<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $GPU + 1<span style="color:#66d9ef">)</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $GPU -eq $N_GPU <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> wait; <span style="color:#66d9ef">fi</span>
+    GPU<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $GPU % $N_GPU<span style="color:#66d9ef">)</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>この方法はあらかじめ組み合わせを GPU の数に応じて分割しておく必要がなくなります。</p>
+<p>しかし、この方法は、<code>N_GPU</code>個のジョブの中で一番長いものが終わるまで次の<code>N_GPU</code>個が実行されません。もったいないですね。</p>
+<p>標準出力が崩壊する問題もあります（適切にファイルに出力させれば良い）</p>
+<h2 id="2-シェルスクリプトで-for-loop--gpu-割当">2. シェルスクリプトで for loop + GPU 割当</h2>
+<p>良い感じに空き GPU を管理するプログラムを作ります。</p>
+<p><a href="https://gist.github.com/cormoran/461c648060cd9522670df197d58423a2">https://gist.github.com/cormoran/461c648060cd9522670df197d58423a2</a></p>
+<p>できました。</p>
+<p>良い感じに空き GPU を判断するのは実は結構難しくて、上のプログラムはちょっと適当にさぼっています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">
+<span style="color:#66d9ef">function</span> run<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    export CUDA_VISIBLE_DEVICES<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>&lt;wait <span style="color:#66d9ef">for</span> gpu<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> to be available &amp; print available GPU number&gt;<span style="color:#e6db74">`</span>
+    $0
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">for</span> batchsize in <span style="color:#ae81ff">128</span> 256; <span style="color:#66d9ef">do</span>
+    run &lt;command&gt; --batchsize $batchsize &amp;
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>こんな感じにすると、１つのサーバー上では、無駄なくプログラムが実行できるようになります。</p>
+<p>ここまでで、<strong>実験に値するプログラムさえ持続的に供給できれば</strong> GPU を余すことなく占領し続けることができます。</p>
+<h2 id="ところで">ところで</h2>
+<p>1 と、2 の方法で注意すべきこととして、スクリプト実行中に実験プログラムを編集してはいけない点があります。</p>
+<p>まだ実行が開始されていないプログラムがある状態で、実験プログラムを編集すると、その後は、新しい方のプログラムが動くことになります。</p>
+<p>これだと、プログラムが動いている途中で別の実装を動かすのが難しくなります。</p>
+<p>その場しのぎの対策として、別ディレクトリを作ってそちらで別の実装を動かすことや、サーバーごとに別の実装を動かす、などがあります（そしてよくやってしまう）。</p>
+<p>こうしてサーバーにディレクトリが溢れていってよくわからなくなります。</p>
+<h2 id="3-シェルスクリプトで-git-base-な実行管理">3. シェルスクリプトで git-base な実行管理</h2>
+<p>git でバージョン管理していれば比較的簡単に解決できます。</p>
+<p>一時ディレクトリを作ってプロジェクトを clone、指定 commit に移動し、そこでプログラムを動かします。</p>
+<p>以下は実装イメージで、エラー対応なども必要なので注意。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">
+COMMIT_HASH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;HogeHoge&#34;</span>
+
+<span style="color:#66d9ef">function</span> run<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    export CUDA_VISIBLE_DEVICES<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>&lt;wait <span style="color:#66d9ef">for</span> gpu<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> to be available &amp; print available GPU number&gt;<span style="color:#e6db74">`</span>
+    WORK_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>&lt;いい感じに作る&gt;<span style="color:#e6db74">`</span>
+    git clone &lt;git repo&gt; $WORK_DIR
+    cd $WORK_DIR
+    git checkout -b &lt;working branch name&gt; $COMMIT_HASH
+    $0
+    mv $WORK_DIR &lt;Trash&gt;
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">for</span> batchsize in <span style="color:#ae81ff">128</span> 256; <span style="color:#66d9ef">do</span>
+    run &lt;command&gt; --batchsize $batchsize &amp;
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>これで安心してソースコードをどんどん変えていけるようになりました。</p>
+<p>しかし、複数のサーバーを使うことはできません。</p>
+<p>8GPU サーバーが何台かあれば、実用上、これで最低限の人権は得られると思うのですが、せっかくなので全部使いたいですよね？</p>
+<h2 id="4-ci-ツール-gitlab-runner">4. CI ツール (Gitlab Runner)</h2>
+<p>複数サーバーでジョブをさばく方法で考えられるのは</p>
+<ul>
+<li>HPC とかで使われそうなジョブキューシステムを使う</li>
+<li>Gitlab runner, Jenkins などの CI ツール</li>
+<li>最近良く聞く kubernetes</li>
+</ul>
+<p>とかだと思います（もっと良いものあったら教えて）。</p>
+<p>研究室では Gitlab を建てて使っているのと、ドキュメント見た感じ一番簡単に使えそうだったので Gitlab Runner を使ってみました。(nvidia) docker を入れる以外にサーバーの root 環境を触る必要がなさそうだったのもポイントです。</p>
+<p>Gitlab Runner に GPU 資源のサポートはないので、各サーバーで GPU の数だけ Runner を動かします（それぞれの環境変数に<code>CUDA_VISIBLE_DEVICES</code>を設定）。</p>
+<p>これによって、</p>
+<ul>
+<li>ジョブが git push で実行される</li>
+<li>隔離された docker コンテナで、push したバージョンが動作</li>
+<li>標準出力なども保存されて見返せる</li>
+</ul>
+<p>という、かなり良い感じの環境ができました。</p>
+<p>これでだいたい良いのですが、いくつか問題がありました。</p>
+<ul>
+<li>複数 GPU 使うジョブに非対応</li>
+<li>GPU が使われているか見ないので、他人のプログラムに喧嘩を売りにかかる
+<ul>
+<li>他人が使っている GPU でも気にせず使い出す</li>
+<li>共用サーバーでは問題</li>
+</ul>
+</li>
+<li>Runner の停止が面倒（<a href="https://github.com/cormoran/gitlab-runner-ctrl">簡易的な UI を作って解決</a>）</li>
+<li>ジョブの優先度が設定できない</li>
+</ul>
+<p>複数 GPU は、（その場しのぎの対策ですが）1GPU 用 Runner を止めて、対応する N GPU 用 Runner を動かす方法がありますが面倒です。で、やめました。</p>
+<h2 id="5-自作ジョブキュー">5. 自作ジョブキュー</h2>
+<p>ここまで来たら、次は kubernetes な気がするんですが、</p>
+<ul>
+<li>swap 無効化しろとか、SELinux 止めてとか言われる
+<ul>
+<li>自分だけが使うと思うのであまりサーバーの設定変えたくない</li>
+</ul>
+</li>
+<li>エコシステムを使わない他人のプログラムに喧嘩を売りにかかる
+<ul>
+<li>プラグイン書けばできそうだけどドキュメントちゃんと読まないとできなさそう</li>
+</ul>
+</li>
+<li>使い始めたら、他の人にも全部 kubernetes 上でやってほしくなりそう</li>
+</ul>
+<p>とかで面倒になって、結局自作の簡易ジョブキューを使っています。</p>
+<p>自作のジョブキューは</p>
+<ul>
+<li>git-base な実行コード管理</li>
+<li>必要最低限の環境分離(python venv or conda env)対応</li>
+<li>他人が使っている GPU には手を出さない</li>
+<li>複数 GPU 対応</li>
+<li>ジョブの優先度対応</li>
+<li>MySQL でジョブを管理していて、DataGrip でキューを直接編集できる</li>
+</ul>
+<p>という感じで、現段階ではもうこれでいいのでは？という気分になっています。</p>
+<p>もうちょっと詳細の話をしようとしていたのですが、長くなってしまったのと、書いていると<a href="https://atcoder.jp/contests/abc147">abc147</a>が始まってしまいそうなので、再来週くらいにもう一つ記事を書きます。</p>
+<h2 id="最後に">最後に</h2>
+<ul>
+<li>kubernetes カスタマイズしたい、誰か教えて</li>
+<li>GPU をたくさん使ったからと言って論文が生えて来るわけではない</li>
+<li>でも空いているなら使いたいよね</li>
+<li>修論&hellip;</li>
+</ul>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/2019/09/jsc2019-final/ ">&lt;第一回日本最強プログラマー学生選手権 参加記</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/2019/12/gpu-job-runner/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

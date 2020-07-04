@@ -1,0 +1,680 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - cui tetris 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="cui tetris - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="
+何か簡単なゲームが必要だったのでテトリスもどきを作ってみました。ncursesを使ってます。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents"></nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/beacon/ ">&lt;MacでiBeacon発信</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/smart-glass/">Google Glassを作ってみた&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2014-10-19">
+	                                2014年10月19日 01:28
+	                            </time>
+	                        </span>
+                        <h1>cui tetris</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p><img src="https://lh3.googleusercontent.com/-_2UGfEwN0VA/VixfcWQdZ7I/AAAAAAAAAII/Y0fiZ3Yhqkc/s800-Ic42/tetris-300x191.png" alt="tetris"></p>
+<p>何か簡単なゲームが必要だったのでテトリスもどきを作ってみました。ncursesを使ってます。</p>
+<p>下がプログラムです。最低限の機能しかつけていませんがちょっと楽しいです。まあ、emacsにtetrisは入っているのでそれで遊べばいいのですが。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ncurses.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;ctime&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#75715e">#define TIMEOUT 10 </span><span style="color:#75715e">//キーボード入力タイムアウト
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define NEXT_BLOCK_X 13
+</span><span style="color:#75715e">#define NEXT_BLOCK_Y 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define SCORE_X 13
+</span><span style="color:#75715e">#define SCORE_Y 20
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define MAP_X (10+2) </span><span style="color:#75715e">//文字　壁2つ
+</span><span style="color:#75715e"></span><span style="color:#75715e">#define MAP_Y (20+1+5) </span><span style="color:#75715e">//行　下ガード＋未表示領域
+</span><span style="color:#75715e"></span><span style="color:#75715e">#define MAP_NOT_SHOW_NUM 5
+</span><span style="color:#75715e">#define BLOCK_H_W 5
+</span><span style="color:#75715e">#define BLOCK_NUM 7
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> block_can_rot[BLOCK_NUM]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>};
+<span style="color:#66d9ef">char</span> block_data[BLOCK_NUM][<span style="color:#ae81ff">5</span>][<span style="color:#ae81ff">5</span>]<span style="color:#f92672">=</span>
+{
+    {{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}
+    },
+    {{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}
+    },
+    {{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}
+    },
+    {{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}
+    },
+    {{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}
+    },
+    {{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}
+    },
+    {{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>},
+     {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}
+    },
+};
+
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Direction</span>{UP,DOWN,RIGHT,LEFT};
+
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">block</span>
+{
+    <span style="color:#66d9ef">char</span> data[BLOCK_H_W][BLOCK_H_W];
+    <span style="color:#66d9ef">bool</span> can_rot;
+    pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> point;
+    block()
+    {
+        reset(<span style="color:#ae81ff">0</span>);
+    }
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reset</span>(<span style="color:#66d9ef">char</span> type)
+    {
+        <span style="color:#66d9ef">char</span> x,y;
+        <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>BLOCK_H_W;y<span style="color:#f92672">++</span>)
+            <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>BLOCK_H_W;x<span style="color:#f92672">++</span>)
+                data[y][x]<span style="color:#f92672">=</span>block_data[type][y][x];
+        can_rot<span style="color:#f92672">=</span>block_can_rot[type];
+        point.first<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>;
+        point.second<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    }
+    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">rotate</span>(Direction dir,<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+    {
+        <span style="color:#66d9ef">if</span>(can_rot){
+            <span style="color:#66d9ef">char</span> next_data[BLOCK_H_W][BLOCK_H_W];
+            <span style="color:#75715e">//取り敢えず回転させてみる
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(dir<span style="color:#f92672">==</span>RIGHT)<span style="color:#75715e">//右移転
+</span><span style="color:#75715e"></span>            {
+                <span style="color:#66d9ef">char</span> x,y;
+                <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>BLOCK_H_W;y<span style="color:#f92672">++</span>)
+                    <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>BLOCK_H_W;x<span style="color:#f92672">++</span>)
+                        next_data[x][(BLOCK_H_W<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">-</span>y]<span style="color:#f92672">=</span>data[y][x];
+            }
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(dir<span style="color:#f92672">==</span>LEFT)
+            {
+                <span style="color:#66d9ef">char</span> x,y;
+                <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>BLOCK_H_W;y<span style="color:#f92672">++</span>)
+                    <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>BLOCK_H_W;x<span style="color:#f92672">++</span>)
+                        next_data[(BLOCK_H_W<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">-</span>x][y]<span style="color:#f92672">=</span>data[y][x];
+            }
+            <span style="color:#75715e">//衝突チェック
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(can_move(point.first,point.second,next_data,map)){
+                <span style="color:#66d9ef">char</span> x,y;
+                <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>BLOCK_H_W;y<span style="color:#f92672">++</span>)
+                    <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>BLOCK_H_W;x<span style="color:#f92672">++</span>)
+                        data[y][x]<span style="color:#f92672">=</span>next_data[y][x];
+                <span style="color:#66d9ef">return</span> true;
+            }
+        }
+        <span style="color:#66d9ef">return</span> false;
+    }
+    <span style="color:#75715e">//x,y 左上端座標：負になることもある
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">can_move</span>(<span style="color:#66d9ef">int</span> x,<span style="color:#66d9ef">int</span> y,<span style="color:#66d9ef">char</span> next_data[BLOCK_H_W][BLOCK_H_W],<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+    {
+        <span style="color:#66d9ef">char</span> i,j;
+        <span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>BLOCK_H_W;i<span style="color:#f92672">++</span>)
+            <span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span>BLOCK_H_W;j<span style="color:#f92672">++</span>)
+                <span style="color:#66d9ef">if</span>(x<span style="color:#f92672">+</span>i<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> y<span style="color:#f92672">+</span>j<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> x<span style="color:#f92672">+</span>i<span style="color:#f92672">&lt;</span>MAP_X <span style="color:#f92672">&amp;&amp;</span> y<span style="color:#f92672">+</span>i<span style="color:#f92672">&lt;</span>MAP_Y)
+                    <span style="color:#66d9ef">if</span>(next_data[j][i]<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> map[y<span style="color:#f92672">+</span>j][x<span style="color:#f92672">+</span>i]<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>)
+                        <span style="color:#66d9ef">return</span> false;
+        <span style="color:#66d9ef">return</span> true;
+    }
+    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">move</span>(Direction dir,<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+    {
+        <span style="color:#66d9ef">switch</span>(dir){
+            <span style="color:#66d9ef">case</span> RIGHT:<span style="color:#75715e">//右
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(can_move(point.first<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,point.second,data,map)){
+                    point.first<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+                    <span style="color:#66d9ef">return</span> true;
+                }
+                <span style="color:#66d9ef">break</span>;
+            <span style="color:#66d9ef">case</span> LEFT:<span style="color:#75715e">//左
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(can_move(point.first<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,point.second,data,map)){
+                    point.first<span style="color:#f92672">-=</span><span style="color:#ae81ff">1</span>;
+                    <span style="color:#66d9ef">return</span> true;
+                }
+                <span style="color:#66d9ef">break</span>;
+            <span style="color:#66d9ef">case</span> UP:<span style="color:#75715e">//上
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(can_move(point.first,point.second<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,data,map)){
+                    point.second<span style="color:#f92672">-=</span><span style="color:#ae81ff">1</span>;
+                    <span style="color:#66d9ef">return</span> true;
+                }
+                <span style="color:#66d9ef">break</span>;
+            <span style="color:#66d9ef">case</span> DOWN:<span style="color:#75715e">//下
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(can_move(point.first,point.second<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,data,map)){
+                    point.second<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+                    <span style="color:#66d9ef">return</span> true;
+                }
+                <span style="color:#66d9ef">break</span>;
+        }
+        <span style="color:#66d9ef">return</span> false;
+    }
+}block;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show_map</span>(<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+{
+    <span style="color:#66d9ef">int</span> x,y;
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>MAP_Y<span style="color:#f92672">-</span>MAP_NOT_SHOW_NUM;y<span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>MAP_X;x<span style="color:#f92672">++</span>){
+            attrset(COLOR_PAIR(map[y<span style="color:#f92672">+</span>MAP_NOT_SHOW_NUM][x]));
+            mvaddstr(y,x,<span style="color:#e6db74">&#34; &#34;</span>);
+        }
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show_map</span>(block <span style="color:#f92672">*</span>myblock,<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+{
+    <span style="color:#66d9ef">int</span> x,y;
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>MAP_Y<span style="color:#f92672">-</span>MAP_NOT_SHOW_NUM;y<span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>MAP_X;x<span style="color:#f92672">++</span>){
+            attrset(COLOR_PAIR(map[y<span style="color:#f92672">+</span>MAP_NOT_SHOW_NUM][x]));
+            mvaddstr(y,x,<span style="color:#e6db74">&#34; &#34;</span>);
+        }
+
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>BLOCK_H_W;y<span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>BLOCK_H_W;x<span style="color:#f92672">++</span>)
+            <span style="color:#66d9ef">if</span>(myblock<span style="color:#f92672">-&gt;</span>data[y][x]<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> myblock<span style="color:#f92672">-&gt;</span>point.second<span style="color:#f92672">-</span>MAP_NOT_SHOW_NUM<span style="color:#f92672">+</span>y<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>){
+                attrset(COLOR_PAIR(myblock<span style="color:#f92672">-&gt;</span>data[y][x]));
+                mvaddstr(myblock<span style="color:#f92672">-&gt;</span>point.second<span style="color:#f92672">-</span>MAP_NOT_SHOW_NUM<span style="color:#f92672">+</span>y,myblock<span style="color:#f92672">-&gt;</span>point.first<span style="color:#f92672">+</span>x,<span style="color:#e6db74">&#34; &#34;</span>);
+            }
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show_nextblock</span>(<span style="color:#66d9ef">int</span> block_num)
+{
+    <span style="color:#66d9ef">int</span> x,y;
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>BLOCK_H_W;y<span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>BLOCK_H_W;x<span style="color:#f92672">++</span>)
+        {
+            attrset(COLOR_PAIR(block_data[block_num][y][x]));
+            mvaddstr(y<span style="color:#f92672">+</span>NEXT_BLOCK_Y,x<span style="color:#f92672">+</span>NEXT_BLOCK_X,<span style="color:#e6db74">&#34; &#34;</span>);
+        }
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show_score</span>(<span style="color:#66d9ef">int</span> score)
+{
+    attrset(COLOR_PAIR(<span style="color:#ae81ff">0</span>));
+    mvprintw(SCORE_Y,SCORE_X,<span style="color:#e6db74">&#34;SCORE:%d&#34;</span>,score);
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">init</span>()
+{
+    initscr();<span style="color:#75715e">//window初期化
+</span><span style="color:#75715e"></span>    noecho();<span style="color:#75715e">//キー入力を表示しない
+</span><span style="color:#75715e"></span>    cbreak();<span style="color:#75715e">//キー入力をすぐに受け付ける
+</span><span style="color:#75715e"></span>    curs_set(<span style="color:#ae81ff">0</span>);<span style="color:#75715e">//カーソル非表示
+</span><span style="color:#75715e"></span>
+    start_color();<span style="color:#75715e">//カラーの初期化？
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">/*色ペアの設定　(番号,前景色,背景色)
+</span><span style="color:#75715e">      0は前白,後黒になってるらしい*/</span>
+    init_pair(<span style="color:#ae81ff">1</span>,COLOR_BLACK,COLOR_WHITE);
+    init_pair(<span style="color:#ae81ff">2</span>, COLOR_BLACK, COLOR_RED);
+    init_pair(<span style="color:#ae81ff">3</span>, COLOR_BLACK, COLOR_GREEN);
+    init_pair(<span style="color:#ae81ff">4</span>,COLOR_BLACK,COLOR_BLUE);
+    init_pair(<span style="color:#ae81ff">5</span>,COLOR_BLACK,COLOR_YELLOW);
+    init_pair(<span style="color:#ae81ff">6</span>,COLOR_BLACK,COLOR_CYAN);
+    init_pair(<span style="color:#ae81ff">7</span>,COLOR_BLACK,COLOR_MAGENTA);
+    init_pair(<span style="color:#ae81ff">8</span>,COLOR_BLACK,COLOR_BLUE);
+
+    bkgd(COLOR_PAIR(<span style="color:#ae81ff">0</span>));<span style="color:#75715e">//ターミナルの背景黒、文字白
+</span><span style="color:#75715e"></span>    wtimeout(stdscr,TIMEOUT);<span style="color:#75715e">//getchのタイムアウト設定
+</span><span style="color:#75715e"></span>    keypad(stdscr, TRUE); <span style="color:#75715e">//矢印キー使用する
+</span><span style="color:#75715e"></span>
+    srand(time(NULL));<span style="color:#75715e">//乱数列初期化
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">  キー入力を反映する関数
+</span><span style="color:#75715e">  入力がなければfalse
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">key_input</span>(block <span style="color:#f92672">*</span>myblock,<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+{
+    <span style="color:#66d9ef">int</span> keyinput;
+    keyinput<span style="color:#f92672">=</span>getch();
+    <span style="color:#66d9ef">switch</span>(keyinput){
+        <span style="color:#66d9ef">case</span> KEY_RIGHT:
+            myblock<span style="color:#f92672">-&gt;</span>move(RIGHT,map);<span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> KEY_LEFT:
+            myblock<span style="color:#f92672">-&gt;</span>move(LEFT,map);<span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> KEY_UP:
+            myblock<span style="color:#f92672">-&gt;</span>rotate(LEFT,map);<span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> KEY_DOWN:
+            myblock<span style="color:#f92672">-&gt;</span>move(DOWN,map);<span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;c&#39;</span><span style="color:#f92672">:</span>
+            endwin();
+            exit(<span style="color:#ae81ff">0</span>);
+        <span style="color:#66d9ef">default</span> <span style="color:#f92672">:</span><span style="color:#66d9ef">return</span> false;
+    }
+    <span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">lock_myblock</span>(block <span style="color:#f92672">*</span>myblock,<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+{
+    <span style="color:#66d9ef">int</span> x,y;
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>BLOCK_H_W;y<span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>BLOCK_H_W;x<span style="color:#f92672">++</span>)
+            <span style="color:#66d9ef">if</span>(myblock<span style="color:#f92672">-&gt;</span>data[y][x]<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>)map[myblock<span style="color:#f92672">-&gt;</span>point.second<span style="color:#f92672">+</span>y][myblock<span style="color:#f92672">-&gt;</span>point.first<span style="color:#f92672">+</span>x]<span style="color:#f92672">=</span>myblock<span style="color:#f92672">-&gt;</span>data[y][x];
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">  揃ったラインを消す関数
+</span><span style="color:#75715e">  return:消したライン数
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">delete_lines</span>(<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+{
+    <span style="color:#66d9ef">int</span> x,y,cnt<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span>MAP_Y<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>;y<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">--</span>){
+        <span style="color:#66d9ef">bool</span> flg<span style="color:#f92672">=</span>true;
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;x<span style="color:#f92672">&lt;</span>MAP_X<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;x<span style="color:#f92672">++</span>)
+            <span style="color:#66d9ef">if</span>(map[y][x]<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)flg<span style="color:#f92672">=</span>false;
+        <span style="color:#66d9ef">if</span>(flg)cnt<span style="color:#f92672">++</span>;
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(cnt)
+            <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;x<span style="color:#f92672">&lt;</span>MAP_X<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;x<span style="color:#f92672">++</span>)
+                map[y<span style="color:#f92672">+</span>cnt][x]<span style="color:#f92672">=</span>map[y][x];
+    }
+    <span style="color:#66d9ef">return</span> cnt;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">gameover</span>(<span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X])
+{
+    <span style="color:#66d9ef">int</span> x,y;
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>MAP_Y;y<span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>MAP_X;x<span style="color:#f92672">++</span>)
+            map[y][x]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+    show_map(map);
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">play</span>(<span style="color:#66d9ef">int</span> difficulty)
+{
+    <span style="color:#66d9ef">int</span> next_myblock_num;
+    <span style="color:#66d9ef">char</span> map[MAP_Y][MAP_X];
+    block myblock;
+    <span style="color:#66d9ef">int</span> score<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">//マップリセット
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> x,y;
+    <span style="color:#66d9ef">for</span>(y<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;y<span style="color:#f92672">&lt;</span>MAP_Y;y<span style="color:#f92672">++</span>)
+        <span style="color:#66d9ef">for</span>(x<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;x<span style="color:#f92672">&lt;</span>MAP_X;x<span style="color:#f92672">++</span>)
+        {
+            <span style="color:#66d9ef">if</span>(x<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> x<span style="color:#f92672">==</span> MAP_X<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)map[y][x]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(y<span style="color:#f92672">==</span>MAP_Y<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)map[y][x]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+            <span style="color:#66d9ef">else</span> map[y][x]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+        }
+
+    <span style="color:#66d9ef">while</span>(true)
+    {
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">20</span><span style="color:#f92672">-</span>difficulty;i<span style="color:#f92672">++</span>)
+        {
+            key_input(<span style="color:#f92672">&amp;</span>myblock,map);
+            <span style="color:#75715e">//タイム追加
+</span><span style="color:#75715e"></span>            usleep(<span style="color:#ae81ff">2000</span>);
+        }
+        <span style="color:#66d9ef">if</span>(myblock.move(DOWN,map)<span style="color:#f92672">==</span>false){
+            <span style="color:#75715e">//下に落とせなかったら固定
+</span><span style="color:#75715e"></span>            lock_myblock(<span style="color:#f92672">&amp;</span>myblock,map);
+            <span style="color:#75715e">//上端で落とせなかったら終わり
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(myblock.point.second<span style="color:#f92672">&lt;=</span>MAP_NOT_SHOW_NUM){
+                gameover(map);
+                <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+            }
+            myblock.reset(next_myblock_num);
+            next_myblock_num<span style="color:#f92672">=</span>rand()<span style="color:#f92672">%</span>BLOCK_NUM;
+        }
+        score<span style="color:#f92672">+=</span>delete_lines(map)<span style="color:#f92672">*</span><span style="color:#ae81ff">10</span>;
+        show_map(<span style="color:#f92672">&amp;</span>myblock,map);
+        show_nextblock(next_myblock_num);
+        show_score(score);
+    }
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+
+    <span style="color:#66d9ef">char</span> nextblock;
+
+    init();
+    play(<span style="color:#ae81ff">0</span>);
+    endwin();
+}
+
+</code></pre></div>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/beacon/ ">&lt;MacでiBeacon発信</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/smart-glass/">Google Glassを作ってみた&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/cui-tetris/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

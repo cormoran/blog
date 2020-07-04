@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - libc&#43;&#43;とlibstdc&#43;&#43;のデバッグモードについて 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="libc&#43;&#43;とlibstdc&#43;&#43;のデバッグモードについて - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="-D_GLIBCXX_DEBUG をつけていたけど、実は効果がない状態だった&hellip;　という話。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#libstdc-のデバッグモード">libstdc++ のデバッグモード</a>
+      <ul>
+        <li><a href="#例１-vectorの配列外アクセス">例１ vectorの配列外アクセス</a></li>
+        <li><a href="#例２-配列がソートされていることを前提にしたアルゴリズム">例２ 配列がソートされていることを前提にしたアルゴリズム</a></li>
+      </ul>
+    </li>
+    <li><a href="#libc-のデバッグモード">libc++ のデバッグモード</a>
+      <ul>
+        <li><a href="#例１-vectorの配列外アクセス-1">例１ vectorの配列外アクセス</a></li>
+        <li><a href="#例２-配列がソートされていることを前提にしたアルゴリズム-1">例２ 配列がソートされていることを前提にしたアルゴリズム</a></li>
+      </ul>
+    </li>
+    <li><a href="#感想">感想</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/clang-sanitizer/ ">&lt;clang のSanitizerについて</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/indeed-global-tour-2016/">indeed視察ツアー2016参加記&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2016-08-20">
+	                                2016年8月20日 02:55
+	                            </time>
+	                        </span>
+                        <h1>libc&#43;&#43;とlibstdc&#43;&#43;のデバッグモードについて</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p><code>-D_GLIBCXX_DEBUG</code> をつけていたけど、実は効果がない状態だった&hellip;　という話。</p>
+<p>libc++では<code>-D_GLIBCXX_DEBUG</code>してもデバッグモードにならない。</p>
+<p><code>-D_LIBCPP_DEBUG=0</code>とつける必要がある。</p>
+<p>しかし、開発中で対応しているライブラリはまだ少ない様子。</p>
+<h2 id="libstdc-のデバッグモード">libstdc++ のデバッグモード</h2>
+<p><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/debug_mode_using.html#debug_mode.using.mode">ドキュメントはここ</a></p>
+<p>libstdc++では、<code>_GLIBCXX_DEBUG</code>を定義しておくと標準ライブラリにエラーチェックなどが追加される。vector, string, map, set, list, dequeなどは定義関係なくエラーチェックを入れたライブラリを別に用意してくれているほどなので、少なくともこれらのコンテナではエラーチェックが効くはず。</p>
+<p>デバッグモードになると、Iteratorのエラー（配列外アクセスなど）検出や、アルゴリズムの前提条件チェック（ソートしてるかなど）をしてくれるらしい。</p>
+<h3 id="例１-vectorの配列外アクセス">例１ vectorの配列外アクセス</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// vector-over.cpp
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a(<span style="color:#ae81ff">100</span>);    
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>) a[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Finish&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ g++-5 -D_GLIBCXX_DEBUG vector-over.cpp
+$ ./a.out
+/usr/local/Cellar/gcc/5.3.0/include/c++/5.3.0/debug/vector:406:error:
+    attempt to subscript container with out-of-bounds index 100, but
+    container only holds <span style="color:#ae81ff">100</span> elements.
+
+Objects involved in the operation:
+sequence <span style="color:#e6db74">&#34;this&#34;</span> @ 0x0x7fff50244440 <span style="color:#f92672">{</span>
+  type <span style="color:#f92672">=</span> NSt7__debug6vectorIiSaIiEEE;
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>    <span style="color:#ae81ff">61209</span> abort      ./a.out
+</code></pre></div><h3 id="例２-配列がソートされていることを前提にしたアルゴリズム">例２ 配列がソートされていることを前提にしたアルゴリズム</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// inter-section.cpp
+</span><span style="color:#75715e">// ref: http://www.cplusplus.com/reference/algorithm/set_intersection/
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+  <span style="color:#66d9ef">int</span> first[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">25</span>};
+  <span style="color:#66d9ef">int</span> second[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">50</span>,<span style="color:#ae81ff">40</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">10</span>};
+  std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v(<span style="color:#ae81ff">10</span>);                      <span style="color:#75715e">// 0  0  0  0  0  0  0  0  0  0
+</span><span style="color:#75715e"></span>  std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
+
+  <span style="color:#75715e">//  std::sort (first,first+5);     //  5 10 15 20 25
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">//  std::sort (second,second+5);   // 10 20 30 40 50
+</span><span style="color:#75715e"></span>
+  it<span style="color:#f92672">=</span>std<span style="color:#f92672">::</span>set_intersection (first, first<span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>, second, second<span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>, v.begin());
+                                               <span style="color:#75715e">// 10 20 0  0  0  0  0  0  0  0
+</span><span style="color:#75715e"></span>  v.resize(it<span style="color:#f92672">-</span>v.begin());                      <span style="color:#75715e">// 10 20
+</span><span style="color:#75715e"></span>
+  std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The intersection has &#34;</span> <span style="color:#f92672">&lt;&lt;</span> (v.size()) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; elements:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+  <span style="color:#66d9ef">for</span> (it<span style="color:#f92672">=</span>v.begin(); it<span style="color:#f92672">!=</span>v.end(); <span style="color:#f92672">++</span>it)
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>it;
+  std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>ソートされてないよと教えてくれる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ g++-5 -D_GLIBCXX_DEBUG inter-section.cpp
+$ ./a.out
+/usr/local/Cellar/gcc/5.3.0/include/c++/5.3.0/bits/stl_algo.h:5120:error:
+    elements in iterator range <span style="color:#f92672">[</span>__first2, __last2<span style="color:#f92672">)</span> are not sorted.
+
+Objects involved in the operation:
+iterator <span style="color:#e6db74">&#34;__first2&#34;</span> @ 0x0x7fff5f580860 <span style="color:#f92672">{</span>
+type <span style="color:#f92672">=</span> Pi;
+<span style="color:#f92672">}</span>
+iterator <span style="color:#e6db74">&#34;__last2&#34;</span> @ 0x0x7fff5f580858 <span style="color:#f92672">{</span>
+type <span style="color:#f92672">=</span> Pi;
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>    <span style="color:#ae81ff">5262</span> abort      ./a.out
+</code></pre></div><h2 id="libc-のデバッグモード">libc++ のデバッグモード</h2>
+<p><a href="http://libcxx.llvm.org/debug_mode.html">ドキュメントはここ</a></p>
+<p>あまり情報を得られなかったが、デバッグモードは開発中らしい。</p>
+<p><code>-D_LIBCPP_DEBUG=0</code>をつけるとvectorの配列外アクセスは検出してくれた。</p>
+<p><code>-D_LIBCPP_DEBUG=1</code>とすると、さらに別のコードが増えるらしく、コンパイルエラーになった。</p>
+<p>対応したライブラリが少なく、実行時のエラー表示もlibstdc++の方が良い感じだが、開発が進んだらこっちも良くなるのかもしれない。</p>
+<p>libstdc++で試したのと同じプログラムでどうなるか見てみた。</p>
+<h3 id="例１-vectorの配列外アクセス-1">例１ vectorの配列外アクセス</h3>
+<p>プログラムはさっきと同じ</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ clang++-3.8 -D_LIBCPP_DEBUG<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> vector-over.cpp
+$ ./a.out
+vector<span style="color:#f92672">[]</span> index out of bounds
+<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>    <span style="color:#ae81ff">13859</span> abort      ./a.out
+</code></pre></div><h3 id="例２-配列がソートされていることを前提にしたアルゴリズム-1">例２ 配列がソートされていることを前提にしたアルゴリズム</h3>
+<p>未対応っぽい。特に何も言われない</p>
+<pre><code>$ clang++-3.8 -D_LIBCPP_DEBUG=0 inter-section.cpp
+$ ./a.out
+The intersection has 0 elements:
+
+</code></pre><h2 id="感想">感想</h2>
+<p>libstdc++は色々なところでデバッグモードが実装されてそうなのでつけておくと助けられるかもしれない。</p>
+<p>ただ、vectorの配列外アクセスなどは、ソースコードのどこでやってしまったのかわからないのでsanitizer使った方が良さそうな気もする。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/">The GNU C++ Library Manual</a></li>
+<li><a href="http://libcxx.llvm.org/">&ldquo;libc++&rdquo; C++ Standard Library</a></li>
+<li><a href="http://qiita.com/tell/items/28fa6e76003aecb908a3">C++標準ライブラリをdebug modeで使う</a></li>
+<li><a href="https://twitter.com/natrium11321/status/515366162633203712">twitterのお話</a></li>
+</ul>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/clang-sanitizer/ ">&lt;clang のSanitizerについて</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/indeed-global-tour-2016/">indeed視察ツアー2016参加記&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/libstdcpp_and_libcpp_debug_mode/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>

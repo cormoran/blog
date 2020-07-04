@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
+    <meta charset="utf-8" /> <meta name="generator" content="Hugo 0.72.0" />
+<title>
+    cormoran&#39;s 雑記  - AVR UART通信 on mega168p 
+</title>
+
+<meta name="generator" content="Hugo 0.72.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:site" content="@cormoran707" /> 
+<meta property="og:title" content="AVR UART通信 on mega168p - cormoran&#39;s 雑記" /> 
+<meta property="og:type" content="article" />
+<meta property="og:description" content="ATmega168pでUART通信をしてみました。" /> 
+<meta property="og:url" content="http://localhost:1313/blog/" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="http://localhost:1313/blog//css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="site-title">
+  <a href="http://localhost:1313/blog/">cormoran&#39;s 雑記</a>
+</h1>
+<hr />
+
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="side">
+    <div class="text-center">
+        <img class="logo" src="http://localhost:1313/blog//img/myicon.jpg">
+        <h1>cormoran</h1>
+        
+        <p>A Software Engineer</p>
+        
+        <div class="social-icon-list">
+            <ul>
+                
+                <li>
+                    <a href="http://twitter.com/cormoran707">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="http://github.com/cormoran">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog/index.xml">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="menu text-center">
+        <ul>
+             
+            <li >
+                <a href="/blog/ ">雑記</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me/article ">Articles</a>
+            </li>
+            
+            <li >
+                <a href="https://www.cormoran.me ">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <hr>
+    <h2 class="text-center">Recent Post</h2>
+    <div class="menu">
+        <ul>
+  
+  <li>
+    <a href="/blog/2019/12/ml-reserch-for-iq1/">IQ1でもできる！機械学習研究の実験管理！ </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/12/gpu-job-runner/">GPU サーバーを全部占領するための技術 (1) </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/jsc2019-final/">第一回日本最強プログラマー学生選手権 参加記 </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/09/isucon9/">ISUCON9 予選に参加した </a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/06/deskmini-a300/">DeskMini A300 を買った </a>
+  </li>
+  
+</ul>
+
+    </div>
+    <hr>
+    <div class="tag-list">
+        
+        <a href="/tags/language" class="btn btn-default btn-xs" type="button">
+                language
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/raspberrypi" class="btn btn-default btn-xs" type="button">
+                raspberrypi
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/sdl2" class="btn btn-default btn-xs" type="button">
+                sdl2
+                <span class="badge">5</span>
+            </a> 
+        <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3" class="btn btn-default btn-xs" type="button">
+                インターン
+                <span class="badge">6</span>
+            </a> 
+        <a href="/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB" class="btn btn-default btn-xs" type="button">
+                ウェアラブル
+                <span class="badge">2</span>
+            </a> 
+        <a href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98" class="btn btn-default btn-xs" type="button">
+                参加記
+                <span class="badge">15</span>
+            </a> 
+        <a href="/tags/%E5%AD%A6%E4%BC%9A" class="btn btn-default btn-xs" type="button">
+                学会
+                <span class="badge">1</span>
+            </a> 
+        <a href="/tags/%E7%AB%B6%E3%83%97%E3%83%AD" class="btn btn-default btn-xs" type="button">
+                競プロ
+                <span class="badge">6</span>
+            </a> 
+    </div>
+    <hr> 
+    <div class="google-custom-search-wrapper">
+        <script>
+            (function () {
+                var cx = '007779444469775643741:gxf1addhpnq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+    <hr>  
+    <div id="TableOfContentsWrapper">
+        <h2 class="text-center">Table</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#uart-usart">UART? USART?</a></li>
+    <li><a href="#ライブラリ">ライブラリ</a></li>
+  </ul>
+</nav>
+    </div>
+    
+</div>
+            </div>
+            <div class="col-sm-9 main">
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/atmega168-ad-pwd/ ">&lt;ATmega168pを使う ~PWMとAD変換~</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/lazyk/">Lazy K　〜インタープリタの導入〜　 (Mac)&gt;</a> 
+    </div>
+</nav>
+
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="2015-02-25">
+	                                2015年2月25日 00:00
+	                            </time>
+	                        </span>
+                        <h1>AVR UART通信 on mega168p</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        <p>ATmega168pでUART通信をしてみました。</p>
+<p>通信したのはBluetoothモジュールである RN-42 。このモジュールはUSARTとUSBインターフェースを持っており、それらの通信を無線化することができます。なのでAVR側で必要なのは普通のUSART(UART)通信だけあり、マイコンで非常に簡単にBluetooth通信をすることができます。</p>
+<p>　Bluetooth通信関連の記事は後日書くことにして、今回はUART通信に絞って書きます。</p>
+<h2 id="uart-usart">UART? USART?</h2>
+<p>googleで”avr USART”と検索すると”もしかして avr UART”と表示され、なんか嫌な気分になるのですが、atmega168pに搭載されているモジュールはUSARTです。USARTとUARTの違いは前者がクロック同期式の通信をサポートしているのに対し、後者は非同期のみに対応していることです（たぶん）。ちなみに</p>
+<p>USART : Universal Synchronous Asynchronous Receiver Transmitter</p>
+<p>UART : Universal Asynchronous Receiver Transmitter</p>
+<p>で英語を見れば大体わかります。今回やることはモジュールはUSARTなのでUSARTと言うべきだろうと思いますがライブラリを全部UARTと書いてしまっており、通信も非同期式でやっているのでUARTっていう言葉でいきます。（適当）</p>
+<h2 id="ライブラリ">ライブラリ</h2>
+<p>今回作ったライブラリは</p>
+<p><!-- raw HTML omitted -->ライブラリ説明用<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ソースコード<!-- raw HTML omitted --></p>
+<p>ソースコードは上のリンクの Library -&gt; UART -&gt; firmware にあります。Doxygenを初めて使ってみたので説明は適当ですが。また、まだいろいろ試している途中なので構成を変える可能性があり、リンクエラーになるかもしれません。</p>
+<p>上のライブラリはAVRのUSARTモジュールの設定をまとめていることに加え、送受信バッファを独自に作って文字列の送信をうまくできるようにしています。</p>
+<p>ATmega168p以外のavrマイコンでもヘッダファイルのレジスタ関連のマクロ部分を変えれば使えると思います。他のマイコンで使ったら順次設定を追加していくつもりです。</p>
+<p>備忘録を兼ねて簡単に説明を。以下は部分抜粋、貼り合わせです。コメントを追加して説明としています。</p>
+<pre><code>
+//割り込みを利用して自動で送受信を行う。
+
+//mega168pは受信データを1byteしかハード的には保持しないので
+
+//自分でバッファを用意してそのバッファを介してデータをやり取りする。
+
+//バッファは使う場所をくるくる回して使う。
+
+//（ローリングバッファっていうらしい。）
+
+//バッファサイズ
+
+#define RCVBUF_SIZE 25
+
+#define SNDBUF_SIZE 25
+
+volatile signed char rcvbuf[RCVBUF_SIZE]={};
+
+volatile signed char sndbuf[SNDBUF_SIZE]={};
+
+// _w:次に書き込むバッファの位置
+
+// _r:次に読み取る場所
+
+volatile unsigned char sndbuf\_cnt\_w=0,sndbuf\_cnt\_r=0;
+
+volatile unsigned char rcvbuf\_cnt\_w=0,rcvbuf\_cnt\_r=0;
+
+volatile char sndbuf\_over\_flg=0;//バッファ溢れを防ぐためにつかう
+
+void UART_init(){
+
+//とりあえずレジスタを0にしてから設定しているが冗長的かもしれない
+
+UCSRB = 0 ;
+
+UCSRC = 0 ;
+
+//受信完了、送信準備完了割り込み許可
+
+UCSRB |= bSET(RXCIE) | bSET(UDRIE);
+
+// 0b(0)11 DataBit長 8bit
+
+UCSRC |= bSET(UCSZ1) | bSET(UCSZ0);
+
+//（ちなみに）非同期通信、パリティ検査禁止
+
+//ボーレート設定
+
+UBRR = F_CPU/16/BAUD &amp;#8211; 1 ;
+
+//RX,TXピンを有効化、送受信許可
+
+UCSRB |= bSET(RXEN) | bSET(TXEN);
+
+}
+
+///受信完了時割り込み
+
+//受信データを受信バッファに入れる。
+
+//現状バッファが溢れると過去の1周分のデータが消える。
+
+ISR(USART\_RX\_vect){
+
+rcvbuf[ (int)rcvbuf\_cnt\_w++ ] = UDR ;
+
+if( rcvbuf\_cnt\_w &gt;= RCVBUF\_SIZE ) rcvbuf\_cnt_w = 0 ;
+
+}
+
+///送信準備完了時割り込み
+
+//送信はputchar関数（２種類ある）でバッファ溢れ対策をしているので
+
+//不意にデータが消える心配はない。overflgを追加してるのでちょっと複雑。
+
+//ここのコードだけではわからないと思う。
+
+ISR(USART\_UDRE\_vect){
+
+if( sndbuf\_over\_flg || sndbuf\_cnt\_r != sndbuf\_cnt\_w ){
+
+UDR = sndbuf[ (int)sndbuf\_cnt\_r++ ];
+
+if( sndbuf\_cnt\_r &gt;= SNDBUF\_SIZE ) sndbuf\_cnt_r = 0;
+
+sndbuf\_over\_flg = 0;
+
+}
+
+else UCSRB &amp;= bCLR(UDRIE);
+
+}
+
+</code></pre><p>main.cは簡単な使い方のサンプルになっているので詳しくはご覧ください。</p>
+                    </section>
+                </article>
+                
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        
+        <a href="/blog/atmega168-ad-pwd/ ">&lt;ATmega168pを使う ~PWMとAD変換~</a> 
+    </div>
+    <div class="col-sm-6 text-right">
+        
+        <a href="/blog/lazyk/">Lazy K　〜インタープリタの導入〜　 (Mac)&gt;</a> 
+    </div>
+</nav>
+
+                <div>
+                    
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cormoran707" data-size="small" data-dnt="true">Tweet</a>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+ <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'ja'
+    }
+</script>
+<div class="g-plusone" data-size="medium"></div> <div class="fb-like" data-href="/blog/atmega168-uart/" data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+    data-share="true"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+    .fb_iframe_widget {
+        vertical-align: top;
+    }
+</style>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+<div class="text-center">
+    &copy; 
+</div>
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://localhost:1313/blog//js/jquery.sticky.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $("#TableOfContentsWrapper").sticky({
+                topSpacing: 30
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true,
+    processEnvironments: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], TeX: { equationNumbers: { autoNumber:
+    "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] } } });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() { // Fix <code> tags after MathJax finishes running. This is a
+	    // hack to overcome a shortcoming of Markdown. Discussion at
+	    // https://github.com/mojombo/jekyll/issues/199
+	    var all = MathJax.Hub.getAllJax(), i;
+	    for(i = 0; i &lt; all.length; i += 1) {
+		    all[i].SourceElement().parentNode.className += ' has-jax';
+	    }
+    });
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="http://localhost:1313/blog//js/highlightjs-line-numbers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+
+		window.addEventListener('load', function () {
+			Array.prototype.forEach.call(document.getElementsByTagName('pre'), function (pre) {
+				var wrapper = document.createElement('div'),
+					tag = document.createElement('div'),
+					copyButton = document.createElement('div');
+				var ext = pre.childNodes[1].getAttribute('class').split(" ")[0]
+						  .replace("language-", "")
+						  .replace("hljs", "?");
+				tag.innerHTML = "language: " + ext;
+				copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+				var code = pre.getElementsByTagName('code')[1];
+				new Clipboard(copyButton, {
+					target: function () {
+						return code;
+					},
+				});
+				wrapper.classList.add("hljs-language-tag-wrapper");
+				tag.classList.add("hljs-language-tag");
+				copyButton.classList.add("hljs-copy-button");
+				wrapper.appendChild(tag);
+				wrapper.appendChild(copyButton);
+				pre.insertBefore(wrapper, pre.firstChild);
+			});
+		});
+</script>
+
+
+</body>
+
+</html>
