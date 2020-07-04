@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on cormoran&#39;s 雑記</title>
-    <link>https://www.cormoran.me/blog/categories/</link>
+    <link>http://www.cormoran.me/blog/categories/</link>
     <description>Recent content in Categories on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 20 Aug 2016 02:55:10 +0900</lastBuildDate>
     
-	<atom:link href="https://www.cormoran.me/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.cormoran.me/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Programing</title>
-      <link>https://www.cormoran.me/blog/categories/programing/</link>
+      <link>http://www.cormoran.me/blog/categories/programing/</link>
       <pubDate>Sat, 20 Aug 2016 02:55:10 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/categories/programing/</guid>
+      <guid>http://www.cormoran.me/blog/categories/programing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>電子工作</title>
-      <link>https://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</link>
+      <link>http://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</link>
       <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</guid>
+      <guid>http://www.cormoran.me/blog/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</guid>
       <description></description>
     </item>
     

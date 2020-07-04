@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lecture on cormoran&#39;s 雑記</title>
-    <link>https://www.cormoran.me/blog/lecture/</link>
+    <link>http://www.cormoran.me/blog/lecture/</link>
     <description>Recent content in Lecture on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 02 May 2016 23:50:10 +0900</lastBuildDate>
     
-	<atom:link href="https://www.cormoran.me/blog/lecture/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.cormoran.me/blog/lecture/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Windowsでストレスのない開発環境を構築するメモ（の一部）</title>
-      <link>https://www.cormoran.me/blog/lecture/windows-cui/</link>
+      <link>http://www.cormoran.me/blog/lecture/windows-cui/</link>
       <pubDate>Mon, 02 May 2016 23:50:10 +0900</pubDate>
       
-      <guid>https://www.cormoran.me/blog/lecture/windows-cui/</guid>
+      <guid>http://www.cormoran.me/blog/lecture/windows-cui/</guid>
       <description>&lt;p&gt;ロボットの部にあるWindowsが使いにくくてつらかったので（自分が）使いやすいようにいろいろやってみました。&lt;/p&gt;
 &lt;p&gt;あまり大したことはやってないのですが、自分向けに、部の人向けにメモ程度に。やっとことをざっとまとめるだけで、深いことは書きません。&lt;/p&gt;</description>
     </item>
