@@ -1,0 +1,33 @@
+baseURL = "https://www.cormoran.me/blog"
+languageCode = "ja"
+title = "cormoran's 雑記"
+theme = "hugo-theme-myblog"
+pluralizeListTitles = false
+destination = "docs"
+
+[params]
+author = "cormoran"
+short_profile = "A Software Engineer"
+logo = "/img/myicon.jpg"
+twitter = "cormoran707"
+github = "cormoran"
+google_custom_search = "007779444469775643741:gxf1addhpnq"
+
+
+[[menu.main]]
+	name = "雑記"
+	weight = 1
+	identifier = "top"
+	url = "/"
+
+[[menu.main]]
+	name = "Articles"
+	weight = 2
+	identifier = "new-article"
+	url = "https://www.cormoran.me/article"    
+
+[[menu.main]]
+	name = "About"
+	weight = 3
+	identifier = "about"
+	url = "https://www.cormoran.me"    

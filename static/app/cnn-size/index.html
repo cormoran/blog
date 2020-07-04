@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+            crossorigin="anonymous"
+        />
+
+        <title>CNNのサイズ計算</title>
+    </head>
+    <body>
+        <h1>CNNのサイズ計算</h1>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <div id="app" class="container-fluid">
+            <div class="row">
+                <div class="col-12 form">
+                    <div class="form-group"><label>kernel size</label><input class="form-control" v-model.number="kernel" /></div>
+                    <div class="form-group"><label>stride</label><input class="form-control" v-model.number="stride" /></div>
+                    <div class="form-group"><label>padding</label><input class="form-control" v-model.number="padding" /></div>
+                    <div class="form-group"><label>out_padding</label><input class="form-control" v-model.number="out_padding" /></div>
+                    <button class="btn btn-primary" @click="addConv">追加</button>
+                </div>
+                <div class="col-12 form">
+                    <div class="form-group"><label>画像サイズ W</label><input class="form-control ml-2" v-model.number="input_w" /></div>
+                    <div class="form-group"><label>画像サイズ H</label><input class="form-control ml-2" v-model.number="input_h" /></div>
+                </div>
+                <div v-for="c, i in conv" class="col-12">
+                    <div class="form-inline">
+                        <label>{{ i }}:</label>
+                        <div class="form-group ml-2"><label>kernel size</label><input class="form-control ml-2" v-model.number="c.kernel" /></div>
+                        <div class="form-group ml-2"><label>stride</label><input class="form-control ml-2" v-model.number="c.stride" /></div>
+                        <div class="form-group ml-2"><label>padding</label><input class="form-control ml-2" v-model.number="c.padding" /></div>
+                        <div class="form-group"><label>out_padding</label><input class="form-control" v-model.number="c.out_padding" /></div>
+                        <button class="btn btn-primary ml-2" @click="removeConv(i)">削除</button>
+                    </div>
+                    <div>出力サイズ: （Conv）{{ calcOutShape(i) }} （ConvTranspose） {{ calcOutShapeTranspose(i) }}</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    conv: [],
+                    kernel: 3,
+                    stride: 1,
+                    padding: 0,
+                    out_padding: 0,
+                    input_w: 28,
+                    input_h: 28,
+                },
+                methods: {
+                    addConv() {
+                        var conv = {
+                            kernel: this.kernel,
+                            stride: this.stride,
+                            padding: this.padding,
+                            out_padding: this.out_padding,
+                        };
+                        this.conv.push(conv);
+                    },
+                    removeConv(idx) {
+                        this.conv.splice(idx, 1);
+                    },
+                    calcOutShape(idx) {
+                        var h = this.input_h;
+                        var w = this.input_w;
+                        var i;
+                        for (i = 0; i <= idx; i++) {
+                            h = Math.ceil((h + 2 * this.conv[i].padding - this.conv[i].kernel - 1) / this.conv[i].stride + 1);
+                            w = Math.ceil((w + 2 * this.conv[i].padding - this.conv[i].kernel - 1) / this.conv[i].stride + 1);
+                        }
+                        return [h, w];
+                    },
+                    calcOutShapeTranspose(idx) {
+                        var h = this.input_h;
+                        var w = this.input_w;
+                        var i;
+                        for (i = 0; i <= idx; i++) {
+                            h = (h - 1) * this.conv[i].stride - 2 * this.conv[i].padding + this.conv[i].kernel + this.conv[i].out_padding;
+                            w = (w - 1) * this.conv[i].stride - 2 * this.conv[i].padding + this.conv[i].kernel + this.conv[i].out_padding;
+                        }
+                        return [h, w];
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
