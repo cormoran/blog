@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>raspberrypi on cormoran&#39;s 雑記</title>
-    <link>http://localhost:1313/blog/tags/raspberrypi/</link>
+    <link>https://www.cormoran.me/blog/tags/raspberrypi/</link>
     <description>Recent content in raspberrypi on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 18 Oct 2015 15:11:01 +0900</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/blog/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Raspberrypiでサーバーを作るときの設定など</title>
-      <link>http://localhost:1313/blog/raspberrypi-server/</link>
+      <link>https://www.cormoran.me/blog/raspberrypi-server/</link>
       <pubDate>Sun, 18 Oct 2015 15:11:01 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/raspberrypi-server/</guid>
+      <guid>https://www.cormoran.me/blog/raspberrypi-server/</guid>
       <description>&lt;p&gt;Raspberrypiを使って自宅サーバーを動かしているのですが、今回RaspberyPi2を買ったのでサーバーを移しました。また必要になるかもしれないのでメモ程度に書いておきます。&lt;/p&gt;</description>
     </item>
     

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ウェアラブル on cormoran&#39;s 雑記</title>
-    <link>http://localhost:1313/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/</link>
+    <link>https://www.cormoran.me/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/</link>
     <description>Recent content in ウェアラブル on cormoran&#39;s 雑記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 17 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.cormoran.me/blog/tags/%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%83%96%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Google Glass もどきその２</title>
-      <link>http://localhost:1313/blog/smart-glass2/</link>
+      <link>https://www.cormoran.me/blog/smart-glass2/</link>
       <pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog/smart-glass2/</guid>
+      <guid>https://www.cormoran.me/blog/smart-glass2/</guid>
       <description>&lt;p&gt;　前回紹介した自作ウェアラブルグラスについてです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Google Glassを作ってみた</title>
-      <link>http://localhost:1313/blog/smart-glass/</link>
+      <link>https://www.cormoran.me/blog/smart-glass/</link>
       <pubDate>Mon, 20 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog/smart-glass/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/img/2014/10/glass_2nd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>https://www.cormoran.me/blog/smart-glass/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.cormoran.me/blog/img/2014/10/glass_2nd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;近頃話題のgoogle glassを使ってみたかったのでそれっぽいものを自作してみました。&lt;/p&gt;</description>
     </item>
     
